@@ -401,13 +401,16 @@
       <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
       <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js'></script> -->
       <!-- <script src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
+      <script src="../Assets/scripts/html2pdf.js" defer></script>
    </head>
    <body>
       <!-- <style>#print { display: none; }</style> -->
       <print id="print">
           <appbar>
             <logo>
+               <!-- <img src="./ea.jpg" alt="ea" > -->
                <img src="https://raw.githubusercontent.com/Ceo-js/ea/2e6fdd74866a50968095c8c6942156d1e93e1c34/ea.jpg" alt="ea" >
             </logo>
             <appbar-text>
@@ -445,91 +448,57 @@
                   <item type="nome">
                      <label>
                         <h3>NOME</h3>
-                        <input type="text" placeholder="Nome do cliente" name="" id="client-name" value="" />
+                        <input type="text" name="" id="i_clientName" />
                      </label>
                   </item>
                   <item type="tel-email">
                      <label>
                         <h3>TELEFONE</h3>
-                        <input type="text" placeholder="(99) 9 9999-9999" name="" id="phone" value="" />
+                        <input type="text" name="" id="i_clientPhone" />
                      </label>
                      <label>
                         <h3>EMAIL</h3>
-                        <input type="email" placeholder="email@email.com" name="" id="email" value="" />
+                        <input type="email" name="" id="i_clientEmail" />
                      </label>
                   </item>
                   <item type="cpf-rg">
                      <label>
                         <h3>CPF</h3>
-                        <!-- <select name="" id="select-cpf-cnpj">
-                           <option><h3>CPF</h3></option>
-                           <option><h3>CNPJ</h3></option>
-                        </select> -->
-                        <!--<h3>CPF/CNPJ</h3>-->
-                        <input type="text" placeholder="999.999.999-99" name="" id="cpf" value="" />
+                        <input type="text" id="i_clientCPF" />
                      </label>
                      <label>
                         <h3>RG/IE</h3>
-                        <input type="text" placeholder="41.44.5792-4" name="" id="rg" value="" />
+                        <input type="text" id="i_clientRG" />
                      </label>
                   </item>
                   <item type="endereco">
                      <label>
                         <h3>ENDEREÇO</h3>
-                        <input type="text" placeholder="rua ..." id="address" value="" />
+                        <input type="text"  id="rua" />
                      </label>
                      <label>
                         <h3>N°</h3>
-                        <input type="text" placeholder="999" name="" id="address-number" value="" />
+                        <input type="text" id="i_clientAddressNumber" />
                      </label>
                   </item>
                   <item type="b-c">
                      <label>
                         <h3>BAIRRO</h3>
-                        <input type="text" name="" id="bairro" value="" />
+                        <input type="text" id="bairro" />
                      </label>
                      <label>
                         <h3>CIDADE</h3>
-                        <input type="text" name="" id="city" value="" />
+                        <input type="text" id="cidade" />
                      </label>
                   </item>
                   <item type="estate-cep">
                      <label>
                         <h3>ESTADO</h3>
-                        <select id="estado" name="estado">
-                           <option value="AC">Acre</option>
-                           <option value="AL">Alagoas</option>
-                           <option value="AP">Amapá</option>
-                           <option value="AM">Amazonas</option>
-                           <option value="BA">Bahia</option>
-                           <option value="CE">Ceará</option>
-                           <option value="DF">Distrito Federal</option>
-                           <option value="ES">Espírito Santo</option>
-                           <option value="GO">Goiás</option>
-                           <option value="MA">Maranhão</option>
-                           <option value="MT">Mato Grosso</option>
-                           <option value="MS">Mato Grosso do Sul</option>
-                           <option value="MG">Minas Gerais</option>
-                           <option value="PA">Pará</option>
-                           <option value="PB">Paraíba</option>
-                           <option value="PR">Paraná</option>
-                           <option value="PE">Pernambuco</option>
-                           <option value="PI">Piauí</option>
-                           <option value="RJ">Rio de Janeiro</option>
-                           <option value="RN">Rio Grande do Norte</option>
-                           <option value="RS">Rio Grande do Sul</option>
-                           <option value="RO">Rondônia</option>
-                           <option value="RR">Roraima</option>
-                           <option value="SC">Santa Catarina</option>
-                           <option value="SP">São Paulo</option>
-                           <option value="SE">Sergipe</option>
-                           <option value="TO">Tocantins</option>
-                           <option value="EX">Estrangeiro</option>
-                        </select>
+                        <input type="text" id="uf" name="uf">
                      </label>
                      <label>
                         <h3>CEP</h3>
-                        <input type="text" placeholder="00.000-000" name="" id="cep" value="" />
+                        <input type="text" id="cep" />
                      </label>
                   </item>
                </main>
@@ -631,9 +600,11 @@
          /* [ properties ]
          =================================== */
          const 
-            $ = v => document.querySelector( v ),
-            $$ = v => document.querySelectorAll( v ),
-            log = ( ...v ) => console.log( ...v )
+            _ = ( ...v ) => console.log( ...v )
+            ,
+            $ = v => document.querySelector( v )
+            ,
+            $$ = v => document.querySelectorAll( v )
          ;
          /* -------------------------------- */
          
@@ -691,9 +662,12 @@
                         height: 1300,
                         windowWidth: 600,
                         windowHeight: 900,
-                        // dpi: 72,
+                        // dpi: 300,
                         dpi: 1200,
                         letterRendering: true,
+                        useCORS: true,
+                        // allowTaint: true,
+                        imageTimeout: 15000,
                         scale: 1
                      },
                      jsPDF: { 
@@ -751,6 +725,40 @@
          
          /* ========================================= */
       
+      </script>
+      <script>
+         addEventListener( "load", () => {
+            let 
+               client_id = "C:42067.67436803588-77419.06464498152"
+               ,
+               clientSelected = {}
+               ,
+               data = [ ...JSON.parse( localStorage.getItem( "Clients" ) ) ]
+            ;
+            clientSelected = {
+               ...data.forEach( v => {
+                  if( v.id == client_id ) {
+                     return( v );
+                  } 
+               } )
+            };
+               
+
+            _( "clientSelected: ", 
+               data[
+                  ]
+                  );
+                  data.map(
+                     ( v, i ) => {
+                        if( v.id == client_id ) {
+                           _( "i: ", i );
+                        } else {
+                           _( "0: ", 0 );
+                        }
+                     }
+                  )
+
+         } );
       </script>
    <!-- 
       https://codepen.io/brownsugar/pen/rNyOjaM
