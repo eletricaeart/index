@@ -208,6 +208,8 @@ label > t, lt {
 
 input, [input] {
    height: 56px;
+   width: 100%;
+   flex: 1;
    border-radius: 9px;
    border: #fff2 1px solid;
    padding: 1rem;
