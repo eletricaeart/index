@@ -249,6 +249,28 @@ th, td {
    padding: 0.5rem;
 }
 
+table[flex] {
+   display: flex;
+   flex-direction: column;
+   max-width: 100dvw;
+}
+
+table[flex] thead,
+table[flex] tbody,
+table[flex] tfoot {
+   display: flex;
+   flex-direction: column;
+}
+table[flex] tr {
+   display: flex;
+}
+table[flex] th,
+table[flex] td {
+   display: flex;
+   padding: 0;
+   flex: 1;
+}
+
 
 
 
