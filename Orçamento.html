@@ -75,10 +75,9 @@
                   </label>
                   <label>
                      <select name="" id="select-cpf-cnpj">
-                        <option><h3>CPF</h3></option>
-                        <option><h3>CNPJ</h3></option>
+                        <option>CPF</option>
+                        <option>CNPJ</option>
                      </select>
-                     <!--<h3>CPF/CNPJ</h3>-->
                      <input type="text" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
                   </label>
                   <label>
@@ -112,10 +111,10 @@
                </content>
             </cliente>
             <orcamento section>
-               <header>
+               <header content>
                   <h1>ORÇAMENTO</h1>
                </header>
-               <table flex>
+               <table flex content>
                   <thead type="header">
                      <tr>
                         <th>QT</th>
@@ -152,13 +151,13 @@
                   </item>
                </footer>
             </orcamento>
-            <obs>
-               <header>
+            <obs section>
+               <header content>
                   <h1>OBSERVAÇÕES</h1>
                </header>
-               <main>
+               <content>
                   <textarea id="obs" name="" rows="8"></textarea>
-               </main>
+               </content>
             </obs>
          </form>
       </cadastro>
@@ -170,35 +169,13 @@
          'use strict';
          /* [ properties ]
          =================================== */
-         const 
-            $ = v => document.querySelector( v ),
-            $$ = v => document.querySelectorAll( v ),
-            log = ( ...v ) => console.log( ...v )
-         ;
          /* -------------------------------- */
          
          
          /* [ events ]
          =================================== */
-         window.addEventListener( 'load', ev => {
-            let 
-               links = document.querySelectorAll( '[link]' )
-            ;
+         window.addEventListener( 'load', () => {
             
-            const 
-               selectCpfCnpj = $( "select#select-cpf-cnpj" ),
-               clientName = $( "#client-name" ),
-               phone = $( "#phone" ),
-               email =$( "#email" ),
-               
-            ;
-            
-            
-         
-         
-            links.forEach( link => link.addEventListener( 'click', ev => {
-               window.open( link.getAttribute( 'link' ), '_blank' );
-            } ) );
             
          } );
       </script>
