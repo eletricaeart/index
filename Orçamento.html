@@ -78,11 +78,11 @@
                         <option>CPF</option>
                         <option>CNPJ</option>
                      </select>
-                     <input type="text" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
+                     <input type="number" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
                   </label>
                   <label>
                      <t>RG/IE</t>
-                     <input type="text" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
+                     <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
                   </label>
                   <label>
                      <t>ENDEREÇO</t>
@@ -90,7 +90,7 @@
                   </label>
                   <label>
                      <t>N°</t>
-                     <input type="text" placeholder="999" name="número" id="input_número"/>
+                     <input type="number" placeholder="999" name="número" id="input_número"/>
                   </label>
                   <label>
                      <t>BAIRRO</t>
@@ -106,7 +106,7 @@
                   </label>
                   <label>
                      <t>CEP</t>
-                     <input type="text" placeholder="00.000-000" name="cep" id="input_cep"/>
+                     <input type="number" placeholder="00.000-000" name="cep" id="input_cep"/>
                   </label>
                   <label>
                      <input type="submit" value="CADASTRAR">
@@ -167,7 +167,27 @@
          </form>
       </cadastro>
       
-      
+      <console section>
+         <content>
+            <h2>console</h2>
+            <label>
+               <input id="showUsers" type="button" value="show users" />
+            </label>
+            <label>
+               <input id="showLS" type="button" value="show localStorage ea.users" />
+            </label>
+            <label>
+               <input id="eraseLS" type="button" value="erase ea.users" />
+            </label>
+            <console-users section id="consoleUsers">
+               <h4>users</h4>
+            </console-users>
+            <console-eaUsers section id="consoleEAUsers">
+               <h4>ea.users</h4>
+               <p>JSON.parse( localStorage.getItem( "ea.users" ) );</p>
+            </console-eaUsers>
+         </content>
+      </console>
       
       
       <script>
@@ -179,7 +199,27 @@
             ,
             inputs = []
          ;
+         let 
+            EraseLS = v => localStorage.removeItem( "ea.users" )
+            ,
+            ShowUsers = () => _( "\n\nusers: \n", users )
+            ,
+            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
+         ;
          /* -------------------------------- */
+         
+         
+         function UpdateUsersLS( user ) {
+            if( localStorage.getItem( "ea.users" ) ) {
+               users = [ 
+                  ...JSON.parse( localStorage.getItem( "ea.users" ) )
+               ];
+            }
+            if( user ) {
+               users.push( user );
+               localStorage.setItem( "ea.users", JSON.stringify( users ) );
+            }
+         }
          
          function GetInputs() {
             inputs = [
@@ -197,7 +237,7 @@
             let 
                _inputs = GetInputs()
                ,
-               verifier = 1
+               verifier = true
                ,
                res = false
             ;
@@ -205,18 +245,37 @@
             _inputs.forEach( input => {
                if( input.value === "" ) {
                   _( "ValidateInputs(): \n", `${ input.id } vazio` );
-                  verifier = 0;
+                  verifier = false;
                } else {
                   _( "ValidateInputs(): \n", `${ input.id } ${ input.value }` );
                }
                   
             } );
             
-            if( verifier == 1 ) {
-               res = true;
-            }
+            return( verifier );
+         }
+         
+         function CreateUser() {
+            let 
+               values = []
+               ,
+               user = {}
+            ;
             
-            return( res );
+            inputs.forEach( input => {
+               values.push( [ 
+                  input.name, input.value
+               ] );
+            } );
+            
+            user = Object.fromEntries( values );
+            
+            UpdateUsersLS( user );
+            
+            _( "\n\nCreateUser(): \n",  
+               "values: \n", values,
+               "\nuser: \n", user
+            );
          }
          
          function SubmitForm() {
@@ -225,12 +284,13 @@
                
                let passFormValidation = ValidateInputs();
                
+               _( "SubmitForm(): " );
                if( passFormValidation ) {
                   _( "passFormValidation = true;" );
+                  CreateUser();
                } else {
                   _( "passFormValidation = false;" );
                }
-               _( "SubmitForm(): " );
             } );
             
          }
@@ -244,8 +304,13 @@
          window.addEventListener( 'load', () => {
             
             GetInputs();
+            UpdateUsersLS();
             SubmitForm();
          } );
+         
+         eraseLS.addEventListener( "click", EraseLS );
+         showUsers.addEventListener( "click", ShowUsers );
+         showLS.addEventListener( "click", ShowLS );
       </script>
    </body>
 </html>
