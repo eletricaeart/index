@@ -239,20 +239,34 @@
                ,
                verifier = true
                ,
-               res = false
+               data = { 
+                  validatedFormData: true
+                  , 
+                  failedInputs: []
+                  ,
+                  succeededInputs: []
+               }
             ;
             
             _inputs.forEach( input => {
                if( input.value === "" ) {
-                  _( "ValidateInputs(): \n", `${ input.id } vazio` );
+                  // _( "ValidateInputs(): \n", `${ input.id } vazio` );
                   verifier = false;
+                  data.validatedFormData = false;
+                  data.failedInputs.push( input.id );
                } else {
-                  _( "ValidateInputs(): \n", `${ input.id } ${ input.value }` );
+                  // _( "ValidateInputs(): \n", `${ input.id } ${ input.value }` );
+                  data.succeededInputs.push( input.id );
                }
                   
             } );
             
-            return( verifier );
+            // return( verifier );
+            return( data );
+         }
+         
+         function ResgisterUser() {
+            
          }
          
          function CreateUser() {
@@ -282,20 +296,26 @@
             form.addEventListener( "submit", () => {
                event.preventDefault();
                
-               let passFormValidation = ValidateInputs();
+               let 
+                  { 
+                     validatedFormData,
+                     failedInputs,
+                     succeededInputs
+                  } = ValidateInputs()
+               ;
                
                _( "SubmitForm(): " );
-               if( passFormValidation ) {
-                  _( "passFormValidation = true;" );
+               if( validatedFormData ) {
+                  _( "validatedFormData = true;" );
                   CreateUser();
                } else {
-                  _( "passFormValidation = false;" );
+                  _( "validatedFormData = false;" );
+                  // failedInputs.forEach( input => {
+
+                  // } );
+                  _( failedInputs );
                }
             } );
-            
-         }
-         
-         function ResgisterUser() {
             
          }
          
