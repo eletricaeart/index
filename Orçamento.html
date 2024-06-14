@@ -209,7 +209,7 @@
          /* -------------------------------- */
          
          
-         function UpdateUsersLS( user ) {
+         function UpdateUsersDB( user ) {
             if( localStorage.getItem( "ea.users" ) ) {
                users = [ 
                   ...JSON.parse( localStorage.getItem( "ea.users" ) )
@@ -270,7 +270,7 @@
             
             user = Object.fromEntries( values );
             
-            UpdateUsersLS( user );
+            UpdateUsersDB( user );
             
             _( "\n\nCreateUser(): \n",  
                "values: \n", values,
@@ -304,7 +304,7 @@
          window.addEventListener( 'load', () => {
             
             GetInputs();
-            UpdateUsersLS();
+            UpdateUsersDB();
             SubmitForm();
          } );
          
