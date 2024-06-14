@@ -41,9 +41,9 @@
                <tt>Cadastro de cliente</tt>
             </content>
          </header>
-         <form>
+         <form id="form">
             <header content>
-               <label>
+               <!--<label>
                   <t>Orçamento</t>
                   <input type="number" name="orcamento_id" id="input_orcamento_id" placeholder="número" />
                </label>
@@ -54,12 +54,12 @@
                <label>
                   <t>Validade</t>
                   <input type="number" name="validade" id="input_validade" placeholder="validade" />
-               </label>
+               </label>-->
             </header>
             <cliente section>
-               <header>
+               <!--<header>
                   <content><h1>CLIENTE</h1></content>
-               </header>
+               </header>-->
                <content>
                   <label>
                      <t>NOME</t>
@@ -108,9 +108,12 @@
                      <t>CEP</t>
                      <input type="text" placeholder="00.000-000" name="cep" id="input_cep"/>
                   </label>
+                  <label>
+                     <input type="submit" value="CADASTRAR">
+                  </label>
                </content>
             </cliente>
-            <orcamento section>
+            <!--<orcamento section>
                <header content>
                   <h1>ORÇAMENTO</h1>
                </header>
@@ -135,23 +138,23 @@
                         </td>
                      </tr>
                   </tbody>
+                  <tfooter>
+                     <content>
+                        <item>
+                           <label>
+                              <h4> DESCONTO </h4>
+                              <input type="number" placeholder="R$ 1.000,00" name="" id="desconto"/>
+                           </label>
+                        </item>
+                        <item>
+                           <label>
+                              <h3> Valor TOTAL </h3>
+                              <input type="number" placeholder="R$ 48.968,00" name="" id="total-value"/>
+                           </label>
+                        </item>
+                     </content>
+                  </tfooter>
                </table>
-               <tfoot>
-                  <content>
-                     <item>
-                        <label>
-                           <h4> DESCONTO </h4>
-                           <input type="number" placeholder="R$ 1.000,00" name="" id="desconto"/>
-                        </label>
-                     </item>
-                     <item>
-                        <label>
-                           <h3> Valor TOTAL </h3>
-                           <input type="number" placeholder="R$ 48.968,00" name="" id="total-value"/>
-                        </label>
-                     </item>
-                  </content>
-               </tfoot>
             </orcamento>
             <obs section>
                <header content>
@@ -160,7 +163,7 @@
                <content>
                   <textarea id="obs" name="" rows="8"></textarea>
                </content>
-            </obs>
+            </obs>-->
          </form>
       </cadastro>
       
@@ -186,7 +189,54 @@
                ...$$( "form input[type='password']" ),
                ...$$( "form input[type='email']" )
             ];
-            _( "GetInputs(): \n",{ inputs } );
+            _( "GetInputs(): \n", inputs );
+            return( inputs );
+         }
+         
+         function ValidateInputs() {
+            let 
+               _inputs = GetInputs()
+               ,
+               verifier = 1
+               ,
+               res = false
+            ;
+            
+            _inputs.forEach( input => {
+               if( input.value === "" ) {
+                  _( "ValidateInputs(): \n", `${ input.id } vazio` );
+                  verifier = 0;
+               } else {
+                  _( "ValidateInputs(): \n", `${ input.id } ${ input.value }` );
+               }
+                  
+            } );
+            
+            if( verifier == 1 ) {
+               res = true;
+            }
+            
+            return( res );
+         }
+         
+         function SubmitForm() {
+            form.addEventListener( "submit", () => {
+               event.preventDefault();
+               
+               let passFormValidation = ValidateInputs();
+               
+               if( passFormValidation ) {
+                  _( "passFormValidation = true;" );
+               } else {
+                  _( "passFormValidation = false;" );
+               }
+               _( "SubmitForm(): " );
+            } );
+            
+         }
+         
+         function ResgisterUser() {
+            
          }
          
          /* [ events ]
@@ -194,7 +244,7 @@
          window.addEventListener( 'load', () => {
             
             GetInputs();
-            
+            SubmitForm();
          } );
       </script>
    </body>
