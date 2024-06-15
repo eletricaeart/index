@@ -12,10 +12,11 @@
       <!-- == [ StyleSheets ] 
       == == == == == == == == == -->
       <link rel="stylesheet" href="./Assets/styles/clb.css">
-      <link rel="stylesheet" href="./Assets/styles/Global.cssg">
+      <link rel="stylesheet" href="./Assets/fonts/fonts.css">
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
       <script src="./Assets/scripts/clb.js" defer=""></script>
+      <!--script src="./Assets/scripts/Globals.js" defer=""></script-->
       <script src="./Assets/scripts/GetCEP.js" defer=""></script>
       
       <style>
@@ -59,10 +60,68 @@
             font-size: 16px;
          } 
       </style>
-      
-      <!--script src="./Assets/scripts/Globals.js" defer=""></nscript-h>
    </head>
    <body>
+      <appbar>
+         <style>
+            appbar {
+               background: #16181c;
+               height: 72px;
+            }
+            appbar > content {
+               flex-direction: row;
+               align-items: center;
+               height: 100%;
+               padding: 0 16px;
+            }
+            appbar app-logo {
+               display: grid;
+               place-items: center;
+               flex: .2;
+               max-height: calc( 68px - 4px );
+               max-width: calc( 68px - 4px );
+               aspect-ratio: 1;
+               /* padding: 2px; */
+               background: #212329;
+               border-radius: 100vw;
+               overflow: hidden;
+            } appbar app-logo > img {
+               border-radius: 100vw;
+               max-width: calc( 65px - 6px );
+               max-height: calc( 65px - 6px );
+               aspect-ratio: 1;
+            }
+            appbar app-title {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               flex: 1;
+            } 
+            app-title > tt {
+               font-family: holic;
+               font-family: Comtec;
+               font-family: thunder;
+               color: #ff00ab;
+            }
+            appbar app-options {
+               flex: .2;
+               max-height: calc( 68px - 4px );
+               max-width: calc( 68px - 4px );
+               background: fuchsia;
+            }
+         </style>
+         <content>
+            <app-logo>
+               <img src="./ea.jpg" alt="ea" />
+            </app-logo>
+            <app-title>
+               <tt>ELÉTRICA & ART</tt>
+            </app-title>
+            <app-options>
+
+            </app-options>
+         </content>
+      </appbar>
       <!--appbar>
          <logo>
             <img src="./ea.jpg" alt="ea" />
