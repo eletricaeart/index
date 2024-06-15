@@ -1,62 +1,79 @@
 
 
-// let cepInputs = [
-//    cep, logradouro, complemento, bairro, 
-//    localidade, uf, ibge, gia, ddd, siafi
-// ];
+const 
+   cepInputs = [
+      input_rua,
+      input_bairro,
+      input_cidade,
+      input_uf,
+   ]
+;
 
-function clearCEP_inputs() {
-   [ 
-      rua, bairro, cidade, uf
-   ].forEach( v => v.value = "" );
+function ClearCEPInputs() {
+   //Limpa valores do formulário de cep.
+   cepInputs.forEach( ci => {
+      ci.value = "";
+   } );
 }
 
-function CallBack( conteudo ) {
+function Callback( conteudo ) {
    if( !( "erro" in conteudo ) ) {
-      rua.value = conteudo.logradouro;
-      bairro.value = conteudo.bairro;
-      cidade.value = conteudo.localidade;
-      uf.value = conteudo.uf;
+      //Atualiza os campos com os valores.
+      input_rua.value = conteudo.logradouro;
+      input_bairro.value = conteudo.bairro;
+      input_cidade.value = conteudo.localidade;
+      input_uf.value = conteudo.uf;
+      //input_ibge.value = conteudo.ibge;
    } else {
-      clearCEP_inputs();
+      //O CEP não foi Encontrado.
+      ClearCEPInputs();
       alert( "O CEP não foi encontrado." );
    }
 }
 
-function SearchForCEP( input ) {
+function SearchForCEP( valor ) {
 
    //Nova variável "cep" somente com dígitos.
-   let 
-      // re = /\d{2}\.\d{3}\-\d{3}/
-      re = /^(\d{2})(\d{3})(\d{3})$/
-      ,
-      cep = input.value.replace( /\D/g, "" )
-   ;
+   var cep = valor.replace( /\D/g, "" );
 
-   //Verifica se o campo cep possui um valor informado.
+   //Verifica se campo cep possui valor informado.
    if( cep != "" ) {
       //Expressão regular para validar o CEP.
-      var validateCEP = /^[0-9]{8}$/;
+      var validacep = /^[0-9]{8}$/;
 
       //Valida o formato do CEP.
-      if( validateCEP.test( cep ) ) {
-         [ //Preenche os campos com "..." enquanto consulta o webservice.
-            rua, bairro, cidade, uf
-         ].forEach( v => v.value = "...");
+      if( validacep.test( cep ) ) {
 
-         input.value = cep.replace( re, "$1.$2-$3" );
-         _( "cep: ", cep.replace( re, "$1.$2-$3" ) );
+         //Preenche os campos com "..." enquanto consulta webservice.
+         input_rua.value = "...";
+         input_bairro.value = "...";
+         input_cidade.value = "...";
+         input_uf.value = "...";
+         // document.getElementById( "ibge" ).value = "...";
 
-         var scriptCB = document.createElement( "script" );
+         //Cria um elemento javascript.
+         var script = document.createElement( "script" );
+
          //Sincroniza com o callback.
-         scriptCB.src = `https://viacep.com.br/ws/${ cep }/json/?callback=CallBack`;
-         //Insere o script no documento e carrega o conteúdo.
-         document.body.append( scriptCB );
-      } else { //cep é inválido.
-         clearCEP_inputs();
+         script.src = "https://viacep.com.br/ws/" + cep + "/json/?callback=Callback";
+
+         //Insere script no documento e carrega o conteúdo.
+         document.body.append( script );
+
+      } else {
+         //cep é inválido.
+         ClearCEPInputs();
          alert( "Formato de CEP inválido." );
       }
-   } else { //cep sem valor, limpa os inputs dos campos.
-      clearCEP_inputs();
+   } else {
+      //cep sem valor, limpa formulário.
+      ClearCEPInputs();
    }
-};
+}
+
+/*window.addEventListener( "load", () => {
+   input_cep.onblur = () => {
+      SearchForCEP( this.value );
+   }
+} );*/
+_( "== == == == == == == == ==\nGetCEP.js loaded\n\n" );

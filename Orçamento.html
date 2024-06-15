@@ -16,6 +16,7 @@
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
       <script src="./Assets/scripts/clb.js" defer=""></script>
+      <script src="./Assets/scripts/GetCEP.js" defer=""></script>
       
       <style>
          label msg {
@@ -43,10 +44,10 @@
             align-items: center;
             font-size: 10px;
          }
-         label msg[error] content t {
+         label msg content[error] t {
             color: #f55;
          }
-         label msg[error] content t::before {
+         label msg content[error] t::before {
             content: "🚫";
             display: grid;
             place-items: center;
@@ -107,11 +108,7 @@
                   <label>
                      <t>NOME</t>
                      <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
-                     <msg id="msg_input_nome" error>
-                        <content>
-                           <t>Error message</t>
-                        </content>
-                     </msg>
+                     <msg id="msg_input_nome"></msg>
                   </label>
                   <label>
                      <t>TELEFONE</t>
@@ -123,23 +120,28 @@
                      <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
                      <msg id="msg_input_email"></msg>
                   </label>
-                  <label>
+                  <!--label>
                      <select name="" id="select-cpf-cnpj">
                         <option>CPF</option>
                         <option>CNPJ</option>
                      </select>
                      <input type="number" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
                      <msg id="msg_input_cpf"></msg>
-                  </label>
+                  </label-->
                   <label>
                      <t>RG/IE</t>
                      <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
                      <msg id="msg_input_rg"></msg>
                   </label>
                   <label>
-                     <t>ENDEREÇO</t>
-                     <input type="text" placeholder="rua ..." id="input_endereço" name="endereço"/>
-                     <msg id="msg_input_endereço"></msg>
+                     <t>CEP</t>
+                     <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
+                     <msg id="msg_input_cep"></msg>
+                  </label>
+                  <label>
+                     <t>Rua</t>
+                     <input type="text" placeholder="rua ..." id="input_rua" name="rua"/>
+                     <msg id="msg_input_rua"></msg>
                   </label>
                   <label>
                      <t>N°</t>
@@ -160,11 +162,6 @@
                      <t>UF</t>
                      <input type="text" id="input_uf" name="uf" placeholder="Estado">
                      <msg id="msg_input_uf"></msg>
-                  </label>
-                  <label>
-                     <t>CEP</t>
-                     <input type="number" placeholder="00.000-000" name="cep" id="input_cep"/>
-                     <msg id="msg_input_cep"></msg>
                   </label>
                   <label>
                      <input type="submit" value="CADASTRAR">
@@ -300,21 +297,25 @@
                data = { 
                   validatedFormData: true
                   , 
-                  failedInputs: []
+                  failedInputsIDs: []
                   ,
-                  succeededInputs: []
+                  succeededInputsIDs: []
                }
             ;
+            
+            $$( "form label msg" ).forEach( msg => {
+               msg.innerHTML = "";
+            } );
             
             _inputs.forEach( input => {
                if( input.value === "" ) {
                   // _( "ValidateInputs(): \n", `${ input.id } vazio` );
                   verifier = false;
                   data.validatedFormData = false;
-                  data.failedInputs.push( input.id );
+                  data.failedInputsIDs.push( input.id );
                } else {
                   // _( "ValidateInputs(): \n", `${ input.id } ${ input.value }` );
-                  data.succeededInputs.push( input.id );
+                  data.succeededInputsIDs.push( input.id );
                }
                   
             } );
@@ -358,8 +359,8 @@
                let 
                   { 
                      validatedFormData,
-                     failedInputs,
-                     succeededInputs
+                     failedInputsIDs,
+                     succeededInputsIDs
                   } = ValidateInputs()
                ;
                
@@ -369,9 +370,14 @@
                   CreateUser();
                } else {
                   _( "validatedFormData = false;" );
-                  // failedInputs.forEach( input => {
-                  // } );
-                  _( failedInputs );
+                  failedInputsIDs.forEach( inputID => {
+                     $( `#msg_${ inputID }` ).innerHTML = `
+                     <content error>
+                        <t>Verifique este campo!</t>
+                     </content>
+                     `;
+                  } );
+                  _( failedInputsIDs );
                }
             } );
             
@@ -383,6 +389,7 @@
             
             GetInputs();
             UpdateUsersDB();
+            
             SubmitForm();
          } );
          
