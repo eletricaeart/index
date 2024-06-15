@@ -16,6 +16,49 @@
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
       <script src="./Assets/scripts/clb.js" defer=""></script>
+      
+      <style>
+         label msg {
+            display: flex;
+            align-items: center;
+            height: 0;
+         }
+         label msg content {
+            display: flex;
+            flex-direction: row;
+            height: 16px;
+            margin-top: 8px;
+            gap: 4px;
+         }
+         label msg content icon {
+            display: flex;
+            align-items: center;
+            width: 16px;
+            height: 16px;
+            aspect-ratio: 1;
+            padding: 0;
+         }
+         label msg content t {
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+         }
+         label msg[error] content t {
+            color: #f55;
+         }
+         label msg[error] content t::before {
+            content: "🚫";
+            display: grid;
+            place-items: center;
+            width: 16px;
+            height: 16px;
+            aspect-ratio: 1;
+            margin-right: 4px;
+            padding: 0;
+            font-size: 16px;
+         } 
+      </style>
+      
       <!--script src="./Assets/scripts/Globals.js" defer=""></nscript-h>
    </head>
    <body>
@@ -64,14 +107,21 @@
                   <label>
                      <t>NOME</t>
                      <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
+                     <msg id="msg_input_nome" error>
+                        <content>
+                           <t>Error message</t>
+                        </content>
+                     </msg>
                   </label>
                   <label>
                      <t>TELEFONE</t>
                      <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
+                     <msg id="msg_input_phone"></msg>
                   </label>
                   <label>
                      <t>EMAIL</t>
                      <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
+                     <msg id="msg_input_email"></msg>
                   </label>
                   <label>
                      <select name="" id="select-cpf-cnpj">
@@ -79,34 +129,42 @@
                         <option>CNPJ</option>
                      </select>
                      <input type="number" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
+                     <msg id="msg_input_cpf"></msg>
                   </label>
                   <label>
                      <t>RG/IE</t>
                      <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
+                     <msg id="msg_input_rg"></msg>
                   </label>
                   <label>
                      <t>ENDEREÇO</t>
                      <input type="text" placeholder="rua ..." id="input_endereço" name="endereço"/>
+                     <msg id="msg_input_endereço"></msg>
                   </label>
                   <label>
                      <t>N°</t>
                      <input type="number" placeholder="999" name="número" id="input_número"/>
+                     <msg id="msg_input_número"></msg>
                   </label>
                   <label>
                      <t>BAIRRO</t>
                      <input type="text" name="bairro" id="input_bairro"/>
+                     <msg id="msg_input_bairro"></msg>
                   </label>
                   <label>
                      <t>CIDADE</t>
                      <input type="text" name="cidade" id="input_cidade"/>
+                     <msg id="msg_input_cidade"></msg>
                   </label>
                   <label>
                      <t>UF</t>
                      <input type="text" id="input_uf" name="uf" placeholder="Estado">
+                     <msg id="msg_input_uf"></msg>
                   </label>
                   <label>
                      <t>CEP</t>
                      <input type="number" placeholder="00.000-000" name="cep" id="input_cep"/>
+                     <msg id="msg_input_cep"></msg>
                   </label>
                   <label>
                      <input type="submit" value="CADASTRAR">
@@ -283,6 +341,7 @@
             } );
             
             user = Object.fromEntries( values );
+            user.id = `usr:${ users.length + 1 }:${ Math.round( Math.random() * 99999 ) }-${ Math.ceil( Math.random() * 99999 ) }`;
             
             UpdateUsersDB( user );
             
@@ -311,7 +370,6 @@
                } else {
                   _( "validatedFormData = false;" );
                   // failedInputs.forEach( input => {
-
                   // } );
                   _( failedInputs );
                }
