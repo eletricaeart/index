@@ -102,12 +102,21 @@
                justify-content: center;
                flex: 1;
             } 
-            app-title > tt {
+            app-title > content {
+               padding: 0;
+               line-height: .9em;
+            }
+            app-title > content tt {
                font-family: holic;
                font-family: Comtec;
                font-family: thunder;
                color: #ab00ff;
                color: #fff;
+               font-size: 1.3em;
+               align-items: center;
+               justify-content: center;
+               width: 100%;
+               display: flex;
             }
             appbar app-options {
                flex: .2;
@@ -130,7 +139,11 @@
                <img src="./ea.jpg" alt="ea" />
             </app-logo>
             <app-title>
-               <tt>ELETRICA & ART</tt>
+               <content>
+                  <tt>ELETRICA</tt>
+                  <tt>&</tt>
+                  <tt>ART</tt>
+               </content>
             </app-title>
             <app-options>
 
@@ -194,14 +207,6 @@
                      <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
                      <msg id="msg_input_email"></msg>
                   </label>
-                  <!--label>
-                     <select name="" id="select-cpf-cnpj">
-                        <option>CPF</option>
-                        <option>CNPJ</option>
-                     </select>
-                     <input type="number" placeholder="999.999.999-99" name="cpf" id="input_cpf"/>
-                     <msg id="msg_input_cpf"></msg>
-                  </label-->
                   <label>
                      <t>RG/IE</t>
                      <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
