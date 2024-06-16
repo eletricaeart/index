@@ -1,6 +1,12 @@
 
 
 :root {
+   --bg: #e5e5e5;
+   --ground: #fff;
+   --card-lv1: #00559C;
+   --card-lv2: #0075BD;
+   --card-lv3: #009ee6;
+   
    font: 1em "inter";
    font-weight: 400;
    color: #333;
@@ -65,7 +71,7 @@ html {
 }
 
 body {
-   background: #fff;
+   background: var(--bg);
    color: #333;
 }
 
