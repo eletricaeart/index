@@ -57,9 +57,9 @@
 }
 
 html {
-   display: flex;
-   max-width: 100dvw;
-   min-height: 100dvh;
+   flex-direction: column;
+   width: 100vw;
+   min-height: 100vh;
    line-height: 1.15;
    -webkit-text-size-adjust: 100%;
    background: #1b1d22;
@@ -202,7 +202,7 @@ label > t, lt {
    padding: 0 1rem;
 }
 
-input, [input] {
+input, [input], textarea {
    height: 56px;
    width: 100%;
    flex: 1;
@@ -210,7 +210,7 @@ input, [input] {
    border: #fff2 1px solid;
    padding: 1rem;
    font-size: 1rem;
-   background: #18161c;
+   background: var(--bg);
 }
 input[type="submit"],
 btn, button {
@@ -257,7 +257,11 @@ label msg content[error] t::before {
    padding: 0;
    font-size: 16px;
 } 
-
+form > footer,
+form > content > footer {
+   display: flex;
+   flex-direction: column;
+}
 
 
 

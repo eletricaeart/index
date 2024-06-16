@@ -101,7 +101,7 @@
                      </content>
                   </label>
 
-                  <telefone section>
+                  <telefone section class="multi">
                      <label>
                         <t>Celular</t>
                         <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
@@ -113,7 +113,7 @@
                         <msg id="msg_input_whatsapp"></msg>
                      </label>
                   </telefone>
-                  <telefone section>
+                  <telefone section class="multi">
                      <label>
                         <t>Telefone</t>
                         <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
@@ -130,21 +130,23 @@
                      <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
                      <msg id="msg_input_email"></msg>
                   </label>
-                  <label>
-                     <t>RG/IE</t>
-                     <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
-                     <msg id="msg_input_rg"></msg>
-                  </label>
-                  <label>
-                     <t>CPF</t>
-                     <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
-                     <msg id="msg_input_cpf"></msg>
-                  </label>
+                  <rg-e-cpf section class="multi">
+                     <label>
+                        <t>RG/IE</t>
+                        <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
+                        <msg id="msg_input_rg"></msg>
+                     </label>
+                     <label>
+                        <t>CPF</t>
+                        <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
+                        <msg id="msg_input_cpf"></msg>
+                     </label>
+                  </rg-e-cpf>
 
                   <label class="divider">
                      <content><small>ENDEREÇO</small></content>
                   </label>
-                  <cep-e-uf section>
+                  <cep-e-uf section class="multi">
                      <label>
                         <t>CEP</t>
                         <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
@@ -158,10 +160,10 @@
                   </cep-e-uf>
                   <label>
                      <t>Rua</t>
-                     <input type="text" placeholder="rua ..." id="input_rua" name="rua"/>
+                     <input type="text" placeholder="Rua ..." id="input_rua" name="rua"/>
                      <msg id="msg_input_rua"></msg>
                   </label>
-                  <numero-e-complemento section>
+                  <numero-e-complemento section class="multi">
                      <label>
                         <t>Número</t>
                         <input type="number" placeholder="999" name="número" id="input_número"/>
@@ -175,16 +177,20 @@
                   </numero-e-complemento>
                   <label>
                      <t>Bairro</t>
-                     <input type="text" name="bairro" id="input_bairro"/>
+                     <input type="text" name="bairro" id="input_bairro" placeholder="Bairro"/>
                      <msg id="msg_input_bairro"></msg>
                   </label>
                   <label>
                      <t>Cidade</t>
-                     <input type="text" name="cidade" id="input_cidade"/>
+                     <input type="text" name="cidade" id="input_cidade" placeholder="Cidade"/>
                      <msg id="msg_input_cidade"></msg>
                   </label>
+                  <label class="divider">
+                     <content><small>OBSERVAÇÕES</small></content>
+                  </label>
                   <label>
-                     <input type="submit" value="CADASTRAR">
+                     <t>Observação</t>
+                     <textarea id="input_observação" name="observação"></textarea>
                   </label>
                </content>
             </cliente>
@@ -239,6 +245,11 @@
                   <textarea id="obs" name="" rows="8"></textarea>
                </content>
             </obs>-->
+            <footer content>
+               <label>
+                  <input type="submit" value="CADASTRAR">
+               </label>
+            </footer>
          </form>
       </cadastro>
       

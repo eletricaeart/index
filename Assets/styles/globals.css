@@ -110,6 +110,7 @@ button a, input[type="submit"] {
 form {
    background: var( --form-bg );
    border-radius: 1.5rem;
+   padding-bottom: 1rem;
 }
 
 form .divider {
@@ -131,9 +132,7 @@ label input:not( [type="submit"] ) {
    color: var( --text-color );
 }
 
-telefone,
-cep-e-uf, 
-numero-e-complemento {
+.multi {
    flex-direction: row !important;
 }
 
