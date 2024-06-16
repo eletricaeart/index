@@ -210,14 +210,19 @@ input, [input], textarea {
    border: #fff2 1px solid;
    padding: 1rem;
    font-size: 1rem;
-   background: var(--bg);
+   background: var( --bg );
+   color: var( --text-color );
 }
 input[type="submit"],
+input[type="button"],
 btn, button {
-   background: var( --btn-bg, #27f );
+   border: var( --card-lv2 ) 2px solid;
+   background-color: var( --btn-simp, #27f3 );
+   background-image: linear-gradient( to bottom, #fff #fff );
    font-weight: bold;
+   color: var( --card-lv2 );
 }
-         
+
 label msg {
    display: flex;
    align-items: center;

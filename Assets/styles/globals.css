@@ -17,13 +17,14 @@
    --text-color: #333;
    --a-hover: #747bff;
    --btn-bg: #27f;
+   --btn-bg: var( --card-lv1 );
    --error: #f55;
 
    --form-bg: var( --bg2 );
    
    font: 1em "inter";
    font-weight: 400;
-   color: var(--text-color);
+   color: var( --text-color );
 }
 
 html {
@@ -89,6 +90,9 @@ appbar app-options {
    max-width: calc( 68px - 4px );
 }
 
+cadastro > header {
+   /*background: var(--card-lv2);*/
+}
 
 
 tt {
@@ -101,6 +105,7 @@ a:hover {
 
 button, input[type="submit"] {
    background-color: var(--btn-bg);
+   border: transparent;
 } 
 button a, input[type="submit"] {
    color: var(--ground);
@@ -123,17 +128,29 @@ form .divider content {
    font-weight: bold;
 }
 
-:has(label input) {
-  gap: 1rem;
+whats-copy {
+   display: flex;
+   align-items: flex-end;
+   width: 24px;
+   height: 56px;
 }
-
+whats-copy > img {
+   width: 24px;
+   height: 24px;
+   aspect-ratio: 1;
+}
+/*:has(label input) {
+  gap: 1rem;
+}*/
+/*
 label input:not( [type="submit"] ) {
    background: var( --bg );
    color: var( --text-color );
-}
+}*/
 
 .multi {
    flex-direction: row !important;
+   gap: 1rem;
 }
 
 
