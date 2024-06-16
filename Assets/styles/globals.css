@@ -50,7 +50,7 @@ appbar-menu-left,
 appbar-menu-right {
    display: flex;
    /* flex: .15; */
-   height: clamp( 20px, 45%, 48px );
+   height: clamp( 20px, 35%, 48px );
    aspect-ratio: 1;
 }
 content:has( > trigram ) {
