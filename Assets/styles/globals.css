@@ -45,6 +45,79 @@ appbar > content {
    height: 100%;
    padding: 0 16px;
 }
+
+appbar-menu-left,
+appbar-menu-right {
+   display: flex;
+   flex: .15;
+}
+appbar-logo {
+   display: flex;
+   height: 72px;
+   flex: 1;
+   align-items: center;
+   justify-content: center;
+}
+ea-logo {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 72px;
+   aspect-ratio: 2.6 / 1;
+}
+logo-icon {
+   display: flex;
+} logo-icon > img {
+   border-radius: 100vw;
+   box-shadow: var(--appbar-logo-shadow);
+   max-width: calc( 60px - 6px );
+   max-height: calc( 60px - 6px );
+   aspect-ratio: 1;
+}
+ea-logo logo-title {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+} 
+logo-title > content {
+   padding: 0;
+   line-height: .9em;
+}
+logo-title > content tt {
+   font-family: holic;
+   font-family: Comtec;
+   font-family: thunder;
+   color: var(--appbar-title);
+   font-size: 1.5em;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   display: flex;
+   text-shadow: var(--appbar-title-shadow);   
+}
+logo-title > content tt:nth-child( even ) {
+   color: var(--appbar-title-divider);
+}
+
+trigram {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 28px;
+   height: 28px;
+   aspect-ratio: 1;
+   /* background: #27f; */
+   cursor: pointer;
+}
+trigram > bar {
+   display: flex;
+   width: 100%;
+   aspect-ratio: 7 / 1;
+   background: #fff;
+}
+
+
 appbar app-logo {
    display: grid;
    place-items: center;

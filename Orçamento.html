@@ -28,9 +28,7 @@
    </head>
    <body>
       <appbar>
-         <style>
-         </style>
-         <content>
+         <!-- <content>
             <app-logo>
                <img src="./ea.jpg" alt="ea" />
             </app-logo>
@@ -41,9 +39,41 @@
                   <tt>ART</tt>
                </content>
             </app-title>
-            <app-options>
-               
-            </app-options>
+            <app-options></app-options>
+         </content> -->
+         <content>
+            <appbar-menu-left>
+               <content>
+                  <trigram id="trigram">
+                     <bar id="topBar"></bar>
+                     <bar id="centerBar"></bar>
+                     <bar id="bottomBar"></bar>
+                  </trigram>
+               </content>
+            </appbar-menu-left>
+            <appbar-logo>
+               <ea-logo>
+                  <logo-icon>
+                     <img src="./ea.jpg" alt="ea" />
+                  </logo-icon>
+                  <logo-title>
+                     <content>
+                        <tt>ELETRICA</tt>
+                        <tt>&</tt>
+                        <tt>ART</tt>
+                     </content>
+                  </lo-title>
+               </ea-logo>
+            </appbar-logo>
+            <appbar-menu-right>
+               <content>
+                  <trigram id="trigram">
+                     <bar id="topBar"></bar>
+                     <bar id="centerBar"></bar>
+                     <bar id="bottomBar"></bar>
+                  </trigram>
+               </content>
+            </appbar-menu-right>
          </content>
       </appbar>
       <!--appbar>
@@ -257,6 +287,8 @@
       </cadastro>
       
       <console section>
+         <header>
+         </header>
          <content>
             <h2>console</h2>
             <label>
