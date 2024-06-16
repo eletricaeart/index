@@ -44,10 +44,10 @@
          <content>
             <appbar-menu-left>
                <content>
-                  <trigram id="trigram">
-                     <bar id="topBar"></bar>
-                     <bar id="centerBar"></bar>
-                     <bar id="bottomBar"></bar>
+                  <trigram id="openDrawer">
+                     <bar id="topBar_left"></bar>
+                     <bar id="centerBar_left"></bar>
+                     <bar id="bottomBar_left"></bar>
                   </trigram>
                </content>
             </appbar-menu-left>
@@ -66,16 +66,38 @@
                </ea-logo>
             </appbar-logo>
             <appbar-menu-right>
-               <content>
-                  <trigram id="trigram">
-                     <bar id="topBar"></bar>
-                     <bar id="centerBar"></bar>
-                     <bar id="bottomBar"></bar>
+               <content id="">
+                  <trigram id="trigram_right">
+                     <bar id="topBar_right"></bar>
+                     <bar id="centerBar_right"></bar>
+                     <bar id="bottomBar_right"></bar>
                   </trigram>
                </content>
             </appbar-menu-right>
          </content>
       </appbar>
+      <drawer id="drawer">
+         <header>
+            <content>
+               <app-logo>
+                  <ea-logo>
+                     <logo-icon>
+                        <img src="./ea.jpg" alt="ea" />
+                     </logo-icon>
+                     <logo-title>
+                        <content>
+                           <tt>ELETRICA</tt>
+                           <tt>&</tt>
+                           <tt>ART</tt>
+                        </content>
+                     </lo-title>
+                  </ea-logo>
+               </app-logo>
+            </content>
+         </header>
+         <content>
+         </content>
+      </drawer>
       <!--appbar>
          <logo>
             <img src="./ea.jpg" alt="ea" />
@@ -478,6 +500,16 @@
                   input_cellphone.value = input_whatsapp.value;
                }
                
+            } );
+
+            openDrawer.addEventListener( "click", () => {
+               if( drawer.getAttribute( "opened" ) ) {
+                  drawer.setAttribute( "closed", "" );
+                  drawer.removeAttribute( "opened" );
+               } else {
+                  drawer.setAttribute( "opened", "" );
+                  drawer.removeAttribute( "closed" );
+               }
             } );
          } );
          
