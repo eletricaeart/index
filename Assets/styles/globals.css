@@ -2,103 +2,139 @@
 
 :root {
    --bg: #e5e5e5;
+   --bg2: #f5f5f5;
    --ground: #fff;
    --card-lv1: #00559C;
    --card-lv2: #0075BD;
    --card-lv3: #009ee6;
+
+   --appbar-shadow: #0005 0 0 10px;
+   --appbar-logo-shadow: #ffab00 0 0 0 2px;
+   --appbar-title: #fff;
+   --appbar-title-divider: #daa520;
+   --appbar-title-shadow: #0005 3px 0 3px;
+
+   --text-color: #333;
+   --a-hover: #747bff;
+   --btn-bg: #27f;
+   --error: #f55;
+
+   --form-bg: var( --bg2 );
    
    font: 1em "inter";
    font-weight: 400;
-   color: #333;
-   
-   
-   color-scheme: lighdark;
-   /* vite */
-   /* background-color: #242424;  */
-   /* dark reader */
-   /* background: #1e2021;        */
-   /* céo */
-   /* background-color: #212329;   */
-
-   --main-c: #f5f5f5;
-   --main-c: #333;
-   --appbar-shadow: rgba( 0 0 0 .25 ) 0 4px 8px;
-
-   font-synthesis: none;
-   text-rendering: optimizeLegibility;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-
-
-}
-
-::-webkit-scrollbar {
-   width: 10px;
-}
-::-webkit-scrollbar-track {
-   background: var( --pink );
-   border-radius: 5px;
-}
-::-webkit-scrollbar-thumb {
-   background: var( --scrollbar-thumb, #27f );
-   border-radius: 5px;
+   color: var(--text-color);
 }
 
 html {
-   display: flex;
-   max-width: 100dvw;
-   min-height: 100dvh;
-   line-height: 1.15;
-   -webkit-text-size-adjust: 100%;
-   
-   color-scheme: light;
-   background: #1b1d22;
-
-   background-color: #1b1d22;
-   background-image: 
-      linear-gradient(
-         0deg, 
-         #00000000 24px, 
-         #313339 25px
-      ),
-      linear-gradient(
-         90deg, 
-         #00000000 24px, 
-         #313339 25px
-      )
-   ;
-   background-size: 25px 25px;
 }
 
 body {
    background: var(--bg);
-   color: #333;
 }
 
+appbar {
+   background: var( --card-lv1 );
+   box-shadow: var(--appbar-shadow);
+   height: 72px;
+}
+appbar > content {
+   flex-direction: row;
+   align-items: center;
+   height: 100%;
+   padding: 0 16px;
+}
+appbar app-logo {
+   display: grid;
+   place-items: center;
+   flex: .2;
+   max-height: 100%;
+   max-width: 100%;
+   aspect-ratio: 1;
+} appbar app-logo > img {
+   border-radius: 100vw;
+   box-shadow: var(--appbar-logo-shadow);
+   max-width: calc( 60px - 6px );
+   max-height: calc( 60px - 6px );
+   aspect-ratio: 1;
+}
+appbar app-title {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+} 
+app-title > content {
+   padding: 0;
+   line-height: .9em;
+}
+app-title > content tt {
+   font-family: holic;
+   font-family: Comtec;
+   font-family: thunder;
+   color: var(--appbar-title);
+   font-size: 1.5em;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   display: flex;
+   text-shadow: var(--appbar-title-shadow);   
+}
+app-title > content tt:nth-child( even ) {
+   color: var(--appbar-title-divider);
+}
+appbar app-options {
+   flex: .2;
+   max-height: calc( 68px - 4px );
+   max-width: calc( 68px - 4px );
+}
+
+
+
 tt {
-   color: #333;
+   color: var(--text-color);
+}
+
+a:hover {
+   color: var( --a-hover );
+}
+
+button, input[type="submit"] {
+   background-color: var(--btn-bg);
+} 
+button a, input[type="submit"] {
+   color: var(--ground);
+}
+
+
+form {
+   background: var( --form-bg );
+   border-radius: 1.5rem;
+}
+
+form .divider {
+   display: flex;
+   align-items: center;
+   border-bottom: var( --card-lv3 ) 2px dashed;
+}
+form .divider content {
+   padding: 4px 0;
+   font-weight: bold;
+}
+
+:has(label input) {
+  gap: 1rem;
 }
 
 label input:not( [type="submit"] ) {
-   background: #e5e5e5;
-   color: #333;
+   background: var( --bg );
+   color: var( --text-color );
+}
+
+telefone,
+cep-e-uf, 
+numero-e-complemento {
+   flex-direction: row !important;
 }
 
 
-@media ( prefers-color-scheme: dark ) {
-   :root {
-      color: #213547;
-      background-color: #ffffff;
-      --paper-c: #fff;
-      --main-c: #f5f5f5;
-   }
-   a:hover {
-      color: #747bff;
-   }
-   button {
-      background-color: #27f;
-   } button a {
-      color: #e9e6e3;
-   }
-
-}

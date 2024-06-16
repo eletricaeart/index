@@ -13,6 +13,7 @@
       == == == == == == == == == -->
       <link rel="stylesheet" href="./Assets/styles/clb.css">
       <link rel="stylesheet" href="./Assets/styles/globals.css">
+      <!-- <link rel="stylesheet" href="./Assets/styles/includes/theme.css"> -->
       <link rel="stylesheet" href="./Assets/fonts/fonts.css">
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
@@ -21,118 +22,13 @@
       <script src="./Assets/scripts/GetCEP.js" defer=""></script>
       
       <style>
-         
-         label msg {
-            display: flex;
-            align-items: center;
-            height: 0;
+         :root {
          }
-         label msg content {
-            display: flex;
-            flex-direction: row;
-            height: 16px;
-            margin-top: 8px;
-            gap: 4px;
-         }
-         label msg content icon {
-            display: flex;
-            align-items: center;
-            width: 16px;
-            height: 16px;
-            aspect-ratio: 1;
-            padding: 0;
-         }
-         label msg content t {
-            display: flex;
-            align-items: center;
-            font-size: 10px;
-         }
-         label msg content[error] t {
-            color: #f55;
-         }
-         label msg content[error] t::before {
-            content: "🚫";
-            display: grid;
-            place-items: center;
-            width: 16px;
-            height: 16px;
-            aspect-ratio: 1;
-            margin-right: 4px;
-            padding: 0;
-            font-size: 16px;
-         } 
       </style>
    </head>
    <body>
       <appbar>
          <style>
-            appbar {
-               background: #16181c;
-               background: var( --card-lv1 );
-               box-shadow: #0005 0 0 10px;
-               height: 72px;
-            }
-            appbar > content {
-               flex-direction: row;
-               align-items: center;
-               height: 100%;
-               padding: 0 16px;
-            }
-            appbar app-logo {
-               display: grid;
-               place-items: center;
-               flex: .2;
-               max-height: 100%;
-               max-width: 100%;
-               aspect-ratio: 1;
-               /* padding: 2px; */
-               /* background: #212329;
-               background: #ffab00; */
-               /* overflow: hidden; */
-            } appbar app-logo > img {
-               border-radius: 100vw;
-               box-shadow: #ffab00 0 0 0 2px;
-               max-width: calc( 60px - 6px );
-               max-height: calc( 60px - 6px );
-               aspect-ratio: 1;
-            }
-            appbar app-title {
-               display: flex;
-               align-items: center;
-               justify-content: center;
-               flex: 1;
-            } 
-            app-title > content {
-               padding: 0;
-               line-height: .9em;
-            }
-            app-title > content tt {
-               font-family: holic;
-               font-family: Comtec;
-               font-family: thunder;
-               color: #ab00ff;
-               color: #fff;
-               font-size: 1.5em;
-               align-items: center;
-               justify-content: center;
-               width: 100%;
-               display: flex;
-               text-shadow: #0005 3px 0 3px;   
-            }
-            app-title > content tt:nth-child( even ) {
-               color: goldenrod;
-            }
-            appbar app-options {
-               flex: .2;
-               max-height: calc( 68px - 4px );
-               max-width: calc( 68px - 4px );
-               background: fuchsia;
-            }
-            
-            form {
-               background: #f5f5f5;
-               border-radius: 1.5rem;
-            }
          </style>
          <content>
             <app-logo>
@@ -174,6 +70,7 @@
          </header>
          <form id="form">
             <header content>
+               <t4>Cadastro Rápido</t4>
                <!--<label>
                   <t>Orçamento</t>
                   <input type="number" name="orcamento_id" id="input_orcamento_id" placeholder="número" />
@@ -193,17 +90,43 @@
                </header>-->
                <content>
                   <label>
-                     <t>NOME</t>
+                     <t>Nome do Cliente</t>
                      <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
                      <msg id="msg_input_nome"></msg>
                   </label>
-                  <label>
-                     <t>TELEFONE</t>
-                     <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
-                     <msg id="msg_input_phone"></msg>
+
+                  <label class="divider">
+                     <content>
+                        <small>CONTATO</small>
+                     </content>
                   </label>
+
+                  <telefone section>
+                     <label>
+                        <t>Celular</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
+                        <msg id="msg_input_cellphone"></msg>
+                     </label>
+                     <label>
+                        <t>WhatsApp</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp"/>
+                        <msg id="msg_input_whatsapp"></msg>
+                     </label>
+                  </telefone>
+                  <telefone section>
+                     <label>
+                        <t>Telefone</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
+                        <msg id="msg_input_phone"></msg>
+                     </label>
+                     <label>
+                        <t>Telefone 2</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2"/>
+                        <msg id="msg_input_phone2"></msg>
+                     </label>
+                  </telefone>
                   <label>
-                     <t>EMAIL</t>
+                     <t>Email</t>
                      <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
                      <msg id="msg_input_email"></msg>
                   </label>
@@ -213,34 +136,52 @@
                      <msg id="msg_input_rg"></msg>
                   </label>
                   <label>
-                     <t>CEP</t>
-                     <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
-                     <msg id="msg_input_cep"></msg>
+                     <t>CPF</t>
+                     <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
+                     <msg id="msg_input_cpf"></msg>
                   </label>
+
+                  <label class="divider">
+                     <content><small>ENDEREÇO</small></content>
+                  </label>
+                  <cep-e-uf section>
+                     <label>
+                        <t>CEP</t>
+                        <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
+                        <msg id="msg_input_cep"></msg>
+                     </label>
+                     <label>
+                        <t>UF</t>
+                        <input type="text" id="input_uf" name="uf" placeholder="Estado">
+                        <msg id="msg_input_uf"></msg>
+                     </label>
+                  </cep-e-uf>
                   <label>
                      <t>Rua</t>
                      <input type="text" placeholder="rua ..." id="input_rua" name="rua"/>
                      <msg id="msg_input_rua"></msg>
                   </label>
+                  <numero-e-complemento section>
+                     <label>
+                        <t>Número</t>
+                        <input type="number" placeholder="999" name="número" id="input_número"/>
+                        <msg id="msg_input_número"></msg>
+                     </label>
+                     <label>
+                        <t>Complemento</t>
+                        <input type="text" placeholder="Complemento" name="complemento" id="input_complemento"/>
+                        <msg id="msg_input_complemento"></msg>
+                     </label>
+                  </numero-e-complemento>
                   <label>
-                     <t>N°</t>
-                     <input type="number" placeholder="999" name="número" id="input_número"/>
-                     <msg id="msg_input_número"></msg>
-                  </label>
-                  <label>
-                     <t>BAIRRO</t>
+                     <t>Bairro</t>
                      <input type="text" name="bairro" id="input_bairro"/>
                      <msg id="msg_input_bairro"></msg>
                   </label>
                   <label>
-                     <t>CIDADE</t>
+                     <t>Cidade</t>
                      <input type="text" name="cidade" id="input_cidade"/>
                      <msg id="msg_input_cidade"></msg>
-                  </label>
-                  <label>
-                     <t>UF</t>
-                     <input type="text" id="input_uf" name="uf" placeholder="Estado">
-                     <msg id="msg_input_uf"></msg>
                   </label>
                   <label>
                      <input type="submit" value="CADASTRAR">
