@@ -19,7 +19,7 @@
       == == == == == == == == == -->
       <script src="./Assets/scripts/clb.js" defer=""></script>
       <!--script src="./Assets/scripts/Globals.js" defer=""></script-->
-      <script src="./Assets/scripts/GetCEP.js" defer=""></script>
+      <!--script src="./Assets/scripts/GetCEP.js" defer=""></script-->
       
       <style>
          :root {
@@ -62,7 +62,7 @@
                         <tt>&</tt>
                         <tt>ART</tt>
                      </content>
-                  </lo-title>
+                  </logo-title>
                </ea-logo>
             </appbar-logo>
             <appbar-menu-right>
@@ -77,7 +77,7 @@
          </content>
       </appbar>
       <drawer id="drawer">
-            <drawer-inside>
+         <drawer-inside>
             <header>
                <content>
                   <app-logo>
@@ -91,224 +91,24 @@
                               <tt>&</tt>
                               <tt>ART</tt>
                            </content>
-                        </lo-title>
+                        </logo-title>
                      </ea-logo>
                   </app-logo>
                </content>
             </header>
             <content>
+               <p>
+                  <a href="./cadastrar-usuario.html">Cadastrar Usuários</a>
+               </p>
+               <p>
+                  <a href="./orcamento.html">Criar Orçamento</a>
+               </p>
             </content>
          </drawer-inside>
          <drawer-outside id="drawerOutside"></drawer-outside>
       </drawer>
-      <!--appbar>
-         <logo>
-            <img src="./ea.jpg" alt="ea" />
-         </logo>
-         <appbar-text>
-            <h1>ELÉTRICA & ART</h1>
-            
-               <h3>CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001</t>
-               Rua José Alves Maciel, 40 - Aviação <br />
-               Praia Grande - São Paulo - SP - Cep 11702-440 <br />
-               <strong>Fone: ( 13 ) 99768-5853  <br />
-               Whatsapp<br />
-               E-mail: eletrica.art.ltda@gmail.com</strong>
-            
-         </appbar-text>
-      </appbar-->
+      
       <cadastro section>
-         <header>
-            <content>
-               <tt>Cadastro de cliente</tt>
-            </content>
-         </header>
-         <form id="form">
-            <header content>
-               <t4>Cadastro Rápido</t4>
-               <!--<label>
-                  <t>Orçamento</t>
-                  <input type="number" name="orcamento_id" id="input_orcamento_id" placeholder="número" />
-               </label>
-               <label>
-                  <t>Emissão</t>
-                  <input type="number" name="emissão" id="input_emissao" placeholder="emissão" />
-               </label>
-               <label>
-                  <t>Validade</t>
-                  <input type="number" name="validade" id="input_validade" placeholder="validade" />
-               </label>-->
-            </header>
-            <cliente section>
-               <!--<header>
-                  <content><h1>CLIENTE</h1></content>
-               </header>-->
-               <content>
-                  <label>
-                     <t>Nome do Cliente</t>
-                     <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
-                     <msg id="msg_input_nome"></msg>
-                  </label>
-
-                  <label class="divider">
-                     <content>
-                        <small>CONTATO</small>
-                     </content>
-                  </label>
-
-                  <telefone section class="multi">
-                     <label>
-                        <t>Celular</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
-                        <msg id="msg_input_cellphone"></msg>
-                     </label>
-                     <whats-copy btn id="whatsCopyBtn">
-                        <img src="./Assets/imgs/icons/transfer.svg" alt="" />
-                     </whats-copy>
-                     <label>
-                        <t>WhatsApp</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp"/>
-                        <msg id="msg_input_whatsapp"></msg>
-                     </label>
-                  </telefone>
-                  <telefone section class="multi">
-                     <label>
-                        <t>Telefone</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
-                        <msg id="msg_input_phone"></msg>
-                     </label>
-                     <label>
-                        <t>Telefone 2</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2"/>
-                        <msg id="msg_input_phone2"></msg>
-                     </label>
-                  </telefone>
-                  <label>
-                     <t>Email</t>
-                     <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
-                     <msg id="msg_input_email"></msg>
-                  </label>
-                  <rg-e-cpf section class="multi">
-                     <label>
-                        <t>RG/IE</t>
-                        <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
-                        <msg id="msg_input_rg"></msg>
-                     </label>
-                     <label>
-                        <t>CPF</t>
-                        <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
-                        <msg id="msg_input_cpf"></msg>
-                     </label>
-                  </rg-e-cpf>
-
-                  <label class="divider">
-                     <content><small>ENDEREÇO</small></content>
-                  </label>
-                  <cep-e-uf section class="multi">
-                     <label>
-                        <t>CEP</t>
-                        <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
-                        <msg id="msg_input_cep"></msg>
-                     </label>
-                     <label>
-                        <t>UF</t>
-                        <input type="text" id="input_uf" name="uf" placeholder="Estado">
-                        <msg id="msg_input_uf"></msg>
-                     </label>
-                  </cep-e-uf>
-                  <label>
-                     <t>Rua</t>
-                     <input type="text" placeholder="Rua ..." id="input_rua" name="rua"/>
-                     <msg id="msg_input_rua"></msg>
-                  </label>
-                  <numero-e-complemento section class="multi">
-                     <label>
-                        <t>Número</t>
-                        <input type="number" placeholder="999" name="número" id="input_número"/>
-                        <msg id="msg_input_número"></msg>
-                     </label>
-                     <label>
-                        <t>Complemento</t>
-                        <input type="text" placeholder="Complemento" name="complemento" id="input_complemento"/>
-                        <msg id="msg_input_complemento"></msg>
-                     </label>
-                  </numero-e-complemento>
-                  <label>
-                     <t>Bairro</t>
-                     <input type="text" name="bairro" id="input_bairro" placeholder="Bairro"/>
-                     <msg id="msg_input_bairro"></msg>
-                  </label>
-                  <label>
-                     <t>Cidade</t>
-                     <input type="text" name="cidade" id="input_cidade" placeholder="Cidade"/>
-                     <msg id="msg_input_cidade"></msg>
-                  </label>
-                  <label class="divider">
-                     <content><small>OBSERVAÇÕES</small></content>
-                  </label>
-                  <label>
-                     <t>Observação</t>
-                     <textarea id="input_observação" name="observação"></textarea>
-                  </label>
-               </content>
-            </cliente>
-            <!--<orcamento section>
-               <header content>
-                  <h1>ORÇAMENTO</h1>
-               </header>
-               <table flex content>
-                  <thead type="header">
-                     <tr>
-                        <th>QT</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>R$ TOT</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>
-                           <input type="number" name="" id=""/>
-                        </td>
-                        <td>
-                           <input type="text" name="" id=""/>
-                        </td>
-                        <td>
-                           <input type="number" name="" id=""/>
-                        </td>
-                     </tr>
-                  </tbody>
-                  <tfooter>
-                     <content>
-                        <item>
-                           <label>
-                              <h4> DESCONTO </h4>
-                              <input type="number" placeholder="R$ 1.000,00" name="" id="desconto"/>
-                           </label>
-                        </item>
-                        <item>
-                           <label>
-                              <h3> Valor TOTAL </h3>
-                              <input type="number" placeholder="R$ 48.968,00" name="" id="total-value"/>
-                           </label>
-                        </item>
-                     </content>
-                  </tfooter>
-               </table>
-            </orcamento>
-            <obs section>
-               <header content>
-                  <h1>OBSERVAÇÕES</h1>
-               </header>
-               <content>
-                  <textarea id="obs" name="" rows="8"></textarea>
-               </content>
-            </obs>-->
-            <footer content>
-               <label>
-                  <input type="submit" value="CADASTRAR">
-               </label>
-            </footer>
-         </form>
       </cadastro>
       
       <console section>
@@ -358,151 +158,15 @@
          /* -------------------------------- */
          
          
+        
          
-         function UpdateUsersDB( user ) {
-            if( localStorage.getItem( "ea.users" ) ) {
-               users = [ 
-                  ...JSON.parse( localStorage.getItem( "ea.users" ) )
-               ];
-            }
-            if( user ) {
-               users.push( user );
-               localStorage.setItem( "ea.users", JSON.stringify( users ) );
-            }
-         }
          
-         function GetInputs() {
-            inputs = [
-               ...$$( "form input[type='text']" ),
-               ...$$( "form input[type='number']" ),
-               ...$$( "form input[type='tel']" ),
-               ...$$( "form input[type='password']" ),
-               ...$$( "form input[type='email']" ),
-               ...$$( "form input[type='date']" ),
-               ...$$( "form textarea" ),
-            ];
-            _( "GetInputs(): \n", inputs );
-            return( inputs );
-         }
-         
-         function ValidateInputs() {
-            let 
-               _inputs = GetInputs()
-               ,
-               verifier = true
-               ,
-               data = { 
-                  validatedFormData: true
-                  , 
-                  failedInputsIDs: []
-                  ,
-                  succeededInputsIDs: []
-               }
-            ;
-            
-            $$( "form label msg" ).forEach( msg => {
-               msg.innerHTML = "";
-            } );
-            
-            _inputs.forEach( input => {
-               if( input.value === "" ) {
-                  verifier = false;
-                  data.validatedFormData = false;
-                  data.failedInputsIDs.push( input.id );
-               } else {
-                  data.succeededInputsIDs.push( input.id );
-               }
-                  
-            } );
-            
-            // return( verifier );
-            return( data );
-         }
-         
-         function ResgisterUser() {
-            
-         }
-         
-         function CreateUser() {
-            let 
-               values = []
-               ,
-               user = {}
-            ;
-            
-            inputs.forEach( input => {
-               values.push( [ 
-                  input.name, input.value
-               ] );
-            } );
-            
-            user = Object.fromEntries( values );
-            user.id = `usr:${ users.length + 1 }:${ Math.round( Math.random() * 99999 ) }-${ Math.ceil( Math.random() * 99999 ) }`;
-            
-            UpdateUsersDB( user );
-            
-            _( "\n\nCreateUser(): \n",  
-               "values: \n", values,
-               "\nuser: \n", user
-            );
-         }
-         
-         function SubmitForm() {
-            form.addEventListener( "submit", () => {
-               event.preventDefault();
-               
-               let 
-                  { 
-                     validatedFormData,
-                     failedInputsIDs,
-                     succeededInputsIDs
-                  } = ValidateInputs()
-               ;
-               
-               _( "SubmitForm(): " );
-               if( validatedFormData ) {
-                  _( "validatedFormData = true;" );
-                  CreateUser();
-               } else {
-                  _( "validatedFormData = false;" );
-                  failedInputsIDs.forEach( inputID => {
-                     $( `#msg_${ inputID }` ).innerHTML = `
-                     <content error>
-                        <t>Verifique este campo!</t>
-                     </content>
-                     `;
-                  } );
-                  _( failedInputsIDs );
-               }
-            } );
-            
-         }
          
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
             
-            GetInputs();
-            UpdateUsersDB();
             
-            SubmitForm();
-            
-            whatsCopyBtn.addEventListener( "click", () => {
-               if( 
-                  !input_cellphone.value == "" 
-                  && 
-                  input_whatsapp.value == "" ) {
-                  input_whatsapp.value = input_cellphone.value;
-               } 
-               if( 
-                  input_cellphone.value == "" 
-                  && 
-                  !input_whatsapp.value == "" ) {
-                  input_cellphone.value = input_whatsapp.value;
-               }
-               
-            } );
-
             openDrawer.addEventListener( "click", () => {
                if( drawer.getAttribute( "opened" ) ) {
                   drawer.setAttribute( "closed", "" );
