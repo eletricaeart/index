@@ -205,7 +205,7 @@ drawer {
    background: #0005;
 }
 drawer[closed] > drawer-inside {
-   transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
+   /* transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31); */
    flex: 0.5;
    width: 0;
    opacity: .1;
@@ -231,7 +231,7 @@ drawer[opened] {
 }
 drawer[opened] > drawer-inside {
    /* animation: openingDrawer .5s .5s ease-in; */
-   transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
+   /* transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31); */
 }
 drawer[closed] {
    display: none;
