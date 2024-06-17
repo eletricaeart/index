@@ -77,26 +77,29 @@
          </content>
       </appbar>
       <drawer id="drawer">
-         <header>
+            <drawer-inside>
+            <header>
+               <content>
+                  <app-logo>
+                     <ea-logo>
+                        <logo-icon>
+                           <img src="./ea.jpg" alt="ea" />
+                        </logo-icon>
+                        <logo-title>
+                           <content>
+                              <tt>ELETRICA</tt>
+                              <tt>&</tt>
+                              <tt>ART</tt>
+                           </content>
+                        </lo-title>
+                     </ea-logo>
+                  </app-logo>
+               </content>
+            </header>
             <content>
-               <app-logo>
-                  <ea-logo>
-                     <logo-icon>
-                        <img src="./ea.jpg" alt="ea" />
-                     </logo-icon>
-                     <logo-title>
-                        <content>
-                           <tt>ELETRICA</tt>
-                           <tt>&</tt>
-                           <tt>ART</tt>
-                        </content>
-                     </lo-title>
-                  </ea-logo>
-               </app-logo>
             </content>
-         </header>
-         <content>
-         </content>
+         </drawer-inside>
+         <drawer-outside id="drawerOutside"></drawer-outside>
       </drawer>
       <!--appbar>
          <logo>
@@ -510,6 +513,10 @@
                   drawer.setAttribute( "opened", "" );
                   drawer.removeAttribute( "closed" );
                }
+            } );
+            drawerOutside.addEventListener( "click", () => {
+               drawer.removeAttribute( "opened" );
+               drawer.setAttribute( "closed", "" );
             } );
          } );
          
