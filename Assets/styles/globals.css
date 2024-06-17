@@ -204,11 +204,18 @@ drawer {
    z-index: 9;
    background: #0005;
 }
+drawer[closed] > drawer-inside {
+   transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
+   flex: 0.5;
+   width: 0;
+   opacity: .1;
+}
 drawer-inside {
    display: flex;
    flex-direction: column;
    height: 100dvh;
    flex: 7.5;
+   opacity: 1;
    background: var( --card-lv3, #fff );
    box-shadow: #0005 0 0 5px;
 }
@@ -221,8 +228,10 @@ drawer[opened] {
    flex-direction: row;
    width: 100%;
    height: 100dvh;
-   animation: openingDrawer .5s .5s ease-in;
-   transition: all .5s cubic-bezier(0.68, -0.55, 0, 1.31);
+}
+drawer[opened] > drawer-inside {
+   /* animation: openingDrawer .5s .5s ease-in; */
+   transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
 }
 drawer[closed] {
    display: none;
@@ -240,6 +249,31 @@ drawer-inside > content {
    background-color: var( --bg );
    height: 100%;
 }
+
+
+drawer main-menu {
+   gap: 1rem;
+}
+menu-item {  
+   display: flex;
+   background: var( --bg2 );
+   padding: 4px;
+   border-radius: 9px;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 1rem;
+   color: var(--card-lv1);
+}
+
+icon {
+   display: grid;
+   place-items: center;
+   width: 36px;
+   height: 36px;
+   aspect-ratio: 1;
+}
+
+
 
 @keyframes openingDrawer {
    0% {
