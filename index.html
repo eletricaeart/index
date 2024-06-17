@@ -3,728 +3,535 @@
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
-      <title>App Template</title>
+      <title>Elétrica & Art</title>
    
-      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <link rel="icon" href="src/pix/logo.svg" type="svg+xml">
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- <link rel="stylesheet" href="./o.css" /> -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <link rel="stylesheet" href="./Assets/styles/clb.css">
+      <link rel="stylesheet" href="./Assets/styles/globals.css">
+      <!-- <link rel="stylesheet" href="./Assets/styles/includes/theme.css"> -->
+      <link rel="stylesheet" href="./Assets/fonts/fonts.css">
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script src="./Assets/scripts/clb.js" defer=""></script>
+      <!--script src="./Assets/scripts/Globals.js" defer=""></script-->
+      <script src="./Assets/scripts/GetCEP.js" defer=""></script>
+      
       <style>
-          
-         
-         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@500;700;800;900&display=swap');
-         
-         *:not( h1,h2,h3,h4,h5,h6,p,menu,ul,ol,li,hr,pre,dd,blockquote,fieldset,legend ),
-         *:not( h1,h2,h3,h4,h5,h6,p,menu,ul,ol,li,hr,pre,dd,blockquote,fieldset,legend )::before,
-         *:not( h1,h2,h3,h4,h5,h6,p,menu,ul,ol,li,hr,pre,dd,blockquote,fieldset,legend )::after {  
-            margin:0; padding:0; box-sizing:border-box;
-         }
-         
          :root {
-            --dark0: #16181c;   --dark1: #1b1d22;
-            --dark2: #212329;   --dark3: #505257;
-            
-            --light0: #ffffff;  --light1: #f5f5f5;
-            --azul0: #19497b;   --azul1: #8cb2e6;
-            --azul2: #b5dfef;   --azul3: #deeff7;
-            --pink: #905;   --amber: #ffab00;   --red: #ce3635;
-         
-            --azul: #27f;   --green: #006400;   --blue: #149cbe;
-            --texto: #333;
-            
-            --green-dark: #8b6d19;  --green-light: #a17d1a; --green-bg: #fbf6e9;
-            --purple-dark: #603479;   --purple-light: #965bb9;  --purple-bg: #f4edf7;
-            --red-dark: #902726;    --red-light: #b83232;   --red-bg: #fceeee;
-            --blue-dark: #1c5b6e;   --blue-light: #267d97;  --blue-bg: #ebf6fb;
-            
-            --appbar-height: 81px;
-            --appbar-filter-shadow: drop-shadow( #0009 0 0 5px );
-            --sidebar-width: 68px;
          }
-         
-         ::-webkit-scrollbar { width: 10px; }
-         ::-webkit-scrollbar-track {
-            background: var( --blue-bg );
-            border-radius: 5px;
-         }
-         ::-webkit-scrollbar-thumb {
-            background: var( --blue-dark );
-            border-radius: 5px;
-         }
-         
-         [link] { cursor: pointer; }
-         [link]:hover { color: #27f; transition: .3s ease-in-out; }
-         
-         body {
-            width: 100%;
-            min-height: 100vh;
-            background: #fff;
-            color: var( --texto );
-            
-            font-family: 'Montserrat', sans-serif;
-            font-family: 'Poppins', sans-serif;
-         
-            font-size: 2.5vw;
-         }
-         
-         appbar {
-            display: grid;
-            grid-template-columns: .35fr .65fr;
-            width: 100%;
-            /*height: 36.3vw;*/
-            aspect-ratio: 3.8/1;
-            padding: 1vw;
-            /* position: sticky; */
-            inset: 0;
-            z-index: 9;
-            background: var( --azul0 );
-            color: #f5f5f5;
-            filter: var( --appbar-filter-shadow );
-         }
-         appbar logo {
-            width: 100%;
-            aspect-ratio: 1/1;
-         }
-         appbar logo img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            border-radius: 50vw;
-            border: #27f solid 2px;
-         }
-         appbar-text {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-         }
-         appbar-text > * {
-            margin-top: 0;
-            margin-bottom: 0;
-         }
-         appbar-text h1 { 
-         }
-         
-         form {
-            max-width: 100%;
-            margin: 2vw auto;
-         }
-         
-         form header {
-            background: var( --azul1 );
-            display: grid;
-            grid-template-columns: repeat( 3, .3fr );
-            justify-content: center;
-         }
-         form header label {
-            display: grid;
-            grid-template-columns: .6fr .4fr;
-            place-items: center;
-            color: var( --azul0 );
-         }
-         label h3 {
-            width: 100%;
-            margin: 0;
-         } 
-         label input {
-            width: 100%;
-            background: transparent;
-            border: transparent;
-            outline: transparent;
-         }
-         input { font-size: 3vw; }
-         input#total-value { 
-            font-size: 3.5vw; 
-            font-weight: bold;
-         }
-         select, option {
-            font-size: 3vw !important;
-         }
-         
-         cliente {
-            display: block;
-            background: var( --azul3 );
-            margin: 2vw auto;
-            color: #212329;
-         }
-            
-         cliente header {
-            display: grid;
-            grid-template-columns: 1fr;
-            background: var( --azul0 );
-            color: #fff;
-         }
-         cliente header h2 {
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-         }
-         cliente main {
-            display: grid;
-            grid-template-columns: 1fr;
-            padding: 0;
-         }
-         item[type="nome"] {
-            grid-template-columns: 1fr;
-         }
-         cliente main item {
-            display: grid;
-            grid-template-columns: 1fr;
-         }
-         cliente main item {
-            grid-template-columns: auto 1fr;
-         }
-         item label {
-            display: grid;
-            place-items: center;
-            background: var( --azul2 );
-            grid-template-columns: .2fr .8fr;
-         }
-         item label h3 {
-            margin: 0;
-            padding: 0 0 0 2vw;
-         }
-         item label input {
-            background: var( --azul3 );
-            padding: 1vw;
-         }
-         
-         item[ type="tel-email" ] {
-            grid-template-columns: .5fr .5fr;
-         }
-         item[ type="tel-email" ] label {
-            grid-template-columns: .5fr .5fr;
-         }
-         item[ type="tel-email" ] :nth-child(1) {
-            grid-template-columns: .4fr .6fr;
-         }
-         item[ type="tel-email" ] :nth-child(2) {
-            grid-template-columns: auto 1fr;
-         }
-         
-         item[ type="cpf-rg" ] {
-            grid-template-columns: .5fr .5fr;
-         }
-         item[ type="cpf-rg" ] :nth-child(1) {
-            grid-template-columns: .4fr .6fr;
-         }
-         item[ type="cpf-rg" ] :nth-child(2) {
-            grid-template-columns: auto 1fr;
-         }
-         
-         item[ type="b-c" ] {
-            grid-template-columns: .5fr .5fr;
-         }
-         item[ type="b-c" ] label {
-            grid-template-columns: .41fr .59fr;
-            grid-template-columns: .41fr .9fr;
-            grid-template-columns: .41fr 1fr;
-            grid-template-columns: auto 1fr;
-         }
-         
-         item[ type="estate-cep" ] {
-            grid-template-columns: .5fr .5fr;
-         }
-         item[ type="estate-cep" ] label { 
-            grid-template-columns: auto 1fr;
-         }
-         select#estado {
-            width: 100%;
-            height: 100%;
-            font-size: 2vw;
-            background: var(--azul3 );
-         }
-         
-         item[ type="endereco" ] {
-            grid-template-columns: .8fr .2fr;
-         }
-         item[ type="endereco" ] label {
-            grid-template-columns: .25fr .75fr;
-         }
-         item[ type="endereco" ] :nth-child(2) {
-            grid-template-columns: auto 1fr;
-         }
-         select#select-cpf-cnpj {
-            padding: 0;
-            background: transparent;
-            border: transparent solid 0;
-            outline: transparent;
-         }
-         select#select-cpf-cnpj option, select#select-cpf-cnpj option h3 {
-            padding: 0; margin: 0;
-         }
-         
-         
-         orcamento {
-            display: block;
-            margin: 2vw auto;
-            color: #000;
-         }
-         orcamento main {
-            background: var( --azul3 );
-         }
-         
-         orcamento header {
-            display: grid;
-            grid-template-columns: 1fr;
-            background: var( --azul0 );
-            color: #fff;
-         }
-         orcamento header h2 {
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-         }
-         
-         orcamento main item {
-            display: grid;
-            grid-template-columns: .1fr .7fr .2fr;
-         }
-         orcamento main item:nth-child( even ) {
-            background: var( --azul2 ) !important;
-         }
-         item[type="header"] {
-            place-items: center;
-            background: var( --azul1 );
-         }
-         item[type="header"] h3 {
-            width: 100%;
-            text-align: center;
-            font-weight: 800;
-            margin: 0;
-         }
-         orcamento main item {
-            height: 4.5vw;
-         }
-         orcamento main item > * {
-            width: 100%;
-            background: transparent;
-            border: transparent solid 0;
-            text-align: center;
-         }
-         orcamento main item :nth-child( 1 ) {
-            border-right: #fff5 .5vw dotted;
-         }
-         
-         orcamento main item :nth-last-child( 1 ) {
-            border-left: #fff5 .5vw dotted;
-         }
-         
-         orcamento footer {
-            display: grid;
-            grid-template-columns: .5fr .5fr;
-            height: fit-content;
-            margin: 2vw 0 0 0;
-         }
-         orcamento footer item {
-            width: 100%;
-            height: fit-content;
-         }
-         orcamento footer item label {
-            grid-template-columns: auto 1fr;
-            display: grid;
-            padding: 0;
-         }
-         orcamento footer :nth-last-child( 1 ) label {
-            background: var( --azul0 );
-            color: #fff;
-         }
-         orcamento footer :nth-last-child( 1 ) label input {
-            background: var( --azul1 );
-            color: #000;
-            width: 100%;
-         }
-         orcamento footer item label h4 {
-            display: grid;
-            place-items: center;
-            margin: 0;
-            padding: 0 2vw;
-         }
-         orcamento footer item label h3 {
-            padding: 0 0 0 2vw;
-         }
-         orcamento footer item :nth-last-child( 0 ) {
-            background: yellow ;
-         }
-         
-         
-         obs {
-            display: block;
-            background: #fff;
-            margin: 2vw auto;
-            page-break-after: auto;
-            page-break-inside: avoid;
-         }
-         
-         obs header {
-            display: grid;
-            grid-template-columns: 1fr;
-            background: #fff;
-         }
-         obs header h2 {
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-            color: var( --azul0 );
-         }
-         
-         textarea {
-            width: 100%;
-            min-height: 15vw;
-            text-align: center;
-            padding: 2vw;
-            background: var( --azul3 );
-         }
-         
-         pdf {
-            display: grid;
-            place-items: center;
-            width: 15vw;
-            aspect-ratio: 1/1;
-            padding: 0;
-            border-radius: 55rem;
-            background: var( --azul0 );
-            filter: drop-shadow( #0005 -2px 5px 10px );
-            position: fixed;
-            bottom: 10%;
-            right: 10%;
-            font-size: 9vw;
-            z-index: 9;
-            cursor: pointer;
-         }
-         ts { display: block; background: orange; width: 100%; min-height: 50px; border: purple solid; }
       </style>
-      <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js" ></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" ></script> -->
-      <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
-      <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js'></script> -->
-      <!-- <script src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
    </head>
    <body>
-      <!-- <style>#print { display: none; }</style> -->
-      <print id="print">
-          <appbar>
-            <logo>
-               <!--img src="https://raw.githubusercontent.com/Ceo-js/ea/2e6fdd74866a50968095c8c6942156d1e93e1c34/ea.jpg" alt="ea" -->
-               <img src="./ea.jpg" alt="ea" >
-            </logo>
-            <appbar-text>
-               <h1>ELÉTRICA &amp; ART</h1>
-               
-                  <h3>CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001</h3>
-                  Rua José Alves Maciel, 40 - Aviação <br />
-                  Praia Grande - São Paulo - SP - Cep 11702-440 <br />
-                  <strong>Fone: ( 13 ) 99768-5853  <br />
-                  Whatsapp<br />
-                  E-mail: eletrica.art.ltda@gmail.com</strong>
-               
-            </appbar-text>
-         </appbar> 
-         <form>
+      <appbar>
+         <!-- <content>
+            <app-logo>
+               <img src="./ea.jpg" alt="ea" />
+            </app-logo>
+            <app-title>
+               <content>
+                  <tt>ELETRICA</tt>
+                  <tt>&</tt>
+                  <tt>ART</tt>
+               </content>
+            </app-title>
+            <app-options></app-options>
+         </content> -->
+         <content>
+            <appbar-menu-left>
+               <content>
+                  <trigram id="openDrawer">
+                     <bar id="topBar_left"></bar>
+                     <bar id="centerBar_left"></bar>
+                     <bar id="bottomBar_left"></bar>
+                  </trigram>
+               </content>
+            </appbar-menu-left>
+            <appbar-logo>
+               <ea-logo>
+                  <logo-icon>
+                     <img src="./ea.jpg" alt="ea" />
+                  </logo-icon>
+                  <logo-title>
+                     <content>
+                        <tt>ELETRICA</tt>
+                        <tt>&</tt>
+                        <tt>ART</tt>
+                     </content>
+                  </lo-title>
+               </ea-logo>
+            </appbar-logo>
+            <appbar-menu-right>
+               <content id="">
+                  <trigram id="trigram_right">
+                     <bar id="topBar_right"></bar>
+                     <bar id="centerBar_right"></bar>
+                     <bar id="bottomBar_right"></bar>
+                  </trigram>
+               </content>
+            </appbar-menu-right>
+         </content>
+      </appbar>
+      <drawer id="drawer">
+            <drawer-inside>
             <header>
-               <label>
-                  <h3>Orçamento: </h3>
-                  <input type="number" name="" id="orcamento-number" value="" />
-               </label>
-               <label>
-                  <h3>Emissão: </h3>
-                  <input type="number" name="" id="emissao" value="" />
-               </label>
-               <label>
-                  <h3>Validade: </h3>
-                  <input type="number" name="" id="validade" value="" />
-               </label>
+               <content>
+                  <app-logo>
+                     <ea-logo>
+                        <logo-icon>
+                           <img src="./ea.jpg" alt="ea" />
+                        </logo-icon>
+                        <logo-title>
+                           <content>
+                              <tt>ELETRICA</tt>
+                              <tt>&</tt>
+                              <tt>ART</tt>
+                           </content>
+                        </lo-title>
+                     </ea-logo>
+                  </app-logo>
+               </content>
             </header>
-            <cliente>
-               <header>
-                  <h2>CLIENTE</h2>
-               </header>
-               <main>
-                  <item type="nome">
+            <content>
+            </content>
+         </drawer-inside>
+         <drawer-outside id="drawerOutside"></drawer-outside>
+      </drawer>
+      <!--appbar>
+         <logo>
+            <img src="./ea.jpg" alt="ea" />
+         </logo>
+         <appbar-text>
+            <h1>ELÉTRICA & ART</h1>
+            
+               <h3>CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001</t>
+               Rua José Alves Maciel, 40 - Aviação <br />
+               Praia Grande - São Paulo - SP - Cep 11702-440 <br />
+               <strong>Fone: ( 13 ) 99768-5853  <br />
+               Whatsapp<br />
+               E-mail: eletrica.art.ltda@gmail.com</strong>
+            
+         </appbar-text>
+      </appbar-->
+      <cadastro section>
+         <header>
+            <content>
+               <tt>Cadastro de cliente</tt>
+            </content>
+         </header>
+         <form id="form">
+            <header content>
+               <t4>Cadastro Rápido</t4>
+               <!--<label>
+                  <t>Orçamento</t>
+                  <input type="number" name="orcamento_id" id="input_orcamento_id" placeholder="número" />
+               </label>
+               <label>
+                  <t>Emissão</t>
+                  <input type="number" name="emissão" id="input_emissao" placeholder="emissão" />
+               </label>
+               <label>
+                  <t>Validade</t>
+                  <input type="number" name="validade" id="input_validade" placeholder="validade" />
+               </label>-->
+            </header>
+            <cliente section>
+               <!--<header>
+                  <content><h1>CLIENTE</h1></content>
+               </header>-->
+               <content>
+                  <label>
+                     <t>Nome do Cliente</t>
+                     <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
+                     <msg id="msg_input_nome"></msg>
+                  </label>
+
+                  <label class="divider">
+                     <content>
+                        <small>CONTATO</small>
+                     </content>
+                  </label>
+
+                  <telefone section class="multi">
                      <label>
-                        <h3>NOME</h3>
-                        <input type="text" placeholder="Nome do cliente" name="" id="client-name" value="" />
+                        <t>Celular</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
+                        <msg id="msg_input_cellphone"></msg>
                      </label>
-                  </item>
-                  <item type="tel-email">
+                     <whats-copy btn id="whatsCopyBtn">
+                        <img src="./Assets/imgs/icons/transfer.svg" alt="" />
+                     </whats-copy>
                      <label>
-                        <h3>TELEFONE</h3>
-                        <input type="text" placeholder="(99) 9 9999-9999" name="" id="phone" value="" />
+                        <t>WhatsApp</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp"/>
+                        <msg id="msg_input_whatsapp"></msg>
                      </label>
+                  </telefone>
+                  <telefone section class="multi">
                      <label>
-                        <h3>EMAIL</h3>
-                        <input type="email" placeholder="email@email.com" name="" id="email" value="" />
-                     </label>
-                  </item>
-                  <item type="cpf-rg">
-                     <label>
-                        <h3>CPF</h3>
-                        <!-- <select name="" id="select-cpf-cnpj">
-                           <option><h3>CPF</h3></option>
-                           <option><h3>CNPJ</h3></option>
-                        </select> -->
-                        <!--<h3>CPF/CNPJ</h3>-->
-                        <input type="text" placeholder="999.999.999-99" name="" id="cpf" value="" />
+                        <t>Telefone</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
+                        <msg id="msg_input_phone"></msg>
                      </label>
                      <label>
-                        <h3>RG/IE</h3>
-                        <input type="text" placeholder="41.44.5792-4" name="" id="rg" value="" />
+                        <t>Telefone 2</t>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2"/>
+                        <msg id="msg_input_phone2"></msg>
                      </label>
-                  </item>
-                  <item type="endereco">
+                  </telefone>
+                  <label>
+                     <t>Email</t>
+                     <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
+                     <msg id="msg_input_email"></msg>
+                  </label>
+                  <rg-e-cpf section class="multi">
                      <label>
-                        <h3>ENDEREÇO</h3>
-                        <input type="text" placeholder="rua ..." id="address" value="" />
-                     </label>
-                     <label>
-                        <h3>N°</h3>
-                        <input type="text" placeholder="999" name="" id="address-number" value="" />
-                     </label>
-                  </item>
-                  <item type="b-c">
-                     <label>
-                        <h3>BAIRRO</h3>
-                        <input type="text" name="" id="bairro" value="" />
+                        <t>RG/IE</t>
+                        <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
+                        <msg id="msg_input_rg"></msg>
                      </label>
                      <label>
-                        <h3>CIDADE</h3>
-                        <input type="text" name="" id="city" value="" />
+                        <t>CPF</t>
+                        <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
+                        <msg id="msg_input_cpf"></msg>
                      </label>
-                  </item>
-                  <item type="estate-cep">
+                  </rg-e-cpf>
+
+                  <label class="divider">
+                     <content><small>ENDEREÇO</small></content>
+                  </label>
+                  <cep-e-uf section class="multi">
                      <label>
-                        <h3>ESTADO</h3>
-                        <input id="estado" name="estado" type="text">
+                        <t>CEP</t>
+                        <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
+                        <msg id="msg_input_cep"></msg>
                      </label>
                      <label>
-                        <h3>CEP</h3>
-                        <input type="text" placeholder="00.000-000" name="" id="cep" value="" />
+                        <t>UF</t>
+                        <input type="text" id="input_uf" name="uf" placeholder="Estado">
+                        <msg id="msg_input_uf"></msg>
                      </label>
-                  </item>
-               </main>
+                  </cep-e-uf>
+                  <label>
+                     <t>Rua</t>
+                     <input type="text" placeholder="Rua ..." id="input_rua" name="rua"/>
+                     <msg id="msg_input_rua"></msg>
+                  </label>
+                  <numero-e-complemento section class="multi">
+                     <label>
+                        <t>Número</t>
+                        <input type="number" placeholder="999" name="número" id="input_número"/>
+                        <msg id="msg_input_número"></msg>
+                     </label>
+                     <label>
+                        <t>Complemento</t>
+                        <input type="text" placeholder="Complemento" name="complemento" id="input_complemento"/>
+                        <msg id="msg_input_complemento"></msg>
+                     </label>
+                  </numero-e-complemento>
+                  <label>
+                     <t>Bairro</t>
+                     <input type="text" name="bairro" id="input_bairro" placeholder="Bairro"/>
+                     <msg id="msg_input_bairro"></msg>
+                  </label>
+                  <label>
+                     <t>Cidade</t>
+                     <input type="text" name="cidade" id="input_cidade" placeholder="Cidade"/>
+                     <msg id="msg_input_cidade"></msg>
+                  </label>
+                  <label class="divider">
+                     <content><small>OBSERVAÇÕES</small></content>
+                  </label>
+                  <label>
+                     <t>Observação</t>
+                     <textarea id="input_observação" name="observação"></textarea>
+                  </label>
+               </content>
             </cliente>
-            <orcamento>
-               <header>
-                  <h2>ORÇAMENTO</h2>
+            <!--<orcamento section>
+               <header content>
+                  <h1>ORÇAMENTO</h1>
                </header>
-               <main>
-                  <item type="header">
-                     <h3>QT</h3>
-                     <h3>DESCRIÇÃO</h3>
-                     <h3>R$ TOT</h3>
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-                  <item>
-                     <input type="number" name="" id="" value="" />
-                     <input type="text" name="" id="" value="" />
-                     <input type="number" name="" id="" value="" />
-                  </item>
-               </main>
-               <footer>
-                  <item>
-                     <label>
-                        <h4> DESCONTO </h4>
-                        <input type="number" placeholder="R$ 1.000,00" name="" id="desconto" value="" />
-                     </label>
-                  </item>
-                  <item type="total">
-                     <label>
-                        <h3> Valor TOTAL </h3>
-                        <input type="number" placeholder="R$ 48.968,00" name="" id="total-value" value="" />
-                     </label>
-                  </item>
-               </footer>
+               <table flex content>
+                  <thead type="header">
+                     <tr>
+                        <th>QT</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>R$ TOT</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <input type="number" name="" id=""/>
+                        </td>
+                        <td>
+                           <input type="text" name="" id=""/>
+                        </td>
+                        <td>
+                           <input type="number" name="" id=""/>
+                        </td>
+                     </tr>
+                  </tbody>
+                  <tfooter>
+                     <content>
+                        <item>
+                           <label>
+                              <h4> DESCONTO </h4>
+                              <input type="number" placeholder="R$ 1.000,00" name="" id="desconto"/>
+                           </label>
+                        </item>
+                        <item>
+                           <label>
+                              <h3> Valor TOTAL </h3>
+                              <input type="number" placeholder="R$ 48.968,00" name="" id="total-value"/>
+                           </label>
+                        </item>
+                     </content>
+                  </tfooter>
+               </table>
             </orcamento>
-            <obs>
-               <header>
-                  <h2>OBSERVAÇÕES</h2>
+            <obs section>
+               <header content>
+                  <h1>OBSERVAÇÕES</h1>
                </header>
-               <main>
+               <content>
                   <textarea id="obs" name="" rows="8"></textarea>
-               </main>
-            </obs>
+               </content>
+            </obs>-->
+            <footer content>
+               <label>
+                  <input type="submit" value="CADASTRAR">
+               </label>
+            </footer>
          </form>
-      </print>
-      <pdf id="submit">🧾</pdf>
+      </cadastro>
+      
+      <console section>
+         <header>
+         </header>
+         <content>
+            <h2>console</h2>
+            <label>
+               <input id="showUsers" type="button" value="show users" />
+            </label>
+            <label>
+               <input id="showLS" type="button" value="show localStorage ea.users" />
+            </label>
+            <label>
+               <input id="eraseLS" type="button" value="erase ea.users" />
+            </label>
+            <console-users section id="consoleUsers">
+               <h4>users</h4>
+            </console-users>
+            <console-eaUsers section id="consoleEAUsers">
+               <h4>ea.users</h4>
+               <p>JSON.parse( localStorage.getItem( "ea.users" ) );</p>
+            </console-eaUsers>
+         </content>
+      </console>
       
       
-      
-      
-      
-  <!-- <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script> -->
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js'></script> -->
-  
-      
-   </body>
       <script>
          'use strict';
          /* [ properties ]
          =================================== */
-         const 
-            $ = v => document.querySelector( v ),
-            $$ = v => document.querySelectorAll( v ),
-            log = ( ...v ) => console.log( ...v )
+         let 
+            users = []
+            ,
+            inputs = []
+         ;
+         let 
+            EraseLS = v => {
+               localStorage.removeItem( "ea.users" );
+               _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
+            }
+            ,
+            ShowUsers = () => _( "\n\nusers: \n", users )
+            ,
+            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
          ;
          /* -------------------------------- */
          
          
+         
+         function UpdateUsersDB( user ) {
+            if( localStorage.getItem( "ea.users" ) ) {
+               users = [ 
+                  ...JSON.parse( localStorage.getItem( "ea.users" ) )
+               ];
+            }
+            if( user ) {
+               users.push( user );
+               localStorage.setItem( "ea.users", JSON.stringify( users ) );
+            }
+         }
+         
+         function GetInputs() {
+            inputs = [
+               ...$$( "form input[type='text']" ),
+               ...$$( "form input[type='number']" ),
+               ...$$( "form input[type='tel']" ),
+               ...$$( "form input[type='password']" ),
+               ...$$( "form input[type='email']" ),
+               ...$$( "form input[type='date']" ),
+               ...$$( "form textarea" ),
+            ];
+            _( "GetInputs(): \n", inputs );
+            return( inputs );
+         }
+         
+         function ValidateInputs() {
+            let 
+               _inputs = GetInputs()
+               ,
+               verifier = true
+               ,
+               data = { 
+                  validatedFormData: true
+                  , 
+                  failedInputsIDs: []
+                  ,
+                  succeededInputsIDs: []
+               }
+            ;
+            
+            $$( "form label msg" ).forEach( msg => {
+               msg.innerHTML = "";
+            } );
+            
+            _inputs.forEach( input => {
+               if( input.value === "" ) {
+                  verifier = false;
+                  data.validatedFormData = false;
+                  data.failedInputsIDs.push( input.id );
+               } else {
+                  data.succeededInputsIDs.push( input.id );
+               }
+                  
+            } );
+            
+            // return( verifier );
+            return( data );
+         }
+         
+         function ResgisterUser() {
+            
+         }
+         
+         function CreateUser() {
+            let 
+               values = []
+               ,
+               user = {}
+            ;
+            
+            inputs.forEach( input => {
+               values.push( [ 
+                  input.name, input.value
+               ] );
+            } );
+            
+            user = Object.fromEntries( values );
+            user.id = `usr:${ users.length + 1 }:${ Math.round( Math.random() * 99999 ) }-${ Math.ceil( Math.random() * 99999 ) }`;
+            
+            UpdateUsersDB( user );
+            
+            _( "\n\nCreateUser(): \n",  
+               "values: \n", values,
+               "\nuser: \n", user
+            );
+         }
+         
+         function SubmitForm() {
+            form.addEventListener( "submit", () => {
+               event.preventDefault();
+               
+               let 
+                  { 
+                     validatedFormData,
+                     failedInputsIDs,
+                     succeededInputsIDs
+                  } = ValidateInputs()
+               ;
+               
+               _( "SubmitForm(): " );
+               if( validatedFormData ) {
+                  _( "validatedFormData = true;" );
+                  CreateUser();
+               } else {
+                  _( "validatedFormData = false;" );
+                  failedInputsIDs.forEach( inputID => {
+                     $( `#msg_${ inputID }` ).innerHTML = `
+                     <content error>
+                        <t>Verifique este campo!</t>
+                     </content>
+                     `;
+                  } );
+                  _( failedInputsIDs );
+               }
+            } );
+            
+         }
+         
          /* [ events ]
          =================================== */
-         window.addEventListener( 'load', ev => {
-            let 
-               links = document.querySelectorAll( '[link]' )
-            ;
+         window.addEventListener( 'load', () => {
             
-            const 
-               selectCpfCnpj = $( "select#select-cpf-cnpj" ),
-               clientName = $( "#client-name" ),
-               phone = $( "#phone" ),
-               email =$( "#email" )
+            GetInputs();
+            UpdateUsersDB();
+            
+            SubmitForm();
+            
+            whatsCopyBtn.addEventListener( "click", () => {
+               if( 
+                  !input_cellphone.value == "" 
+                  && 
+                  input_whatsapp.value == "" ) {
+                  input_whatsapp.value = input_cellphone.value;
+               } 
+               if( 
+                  input_cellphone.value == "" 
+                  && 
+                  !input_whatsapp.value == "" ) {
+                  input_cellphone.value = input_whatsapp.value;
+               }
                
-            ;
-            
-            
-         
-         
-            links.forEach( link => link.addEventListener( 'click', ev => {
-               window.open( link.getAttribute( 'link' ), '_blank' );
-            } ) );
-            
+            } );
+
+            openDrawer.addEventListener( "click", () => {
+               if( drawer.getAttribute( "opened" ) ) {
+                  drawer.setAttribute( "closed", "" );
+                  drawer.removeAttribute( "opened" );
+               } else {
+                  drawer.setAttribute( "opened", "" );
+                  drawer.removeAttribute( "closed" );
+               }
+            } );
+            drawerOutside.addEventListener( "click", () => {
+               drawer.removeAttribute( "opened" );
+               drawer.setAttribute( "closed", "" );
+            } );
          } );
-
-         /* ========================================== */
-         let 
-            btn = $( "#submit" ),
-            inprin = $( "#doc" )
-         ;
-         window.onload = function() {
-
-
-            btn
-               .addEventListener( "click", () => {
-                  // let pTarget = $( "#print" );
-                  // pTarget.style.display = "inline";
-
-                  const invoice = this.document.querySelector( "#print" );
-                  console.log( invoice );
-                  console.log( window );
-                  var data = {
-                     margin: 1,
-                     // filename: "orçamento.pdf",
-                     filename: "orçamento.pdf",
-                     image: { type: "png", quality: 100 },
-                     autoPaging: 'text',
-                     x: 0,
-                     y: 0,
-                     html2canvas: { 
-                        width: 792,
-                        height: 1300,
-                        windowWidth: 600,
-                        windowHeight: 900,
-                        // dpi: 72,
-                        dpi: 1200,
-                        letterRendering: true,
-                        scale: 1
-                     },
-                     jsPDF: { 
-                        // unit: "in", "pt", "mm", "cm", "m", "in" or "px".
-                        unit: "pt", 
-                        // format: "letter", a0 - a10, b0 - b10, c0 - c10, dl, letter, government-letter, 
-                        // legal, junior-legal, ledger, tabloid, [595.28, 841.89]
-                        format: "a4", 
-                        orientation: "portrait",
-                        precision: 1,
-                     }
-                  };
-                  html2pdf().from( invoice ).set( data ).save();
-
-                  // setTimeout( () => {
-                  //    pTarget.style.display = "none";
-                  // }, 1000 );
-               } );
-         };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         // window.onload = function () {
-         // function lord() {
-         //    document.getElementById("#submit")
-         //       .addEventListener("click", () => {
-         //          const invoice = this.document.getElementById("#doc");
-         //          console.log(invoice);
-         //          console.log(window);
-         //          var opt = {
-         //             margin: 1,
-         //             filename: "myfile.pdf",
-         //             image: { type: "jpeg", quality: 0.98 },
-         //             html2canvas: { scale: 2 },
-         //             jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
-         //          };
-         //          html2pdf().from(invoice).set(opt).save();
-         //       });
-         // };
          
-         /* ========================================= */
-      
+         eraseLS.addEventListener( "click", EraseLS );
+         showUsers.addEventListener( "click", ShowUsers );
+         showLS.addEventListener( "click", ShowLS );
       </script>
-   <!-- 
-      https://codepen.io/brownsugar/pen/rNyOjaM
-    -->
+   </body>
 </html>
+<!--
+não seria possível alguém como eu poder tocar um anjo como aquele 
+
+mas um dia, assim tão inesperadamente, aquele rostinho estava ali 
+
+olhando pra mim, sorrindo 
+
+me senti nú 
+não tive tempo de pensar 
+
+-->
