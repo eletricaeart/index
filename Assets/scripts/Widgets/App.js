@@ -307,18 +307,18 @@ class App extends HTMLElement {
    }
    render() {
       window.addEventListener( 'load', () => {
-         openDrawer.addEventListener( "click", () => {
-            if( drawer.getAttribute( "opened" ) ) {
-               drawer.setAttribute( "closed", "" );
-               drawer.removeAttribute( "opened" );
+         $( "#openDrawer" ).addEventListener( "click", () => {
+            if( $( "#drawer" ).getAttribute( "opened" ) ) {
+               $( "#drawer" ).setAttribute( "closed", "" );
+               $( "#drawer" ).removeAttribute( "opened" );
             } else {
-               drawer.setAttribute( "opened", "" );
-               drawer.removeAttribute( "closed" );
+               $( "#drawer" ).setAttribute( "opened", "" );
+               $( "#drawer" ).removeAttribute( "closed" );
             }
          } );
-         drawerOutside.addEventListener( "click", () => {
-            drawer.removeAttribute( "opened" );
-            drawer.setAttribute( "closed", "" );
+         $( "#drawerOutside" ).addEventListener( "click", () => {
+            $( "#drawer" ).removeAttribute( "opened" );
+            $( "#drawer" ).setAttribute( "closed", "" );
          } );
       } );
    }
