@@ -24,6 +24,8 @@
       <script src="./Assets/scripts/includes/Drawer.js" defer=""></script>
       
       <style>
+         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@500;700;800;900&display=swap');
+         
          :root {
          }
          
@@ -41,19 +43,37 @@
             width: 100%;
             aspect-ratio: 5 / 2;
             overflow: hidden;
+            font-size: 2.5vw;
+         }
+         ea-banner * {
+            font-family: "poppins" !important;
          }
          ea-banner ea-logo {
             display: flex;
-            height: 90%;
+            height: 100%;
             aspect-ratio: 1;
          }
          ea-logo > content {
          }
          ea-logo img {
             width: 100%;
-            aspect-ratio: 1;
-            border-radius: 100%;
-            overflow: hidden;
+            aspect-ratio: 1/1;
+            border-radius: 50vw;
+            border: #27f solid 2px;
+         }
+
+         ea-banner > description {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+         } 
+         ea-banner > description h1 {
+            margin: 0;
+         }
+         ea-banner > description t {
+            display: block;
          }
       </style>
    </head>
@@ -67,18 +87,22 @@
                <img src="./ea.jpg" alt="ea-logo" />
             </content>
          </ea-logo>
-         <description secion content>
+         <description section >
             <h1>ELÉTRICA & ART</h1>
-            <p>
+            <t5>
                CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001
-               Rua José Alves Maciel, 40 - Aviação <br />
-               Praia Grande - São Paulo - SP - Cep 11702-440 <br />
-               <strong>
-                  Fone: ( 13 ) 99768-5853  <br />
-                  Whatsapp<br />
-                  E-mail: eletrica.art.ltda@gmail.com
-               </strong>
-            </p>
+            </t5>
+            <t>
+               Rua José Alves Maciel, 40 - Aviação
+            </t>
+            <t>
+               Praia Grande - São Paulo - SP - Cep 11702-440
+            </t>
+            <strong>
+               <t> Fone: ( 13 ) 99768-5853 </t>
+               <t> Whatsapp </t>
+               <t> E-mail: eletrica.art.ltda@gmail.com </t>
+            </strong>
          </description>
       </ea-banner>
       
