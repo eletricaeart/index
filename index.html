@@ -18,35 +18,69 @@
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
       <script src="./Assets/scripts/clb.js" defer=""></script>
-      <!--- == [ includes ]
-      == == == == == == == == == --->
+      <!-- == [ includes ]
+      == == == == == == == == == -->
       <script src="./Assets/scripts/includes/AppBar.js" defer=""></script>
       <script src="./Assets/scripts/includes/Drawer.js" defer=""></script>
       
       <style>
          :root {
          }
+         
+         [section="dual"] {
+            display: flex;
+            flex-direction: row;
+         }
+         [section="dual"] > * {
+            flex: 1;
+         }
+         
+         ea-banner {
+            background: var( --card-lv1 );
+            color: var( --appbar-title );
+            width: 100%;
+            aspect-ratio: 5 / 2;
+            overflow: hidden;
+         }
+         ea-banner ea-logo {
+            display: flex;
+            height: 90%;
+            aspect-ratio: 1;
+         }
+         ea-logo > content {
+         }
+         ea-logo img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            overflow: hidden;
+         }
       </style>
    </head>
    <body>
       <appbar></appbar>
       <drawer></drawer>
-      <!--appbar>
-         <logo>
-            <img src="./ea.jpg" alt="ea" />
-         </logo>
-         <appbar-text>
+      
+      <ea-banner section="dual">
+         <ea-logo>
+            <content>
+               <img src="./ea.jpg" alt="ea-logo" />
+            </content>
+         </ea-logo>
+         <description secion content>
             <h1>ELÉTRICA & ART</h1>
-            
-               <h3>CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001</t>
+            <p>
+               CPF/CNPJ 32.858.892/0001-52 - IM 67358/0001
                Rua José Alves Maciel, 40 - Aviação <br />
                Praia Grande - São Paulo - SP - Cep 11702-440 <br />
-               <strong>Fone: ( 13 ) 99768-5853  <br />
-               Whatsapp<br />
-               E-mail: eletrica.art.ltda@gmail.com</strong>
-            
-         </appbar-text>
-      </appbar-->
+               <strong>
+                  Fone: ( 13 ) 99768-5853  <br />
+                  Whatsapp<br />
+                  E-mail: eletrica.art.ltda@gmail.com
+               </strong>
+            </p>
+         </description>
+      </ea-banner>
       
 
       
