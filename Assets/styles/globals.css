@@ -211,7 +211,6 @@ whats-copy > img {
 == == == == == == == == == */
 drawer {
    display: none;
-   display: flex;
    flex-direction: row;
    width: 100%;
    height: 100dvh;
