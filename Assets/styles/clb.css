@@ -411,7 +411,7 @@ section, [section] {
 }
 
 content, [content] {
-   padding: 1rem;
+   padding: 1em;
 }
 [content="mobile"], [mobile] {
    width: clamp( 100px, 95%, 696px );
