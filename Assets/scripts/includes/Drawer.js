@@ -43,7 +43,6 @@ function Drawer( props ) {
             drawer-inside > header {
                display: flex;
                width: 100%;
-               padding-top: 68%;
                background: var( --drawer-head, #f5f5f5 );
                aspect-ratio: 16 / 9;
             }
