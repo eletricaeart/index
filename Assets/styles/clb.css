@@ -410,6 +410,11 @@ view, [view] {
 section, [section] {
 }
 
+[section="dual"] {
+   display: flex;
+   flex-direction: row;
+}
+
 content, [content] {
    padding: 1em;
 }
