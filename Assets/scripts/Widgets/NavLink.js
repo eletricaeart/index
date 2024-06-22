@@ -5,10 +5,11 @@ function NavLink( props ) {
       navlinkStyle = `
          <style>
          p[navlink] {
-            
+            background: #fc0fc0;
          }
          p[navlink] > a {
             text-decoration: none;
+            color: #905;
          }
          </style>
       `
