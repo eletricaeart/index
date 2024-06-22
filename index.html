@@ -24,6 +24,7 @@
       <script src="./Assets/scripts/includes/Drawer.js" defer=""></script>
       <script src="./Assets/scripts/includes/NavBar.js" defer=""></script>
       <script src="./Assets/scripts/includes/EA-Card.js" defer=""></script>
+      <script src="./Assets/scripts/Widgets/NavLink.js" defer=""></script>
       
       <style>
       </style>
@@ -32,6 +33,10 @@
       <appbar></appbar>
       <drawer></drawer>
       <navbar></navbar>
+
+      <navlink to="https://github.com" target="_blank">GitHub</navlink>
+      <navlink to="https://facebook.com" target="_blank">FaceBook</navlink>
+      <navlink to="https://youtube.com" target="_blank">YouTube</navlink>
       
       <ea-card></ea-card>
       
@@ -114,6 +119,8 @@
                   ,
                } 
             ); // NavBar();
+
+            NavLink();
             
          } );
          
