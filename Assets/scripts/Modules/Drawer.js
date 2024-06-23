@@ -28,7 +28,7 @@ function Drawer( props ) {
                transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
             }
             drawer[opened] > drawer-inside {
-               width: clamp( 100px, 75%, 350px );
+               width: clamp( 100px, 95%, 350px );
             }
             drawer[closed] > drawer-inside {
                /* transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31); */

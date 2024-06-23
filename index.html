@@ -20,10 +20,10 @@
       <script src="./Assets/scripts/clb.js" defer=""></script>
       <!-- == [ includes ]
       == == == == == == == == == -->
-      <script src="./Assets/scripts/includes/AppBar.js" defer=""></script>
-      <script src="./Assets/scripts/includes/Drawer.js" defer=""></script>
-      <script src="./Assets/scripts/includes/NavBar.js" defer=""></script>
-      <script src="./Assets/scripts/includes/EA-Card.js" defer=""></script>
+      <script src="./Assets/scripts/Modules/AppBar.js" defer=""></script>
+      <script src="./Assets/scripts/Modules/Drawer.js" defer=""></script>
+      <script src="./Assets/scripts/Modules/NavBar.js" defer=""></script>
+      <script src="./Assets/scripts/Modules/EA-Card.js" defer=""></script>
       <script src="./Assets/scripts/Widgets/NavLink.js" defer=""></script>
       <script src="./Assets/scripts/Widgets/Button.js" defer=""></script>
       
@@ -41,6 +41,14 @@
          </header>
          <content>
             <h2>console</h2>
+
+            <button btn="showUsers">Show users</button>
+            <button btn="showLocalStorageEA.Users">
+               show localStorage ea.users
+            </button>
+            <button btn="eraseEA.Users">
+               erase ea.users
+            </button>
             <label>
                <input id="showUsers" type="button" value="show users" />
             </label>
@@ -93,6 +101,20 @@
             }
 
             test.prop = "Test-Prop";
+
+            Button( {
+               tag: "showUsers",
+            } );
+
+            Button( {
+               tag: "showLocalStorageEA.Users",
+               bg: "#29f"
+            } );
+
+            Button( {
+               tag: "eraseEA.Users",
+               bg: "#29f"
+            } );
 
             Drawer();
              NavBar( 

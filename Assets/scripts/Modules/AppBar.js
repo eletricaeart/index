@@ -3,19 +3,6 @@
 function AppBar( props ) {
    $$( "appbar" ).forEach( a => {
       return( a.outerHTML = `
-         <!-- <content>
-            <app-logo>
-               <img src="./ea.jpg" alt="ea" />
-            </app-logo>
-            <app-title>
-               <content>
-                  <tt>ELETRICA</tt>
-                  <tt>&</tt>
-                  <tt>ART</tt>
-               </content>
-            </app-title>
-            <app-options></app-options>
-         </content> -->
          <appbar>
             <content>
                <appbar-menu-left>
