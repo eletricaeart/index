@@ -39,32 +39,18 @@
       <console section>
          <header>
          </header>
-         <content>
+         <content gap>
             <h2>console</h2>
 
-            <button btn="showUsers">Show users</button>
-            <button btn="showLocalStorageEA.Users">
+            <button btn="showUsers" id="btn_showUsers">
+               Show users
+            </button>
+            <button btn="showLocalStorageEA.Users" id="btn_showLS">
                show localStorage ea.users
             </button>
-            <button btn="eraseEA.Users">
+            <button btn="eraseEA.Users" id="btn_eraseLS">
                erase ea.users
             </button>
-            <label>
-               <input id="showUsers" type="button" value="show users" />
-            </label>
-            <label>
-               <input id="showLS" type="button" value="show localStorage ea.users" />
-            </label>
-            <label>
-               <input id="eraseLS" type="button" value="erase ea.users" />
-            </label>
-            <console-users section id="consoleUsers">
-               <h4>users</h4>
-            </console-users>
-            <console-eaUsers section id="consoleEAUsers">
-               <h4>ea.users</h4>
-               <p>JSON.parse( localStorage.getItem( "ea.users" ) );</p>
-            </console-eaUsers>
          </content>
       </console>
       
@@ -104,16 +90,19 @@
 
             Button( {
                tag: "showUsers",
+               callback: ShowUsers
             } );
 
             Button( {
                tag: "showLocalStorageEA.Users",
-               bg: "#29f"
+               bg: "#29f",
+               callback: ShowLS,
             } );
 
             Button( {
                tag: "eraseEA.Users",
-               bg: "#29f"
+               bg: "#29f",
+               callback: EraseLS,
             } );
 
             Drawer();
@@ -141,10 +130,6 @@
             NavLink();
             
          } );
-         
-         eraseLS.addEventListener( "click", EraseLS );
-         showUsers.addEventListener( "click", ShowUsers );
-         showLS.addEventListener( "click", ShowLS );
       </script>
    </body>
 </html>

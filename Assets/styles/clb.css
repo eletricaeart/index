@@ -58,7 +58,7 @@
 
 html {
    flex-direction: column;
-   width: 100vw;
+   /* width: 100vw; */
    min-height: 100vh;
    line-height: 1.15;
    -webkit-text-size-adjust: 100%;
@@ -302,7 +302,7 @@ th, td {
 table[flex] {
    display: flex;
    flex-direction: column;
-   max-width: 100dvw;
+   /* max-width: 100dvw; */
 }
 
 table[flex] thead,
@@ -422,6 +422,10 @@ content, [content] {
    width: clamp( 100px, 95%, 696px );
    margin: 0 auto;
    padding: 3rem !important;
+}
+
+gap, [gap] {
+   gap: 1em;
 }
 
 child, [child] {

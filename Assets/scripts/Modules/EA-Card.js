@@ -56,7 +56,7 @@ let
          ea-card > description {
             display: flex;
             width: 100%;
-            aspect-ratio: 1.78 / 1;
+            /*aspect-ratio: 1.78 / 1;*/
             align-items: center;
             justify-content: center;
             text-align: center;
