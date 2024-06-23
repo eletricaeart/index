@@ -165,7 +165,7 @@ function Drawer( props ) {
                         <icon>
                            <img src="./Assets/imgs/icons/contacts.svg" alt="">
                         </icon>
-                        <t><a href="./cadastrar-usuario.html">Cadastrar Usuário</a></t>
+                        <t><a href="./pages/cadastrar-clientes.html">Cadastrar Usuário</a></t>
                      </menu-item>
                      <menu-item>
                         <icon>
