@@ -20,10 +20,10 @@ function AppBar( props ) {
             <content>
                <appbar-menu-left>
                   <content>
-                     <trigram id="openDrawer">
-                        <bar id="topBar_left"></bar>
-                        <bar id="centerBar_left"></bar>
-                        <bar id="bottomBar_left"></bar>
+                     <trigram id="trigram_right">
+                        <bar id="topBar_right"></bar>
+                        <bar id="centerBar_right"></bar>
+                        <bar id="bottomBar_right"></bar>
                      </trigram>
                   </content>
                </appbar-menu-left>
@@ -43,10 +43,10 @@ function AppBar( props ) {
                </appbar-logo>
                <appbar-menu-right>
                   <content id="">
-                     <trigram id="trigram_right">
-                        <bar id="topBar_right"></bar>
-                        <bar id="centerBar_right"></bar>
-                        <bar id="bottomBar_right"></bar>
+                     <trigram id="openDrawer">
+                        <bar id="topBar_left"></bar>
+                        <bar id="centerBar_left"></bar>
+                        <bar id="bottomBar_left"></bar>
                      </trigram>
                   </content>
                </appbar-menu-right>
