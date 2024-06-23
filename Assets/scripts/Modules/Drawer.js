@@ -157,21 +157,69 @@ function Drawer( props ) {
                   <main-menu section>
                      <menu-item>
                         <icon>
-                           <img src="./Assets/imgs/icons/contacts.svg" alt="">
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
                         </icon>
-                        <t><a href="./index.html">Home</a></t>
+                        <t><a href="./home.html">Home</a></t>
                      </menu-item>
                      <menu-item>
                         <icon>
-                           <img src="./Assets/imgs/icons/contacts.svg" alt="">
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
                         </icon>
-                        <t><a href="./pages/cadastrar-clientes.html">Cadastrar Usuário</a></t>
+                        <t><a href="./customers.html">Clientes</a></t>
                      </menu-item>
                      <menu-item>
                         <icon>
-                           <img src="./Assets/imgs/icons/invoice.svg" alt="">
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
                         </icon>
-                        <t><a href="./orcamento.html">Criar Orçamento</a></t>
+                        <t><a href="./new-customer.html">Cadastrar Cliente</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./budgets.html">Orçamentos</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./new-budget.html">Criar Orçamento</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./receipts.html">Recibos</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./new-receipt.html">Criar Recibo</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./services.html">Serviços</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./new-service.html">Novo Serviço</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/invoice.svg" alt="">
+                        </icon>
+                        <t><a href="./print-page.html">Criar Orçamento</a></t>
+                     </menu-item>
+                     <menu-item>
+                        <icon>
+                           <img src="../Assets/imgs/icons/contacts.svg" alt="">
+                        </icon>
+                        <t><a href="./support.html">Suporte</a></t>
                      </menu-item>
                   </main-menu>
                </content>

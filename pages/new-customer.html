@@ -23,6 +23,7 @@
       <script src="../Assets/scripts/Modules/AppBar.js" defer=""></script>
       <script src="../Assets/scripts/Modules/Drawer.js" defer=""></script>
       <script src="../Assets/scripts/GetCEP.js" defer=""></script>
+      <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
       <style>
       </style>
@@ -77,7 +78,7 @@
                         <msg id="msg_input_cellphone"></msg>
                      </label>
                      <whats-copy btn id="whatsCopyBtn">
-                        <img src="./Assets/imgs/icons/transfer.svg" alt="" />
+                        <img src="../Assets/imgs/icons/transfer.svg" alt="" />
                      </whats-copy>
                      <label>
                         <t>WhatsApp</t>
@@ -228,24 +229,18 @@
       <console section>
          <header>
          </header>
-         <content>
+         <content gap>
             <h2>console</h2>
-            <label>
-               <input id="showUsers" type="button" value="show users" />
-            </label>
-            <label>
-               <input id="showLS" type="button" value="show localStorage ea.users" />
-            </label>
-            <label>
-               <input id="eraseLS" type="button" value="erase ea.users" />
-            </label>
-            <console-users section id="consoleUsers">
-               <h4>users</h4>
-            </console-users>
-            <console-eaUsers section id="consoleEAUsers">
-               <h4>ea.users</h4>
-               <p>JSON.parse( localStorage.getItem( "ea.users" ) );</p>
-            </console-eaUsers>
+
+            <button btn="showUsers" id="btn_showUsers">
+               Show users
+            </button>
+            <button btn="showLocalStorageEA.Users" id="btn_showLS">
+               show localStorage ea.users
+            </button>
+            <button btn="eraseEA.Users" id="btn_eraseLS">
+               erase ea.users
+            </button>
          </content>
       </console>
       
@@ -398,6 +393,25 @@
          =================================== */
          window.addEventListener( 'load', () => {
             Drawer();
+
+            Button( {
+               tag: "showUsers",
+               callback: ShowUsers
+            } );
+
+            Button( {
+               tag: "showLocalStorageEA.Users",
+               bg: "#27f5",
+               color: "#99",
+               callback: ShowLS,
+            } );
+
+            Button( {
+               tag: "eraseEA.Users",
+               bg: "#27f5",
+               color: "#99",
+               callback: EraseLS,
+            } );
             
             GetInputs();
             UpdateUsersDB();

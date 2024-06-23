@@ -30,30 +30,7 @@
       <style>
       </style>
    </head>
-   <body>
-      <appbar></appbar>
-      <drawer></drawer>
-      
-      <ea-card></ea-card>
-      
-      <console section>
-         <header>
-         </header>
-         <content gap>
-            <h2>console</h2>
-
-            <button btn="showUsers" id="btn_showUsers">
-               Show users
-            </button>
-            <button btn="showLocalStorageEA.Users" id="btn_showLS">
-               show localStorage ea.users
-            </button>
-            <button btn="eraseEA.Users" id="btn_eraseLS">
-               erase ea.users
-            </button>
-         </content>
-      </console>
-      
+   <body>   
       
       <script>
          'use strict';
@@ -64,67 +41,14 @@
             ,
             inputs = []
          ;
-         let 
-            EraseLS = v => {
-               localStorage.removeItem( "ea.users" );
-               _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
-            }
-            ,
-            ShowUsers = () => _( "\n\nusers: \n", users )
-            ,
-            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
-         ;
          /* -------------------------------- */
          
          
          
          /* [ events ]
          =================================== */
-         window.addEventListener( 'load', () => {
-
-            Button( {
-               tag: "showUsers",
-               callback: ShowUsers
-            } );
-
-            Button( {
-               tag: "showLocalStorageEA.Users",
-               bg: "#27f5",
-               color: "#99",
-               callback: ShowLS,
-            } );
-
-            Button( {
-               tag: "eraseEA.Users",
-               bg: "#27f5",
-               color: "#99",
-               callback: EraseLS,
-            } );
-
-            Drawer();
-             NavBar( 
-               { 
-                  item1: { 
-                     name: "AA" 
-                  }
-                  ,
-                  item2: { 
-                     name: "BB" 
-                  }
-                  ,
-                  item3: { 
-                     name: "CC" 
-                  }
-                  ,
-                  item4: { 
-                     name: "DD" 
-                  }
-                  ,
-               } 
-            ); // NavBar();
-
-            NavLink();
-            
+         window.addEventListener( 'load', () => {  
+            window.open( "./pages/home.html", "_self" );          
          } );
       </script>
    </body>
