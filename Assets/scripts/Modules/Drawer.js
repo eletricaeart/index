@@ -16,7 +16,6 @@ function Drawer( props ) {
                left: 0;
                z-index: 9;
                background: #0005;
-               overflow-y: scroll;
             }
             drawer[opened] { display: flex; }
             drawer[closed] { display: none; }
@@ -24,6 +23,7 @@ function Drawer( props ) {
                display: flex;
                flex-direction: column;
                height: 100dvh;
+               overflow-y: scroll;
                background: var( --card-lv3, #fff );
                box-shadow: #0005 0 0 5px;
                transition: all 5s cubic-bezier(0.68, -0.55, 0, 1.31);
