@@ -27,6 +27,18 @@
    color: var( --text-color );
 }
 
+::-webkit-scrollbar {
+   width: 10px;
+}
+::-webkit-scrollbar-track {
+   background: var( --scrollbar-track, #d5d5d500 );
+   border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+   background: var( --scrollbar-thumb, #1b1d2200 );
+   border-radius: 5px;
+}
+
 html {
 }
 

@@ -17,6 +17,17 @@ function Drawer( props ) {
                z-index: 9;
                background: #0005;
             }
+            drawer-inside::-webkit-scrollbar {
+               width: 0px;
+            }
+            drawer-inside::-webkit-scrollbar-track {
+               background: #f5f5f5;
+               border-radius: 5px;
+            }
+            drawer-inside::-webkit-scrollbar-thumb {
+               background: #f5f5f5;
+               border-radius: 5px;
+            }
             drawer[opened] { display: flex; }
             drawer[closed] { display: none; }
             drawer-inside {
