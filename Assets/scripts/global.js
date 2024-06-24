@@ -14,7 +14,7 @@ let
    ,
    budgets = []
    ,
-   intent = ""
+   intent = {}
 ;
 /* -------------------------------- */
 
@@ -26,7 +26,7 @@ window.addEventListener( "load", ev => {
    _( "global.js\n\n" );
 
    function Observer() {
-      intent = window.location.href;
+      intent.actual = window.location.href;
       _( "intent: \n", intent );
    }
    Observer();
