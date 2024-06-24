@@ -49,7 +49,6 @@ function Drawer( props ) {
             }
             drawer-inside > content {
                background-color: var( --bg2 );
-               height: 100%;
             }
 
 
