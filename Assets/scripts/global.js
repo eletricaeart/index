@@ -1,24 +1,34 @@
 
 
-const 
-   _ = ( ...v ) => console.log( ...v )
+'use strict';
+/* [ properties ]
+=================================== */
+let 
+   inputs = []
    ,
-   $ = v => document.querySelector( v )
+   users = []
    ,
-   $$ = v => document.querySelectorAll( v )
+   services = []
+   ,
+   receipts = []
+   ,
+   budgets = []
+   ,
+   intent = ""
 ;
+/* -------------------------------- */
 
 
 
 /* == [ events ] 
 == == == == == == == == == */
 window.addEventListener( "load", ev => {
-   let NavLinks = $$( "navlink" );
+   _( "global.js\n\n" );
 
-
-
-   NavLinks.forEach( link => link.addEventListener( "click", ev => {
-      window.open( link.getAttribute( "to" ), "_blank" );
-   } ) );
+   function Observer() {
+      intent = window.location.href;
+      _( "intent: \n", intent );
+   }
+   Observer();
 
 } );
