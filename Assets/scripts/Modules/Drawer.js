@@ -16,6 +16,7 @@ function Drawer( props ) {
                left: 0;
                z-index: 9;
                background: #0005;
+               overflow-y: scroll;
             }
             drawer[opened] { display: flex; }
             drawer[closed] { display: none; }
@@ -49,7 +50,6 @@ function Drawer( props ) {
             drawer-inside > content {
                background-color: var( --bg2 );
                height: 100%;
-               overflow-y: scroll;
             }
 
 
