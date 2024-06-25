@@ -7,7 +7,8 @@ let
    inputs = []
    ,
    intent = {}
-   ; const
+; 
+const
    db = {
       users: []
       ,
@@ -25,22 +26,38 @@ let
 
 /* == [ global functions ]
 == == == == == == == == == */
-function UpdateDB( ODBName, LSDBName, data ) {
-   if( localStorage.getItem( LSDBName ) ) {
-      /*ODBName = [ 
-         ...JSON.parse( localStorage.getItem( LSDBName ) )
-      ];*/
-      ODBName = JSON.parse( localStorage.getItem( LSDBName ) );
-      _( `${ ODBName }: \n`, ODBName );
+// function UpdateDB( { DBName, LSName, data } ) {
+//    if( localStorage.getItem( LSName ) ) {
+//       _( `${ DBName } antes: \n`, DBName );
+//       DBName = JSON.parse( localStorage.getItem( LSName ) );
+//       _( `${ DBName } depois: \n`, DBName );
+//    }
+//    if( data ) {
+//       DBName.push( data );
+//       localStorage.setItem( LSName, JSON.stringify( DBName ) );
+//       _( `${ LSName } has been updated: \n${ localStorage.getItem( LSName ) }` );
+//    }
+// }
+function UpdateDB( DBName, LSName, data ) {
+   let newData = {};
+
+   if( localStorage.getItem( LSName ) ) {
+      _( `${ DBName } antes: \n`, DBName );
+      DBName = JSON.parse( localStorage.getItem( LSName ) );
+      _( `${ DBName } depois: \n`, DBName );
+      newData = JSON.parse( localStorage.getItem( LSName ) );
    }
    if( data ) {
-      ODBName.push( data );
-      localStorage.setItem( LSDBName, JSON.stringify( ODBName ) );
-      _( `${ LSDBName } has been updated: \n${ localStorage.getItem( LSDBName ) }` );
+      DBName.push( data );
+      localStorage.setItem( LSName, JSON.stringify( DBName ) );
+      _( `${ LSName } has been updated: \n${ localStorage.getItem( LSName ) }` );
+      newData = DBName;
    }
+
+   return( newData );
 }
 
-// UpdateDB( { ODBName: budgets, LSDBName: "ea.budgets", data: { budgetID: 2, budgetName: "Orçamento 2" } } );
+// UpdateDB( { DBName: budgets, LSName: "ea.budgets", data: { budgetID: 2, budgetName: "Orçamento 2" } } );
 
 function Observer() {
    let 
@@ -77,10 +94,13 @@ function Observer() {
 window.addEventListener( "load", ev => {
    _( "global.js\n\n" );
    _( `Observer(): \n${ window.location.href }` );
+   // DrawerExe();
+   // BackBtnExe();
 
    Observer();
-   UpdateDB( db.users, "ea.users" );
-   
-   _( "users: ", db.users );
+   // UpdateDB( { DBName: db.users, LSName: "ea.users" } );
+   let test = UpdateDB( db.users, "ea.users" );
+   _( "teste: ", test );
+   _( "db.users: ", db.users );
 
 } );

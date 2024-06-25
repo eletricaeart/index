@@ -83,12 +83,6 @@
          =================================== */
          window.addEventListener( 'load', () => {
 
-            function test() {
-               _( "test" );
-            }
-
-            test.prop = "Test-Prop";
-
             Button( {
                tag: "showUsers",
                callback: ShowUsers
@@ -109,7 +103,7 @@
             } );
 
             Drawer();
-             NavBar( 
+            NavBar( 
                { 
                   item1: { 
                      name: "AA" 
@@ -131,8 +125,6 @@
             ); // NavBar();
 
             NavLink();
-
-            _( "href: \n", window.location.href );
             
          } );
       </script>
