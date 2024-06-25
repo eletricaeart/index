@@ -146,13 +146,13 @@ fab {
    justify-content: center;
    border: transparent;
    border-radius: 100%;
-   background: var(--card-lv1);
-   width: 72px;
+   background: var( --card-lv1 );
+   width: 66px;
    aspect-ratio: 1;
    position: fixed;
    bottom: 6%;
    right: 9vw;
-   filter: drop-shadow(2px 4px 6px #0005);
+   filter: drop-shadow( 2px 4px 6px #0005 );
 }
 
 fab > content {
