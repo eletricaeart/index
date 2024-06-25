@@ -38,19 +38,16 @@ function UpdateDB( DBName, LSName, data ) {
    let newData = {};
 
    if( localStorage.getItem( LSName ) ) {
-      _( `${ DBName } antes: \n`, DBName );
       DBName = JSON.parse( localStorage.getItem( LSName ) );
-      _( `${ DBName } depois: \n`, DBName );
       newData = DBName;
    }
    if( data ) {
       DBName.push( data );
       localStorage.setItem( LSName, JSON.stringify( DBName ) );
-      _( `${ LSName } has been updated: \n${ localStorage.getItem( LSName ) }` );
       newData = DBName;
    }
 
-   users = JSON.parse( localStorage.getItem( LSName ) );
+   table( JSON.parse( localStorage.getItem( LSName ) ) );
    return( DBName );
 }
 
@@ -96,7 +93,16 @@ window.addEventListener( "load", ev => {
 
    Observer();
    // UpdateDB( { DBName: db.users, LSName: "ea.users" } );
-   // users = UpdateDB( users, "ea.users" );
-   _( "users: ", users );
+   users = UpdateDB( users, "ea.users" );
+   customers = UpdateDB( customers, "ea.customers" );
+   budgets = UpdateDB( budgets, "ea.budgets" );
+   receipts = UpdateDB( receipts, "ea.receipts" );
+   services = UpdateDB( services, "ea.services" );
+   // _( "users: ", console.table( users ) );
+   // _( "customers: ", customers );
+   // _( "budgets: ", budgets );
+   // _( "receipts: ", receipts );
+   // _( "services: ", services );
+
 
 } );

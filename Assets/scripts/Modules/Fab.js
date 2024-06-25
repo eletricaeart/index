@@ -1,6 +1,6 @@
 
 
-function Fab( props ) {
+function Fab( props = { text: "+" } ) {
    let 
       data = {}
    ;
@@ -8,7 +8,7 @@ function Fab( props ) {
    return( $( "fab" ).outerHTML = `
       <fab>
          <content>
-            `${ props.items.forEach( item => "" ) }`
+            ${ props.text }
          </content>
       </fab>
    ` );  

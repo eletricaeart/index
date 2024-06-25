@@ -6,12 +6,20 @@
 const 
    _ = ( ...v ) => console.log( ...v )
    ,
+   table = v => console.table( v )
+   ,
    $ = v => document.querySelector( v )
    ,
    $$ = v => document.querySelectorAll( v )
    ,
    fix = v => v.toFixed( 2 )
 ;
+
+HTMLElement.prototype.attribute = function( v ) {
+   return( 
+      this.getAttribute( v )
+   );
+}
 
 HTMLElement.prototype.$attribute = function( v ) {
    return( 
