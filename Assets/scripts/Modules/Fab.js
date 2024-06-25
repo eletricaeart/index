@@ -8,7 +8,7 @@ function Fab( props = { text: "+" } ) {
    return( $( "fab" ).outerHTML = `
       <fab>
          <content>
-            ${ props.text }
+            <t>${ props.text }</t>
          </content>
       </fab>
    ` );  

@@ -155,6 +155,19 @@ fab {
    filter: drop-shadow(2px 4px 6px #0005);
 }
 
+fab > content {
+   color: var( --appbar-title, #fff );
+   width: calc( 100% - 2em );
+   height: calc( 100% - 2em );
+   align-items: center;
+   justify-content: center;
+}
+fab > content > * {
+   font-size: 2em;
+   font-weight: bold;
+   /* transform: scale( 2 ); */
+}
+
 appbar-logo {
    display: flex;
    height: 72px;
