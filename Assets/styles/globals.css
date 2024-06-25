@@ -43,7 +43,11 @@ html {
 }
 
 body {
-   background: var(--bg);
+   background: var( --bg );
+   background-image: radial-gradient(
+      circle at center, 
+      #fff 40%, #bbb 
+   );
 }
 
 appbar {
