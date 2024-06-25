@@ -46,7 +46,7 @@ body {
    background: var( --bg );
    background-image: radial-gradient(
       circle at center, 
-      #fff 40%, #bbb 
+      #fff 40%, #27f5 
    );
 }
 
@@ -153,6 +153,7 @@ fab {
    bottom: 6%;
    right: 9vw;
    filter: drop-shadow( 2px 4px 6px #0005 );
+   cursor: pointer;
 }
 
 fab > content {
@@ -166,6 +167,10 @@ fab > content > * {
    font-size: 2em;
    font-weight: bold;
    /* transform: scale( 2 ); */
+}
+fab a {
+   color: var( --appbar-title );
+   text-decoration: transparent;
 }
 
 appbar-logo {

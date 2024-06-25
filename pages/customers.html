@@ -66,16 +66,6 @@
          'use strict';
          /* [ properties ]
          =================================== */
-         let 
-            EraseLS = v => {
-               localStorage.removeItem( "ea.users" );
-               _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
-            }
-            ,
-            ShowUsers = () => _( "\n\nusers: \n", users )
-            ,
-            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
-         ;
          /* -------------------------------- */
          
          
@@ -84,7 +74,9 @@
          =================================== */
          window.addEventListener( 'load', () => {
 
-            Fab();
+            Fab( {
+               url: "./new-customer.html",
+            } );
 
             Button( {
                tag: "showUsers",

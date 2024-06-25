@@ -8,7 +8,20 @@ function Fab( props = { text: "+" } ) {
    return( $( "fab" ).outerHTML = `
       <fab>
          <content>
-            <t>${ props.text }</t>
+            <t>
+               <a href="${ 
+                  props.to 
+                  || 
+                  props.href 
+                  || 
+                  props.url 
+                  || 
+                  props.src 
+                  || 
+                  "#" }" "_self">
+                  ${ props.text }
+               </a>
+            </t>
          </content>
       </fab>
    ` );  

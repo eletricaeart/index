@@ -18,6 +18,17 @@ let
    ,
    budgets = []
 ;
+
+let 
+   EraseLS = v => {
+      localStorage.removeItem( "ea.users" );
+      _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
+   }
+   ,
+   ShowUsers = () => _( "\n\nusers: \n", users )
+   ,
+   ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
+;
 /* -------------------------------- */
 
 /* == [ global functions ]
@@ -35,7 +46,11 @@ let
 //    }
 // }
 function UpdateDB( DBName, LSName, data ) {
-   let newData = {};
+   let 
+      newData = {}
+      ,
+      st = DBName
+   ;
 
    if( localStorage.getItem( LSName ) ) {
       DBName = JSON.parse( localStorage.getItem( LSName ) );
@@ -47,6 +62,7 @@ function UpdateDB( DBName, LSName, data ) {
       newData = DBName;
    }
 
+   _( `\n== == == == == == == == ==\ndb.${ st }: ` );
    table( JSON.parse( localStorage.getItem( LSName ) ) );
    return( DBName );
 }
@@ -93,11 +109,11 @@ window.addEventListener( "load", ev => {
 
    Observer();
    // UpdateDB( { DBName: db.users, LSName: "ea.users" } );
-   users = UpdateDB( users, "ea.users" );
-   customers = UpdateDB( customers, "ea.customers" );
-   budgets = UpdateDB( budgets, "ea.budgets" );
-   receipts = UpdateDB( receipts, "ea.receipts" );
-   services = UpdateDB( services, "ea.services" );
+   users = UpdateDB( "users", "ea.users" );
+   customers = UpdateDB( "customers", "ea.customers" );
+   budgets = UpdateDB( "budgets", "ea.budgets" );
+   receipts = UpdateDB( "receipts", "ea.receipts" );
+   services = UpdateDB( "services", "ea.services" );
    // _( "users: ", console.table( users ) );
    // _( "customers: ", customers );
    // _( "budgets: ", budgets );
