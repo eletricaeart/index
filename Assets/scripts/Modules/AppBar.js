@@ -7,11 +7,11 @@ function AppBar( props ) {
             <content>
                <appbar-menu-left>
                   <content>
-                     <trigram id="trigram_right">
-                        <bar id="topBar_right"></bar>
-                        <bar id="centerBar_right"></bar>
-                        <bar id="bottomBar_right"></bar>
-                     </trigram>
+                     <back-btn id="backBtn">
+                        <bar id="backBtn_topBar"></bar>
+                        <bar id="backBtn_centerBar"></bar>
+                        <bar id="backBtn_bottomBar"></bar>
+                     </back-btn>
                   </content>
                </appbar-menu-left>
                <appbar-logo>

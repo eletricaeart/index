@@ -262,4 +262,13 @@ window.addEventListener( "load", () => {
       drawer.removeAttribute( "opened" );
       drawer.setAttribute( "closed", "" );
    } );
+
+   backBtn.addEventListener( "click", () => {
+      _( "backBtn pressed!" );
+      let href = JSON.parse( localStorage.getItem( "ea.intent" ) );
+      _( `href:: ${ href.actual }`, href );
+      // window.open(
+      //    href.backPage, "_self"
+      // );
+   } );
 } );
