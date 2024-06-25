@@ -43,6 +43,12 @@ function Observer() {
          actualPage: url
       }
    ;
+   
+   if( url.includes( "home" ) ) {
+      backBtn.style.display = "none";
+   } else {
+      backBtn.style.display = "flex";
+   }
 
    if( localStorage.getItem( "ea.intent" ) ) {
       data.backPage = JSON.parse( localStorage.getItem( "ea.intent" ) ).actualPage;
@@ -55,19 +61,7 @@ function Observer() {
       actualPage: data.actualPage
    } ) );
 
-   // if( url.includes( "home" ) ) {
-   //    _( "url includes home" );
-   //    localStorage.setItem( "ea.intent", JSON.stringify( { 
-   //       actualPage: url, backPage: "" 
-   //    } ) );
-   // } else {
-   //    localStorage.setItem( "ea.intent", JSON.stringify( { 
-   //       backPage: JSON.parse( localStorage.getItem( "ea.intent" ) ).actualPage,
-   //       actualPage: url 
-   //    } ) );
-   // }
-
-   _( "intent: \n", intent );
+   _( "intent: \n", JSON.parse( localStorage.getItem( "ea.intent" ) ) );
 }
 
 

@@ -265,10 +265,11 @@ window.addEventListener( "load", () => {
 
    backBtn.addEventListener( "click", () => {
       _( "backBtn pressed!" );
-      let href = JSON.parse( localStorage.getItem( "ea.intent" ) );
-      _( `href:: ${ href.actual }`, href );
-      // window.open(
-      //    href.backPage, "_self"
-      // );
+      
+      let href = JSON.parse( 
+         localStorage.getItem( "ea.intent" ) 
+      ).backPage;
+      
+      window.location.href = href;
    } );
 } );
