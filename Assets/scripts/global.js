@@ -6,31 +6,38 @@
 let 
    inputs = []
    ,
-   users = []
-   ,
-   services = []
-   ,
-   receipts = []
-   ,
-   budgets = []
-   ,
    intent = {}
+   ; const
+   db = {
+      users: []
+      ,
+      customers: []
+      ,
+      services: []
+      ,
+      receipts: []
+      ,
+      budgets: []
+      ,
+   }
 ;
 /* -------------------------------- */
 
 /* == [ global functions ]
 == == == == == == == == == */
-function UpdateDB( { ODBName, LSDBName, data } ) {
+function UpdateDB( ODBName, LSDBName, data ) {
    if( localStorage.getItem( LSDBName ) ) {
-      ODBName = [ 
+      /*ODBName = [ 
          ...JSON.parse( localStorage.getItem( LSDBName ) )
-      ];
+      ];*/
+      ODBName = JSON.parse( localStorage.getItem( LSDBName ) );
+      _( `${ ODBName }: \n`, ODBName );
    }
    if( data ) {
       ODBName.push( data );
       localStorage.setItem( LSDBName, JSON.stringify( ODBName ) );
+      _( `${ LSDBName } has been updated: \n${ localStorage.getItem( LSDBName ) }` );
    }
-   _( `${ LSDBName } has been updated: \n${ localStorage.getItem( LSDBName ) }` );
 }
 
 // UpdateDB( { ODBName: budgets, LSDBName: "ea.budgets", data: { budgetID: 2, budgetName: "Orçamento 2" } } );
@@ -72,5 +79,8 @@ window.addEventListener( "load", ev => {
    _( `Observer(): \n${ window.location.href }` );
 
    Observer();
+   UpdateDB( db.users, "ea.users" );
+   
+   _( "users: ", db.users );
 
 } );
