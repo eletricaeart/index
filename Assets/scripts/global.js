@@ -7,20 +7,16 @@ let
    inputs = []
    ,
    intent = {}
-; 
-const
-   db = {
-      users: []
-      ,
-      customers: []
-      ,
-      services: []
-      ,
-      receipts: []
-      ,
-      budgets: []
-      ,
-   }
+   ,
+   users = []
+   ,
+   customers = []
+   ,
+   services = []
+   ,
+   receipts = []
+   ,
+   budgets = []
 ;
 /* -------------------------------- */
 
@@ -45,7 +41,7 @@ function UpdateDB( DBName, LSName, data ) {
       _( `${ DBName } antes: \n`, DBName );
       DBName = JSON.parse( localStorage.getItem( LSName ) );
       _( `${ DBName } depois: \n`, DBName );
-      newData = JSON.parse( localStorage.getItem( LSName ) );
+      newData = DBName;
    }
    if( data ) {
       DBName.push( data );
@@ -54,7 +50,8 @@ function UpdateDB( DBName, LSName, data ) {
       newData = DBName;
    }
 
-   return( newData );
+   users = JSON.parse( localStorage.getItem( LSName ) );
+   return( DBName );
 }
 
 // UpdateDB( { DBName: budgets, LSName: "ea.budgets", data: { budgetID: 2, budgetName: "Orçamento 2" } } );
@@ -99,8 +96,7 @@ window.addEventListener( "load", ev => {
 
    Observer();
    // UpdateDB( { DBName: db.users, LSName: "ea.users" } );
-   let test = UpdateDB( db.users, "ea.users" );
-   _( "teste: ", test );
-   _( "db.users: ", db.users );
+   // users = UpdateDB( users, "ea.users" );
+   _( "users: ", users );
 
 } );
