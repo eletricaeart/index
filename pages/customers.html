@@ -55,24 +55,34 @@
                      border-radius: 1.25em;
                   }
                   customer > content {  
+                     flex-direction: row;
                   }
-                  customer > header > picture {
+                  customer > content > content {
+                     flex: 1;
+                  }
+                  customer > content > header {
+                     flex: .2;
+                  }
+                  customer > content > header > picture {
                      border-radius: 100%;
                      overflow: hidden;
-                     width: clamp( 32px, 15%, 96px );
+                     width: 100%;
+                     aspect-ratio: 1;
                   }
                   customer picture > img {
                      width: 100%;
                   }
                </style>
-               <header content>
-                  <picture>
-                     <img src="./ea.jpg" alt="">
-                  </picture>
-               </header>
                <content>
-                  <name>Nome Sobrenome ÚltimoNome</name>
-                  <phone>(13) 99148 - 6078</phone>
+                  <header content>
+                     <picture>
+                        <img src="./ea.jpg" alt="">
+                     </picture>
+                  </header>
+                  <content>
+                     <name>Nome Sobrenome ÚltimoNome</name>
+                     <phone>(13) 99148 - 6078</phone>
+                  </content>
                </content>
             </customer>
          </content>
