@@ -54,26 +54,25 @@
                      border: transparent;
                      border-radius: 1.25em;
                   }
-                  customer > content {
-                     flex-direction: row;
+                  customer > content {  
                   }
-                  customer > content > picture {
+                  customer > header > picture {
                      border-radius: 100%;
                      overflow: hidden;
                      width: clamp( 32px, 15%, 96px );
                   }
-                  customer > content > picture > img {
+                  customer picture > img {
                      width: 100%;
                   }
                </style>
-               <content>
+               <header content>
                   <picture>
                      <img src="./ea.jpg" alt="">
                   </picture>
-                  <info>
-                     <name>Nome Sobrenome ÚltimoNome</name>
-                     <phone>(13) 99148 - 6078</phone>
-                  </info>
+               </header>
+               <content>
+                  <name>Nome Sobrenome ÚltimoNome</name>
+                  <phone>(13) 99148 - 6078</phone>
                </content>
             </customer>
          </content>
