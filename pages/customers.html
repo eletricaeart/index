@@ -32,10 +32,10 @@
       <style>
       </style>
    </head>
+      <fab></fab>
    <body>
       <appbar></appbar>
       <drawer></drawer>
-      <fab></fab>
       
       <home-page section>
          <header>
@@ -82,9 +82,9 @@
                customers = []
             ;
 
-            if( localStorage.getItem( "ea.users" ) ) {
+            if( localStorage.getItem( "ea.customers" ) ) {
                customers = [
-                  ...JSON.parse( localStorage.getItem( "ea.users" ) )
+                  ...JSON.parse( localStorage.getItem( "ea.customers" ) )
                ];
             }
 
@@ -114,6 +114,32 @@
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
+            /*let data = [
+               {
+                  id: 1,
+                  name: "Débora Maria Cruz Sammarco",
+                  phone: "(13) 98127 - 7743"
+               },
+               {
+                  id: 2,
+                  name: "Anselmo Sammarco Nunes",
+                  phone: "(13) 99199 - 7743"
+               },
+               {
+                  id: 3,
+                  name: "Noely Oliveira Gangello",
+                  phone: "(13) 99199 - 7743"
+               },
+               {
+                  id: 4,
+                  name: "Bernardo Sammarco Gangello",
+                  phone: "(13) 99199 - 7743"
+               },
+            ];
+            
+            localStorage.setItem( "ea.customers", 
+               JSON.stringify( data )
+            );*/
             LoadCustomers();
 
             Fab( {

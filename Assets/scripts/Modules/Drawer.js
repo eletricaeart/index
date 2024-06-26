@@ -59,6 +59,9 @@ function Drawer( props ) {
          }
          drawer-inside > content {
             background-color: var( --bg2 );
+            background-color: #e5e5e599;
+            background-blend-mode: overlay;
+            background-image: url( ../../Assets/imgs/bgs/8fbe9bd0ee5dadd3d19757b14ea0eaea.jpg );
          }
 
 
