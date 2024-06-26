@@ -44,47 +44,8 @@
             </content>
          </header>
          <content>
-            <customer section>
-               <style>
-                  customer {
-                     display: flex;
-                     align-items: center;
-                     background-color: #fff;
-                     filter: drop-shadow( #0003 3px 8px 18px );
-                     border: transparent;
-                     border-radius: 1.25em;
-                  }
-                  customer > content {  
-                     flex-direction: row;
-                  }
-                  customer > content > content {
-                     flex: 1;
-                  }
-                  customer > content > header {
-                     flex: .2;
-                  }
-                  customer > content > header > picture {
-                     border-radius: 100%;
-                     overflow: hidden;
-                     width: 100%;
-                     aspect-ratio: 1;
-                  }
-                  customer picture > img {
-                     width: 100%;
-                  }
-               </style>
-               <content>
-                  <header content>
-                     <picture>
-                        <img src="./ea.jpg" alt="">
-                     </picture>
-                  </header>
-                  <content>
-                     <name>Nome Sobrenome ÚltimoNome</name>
-                     <phone>(13) 99148 - 6078</phone>
-                  </content>
-               </content>
-            </customer>
+            <customers section>
+            </customers>
          </content>
       </home-page>
       
@@ -114,10 +75,46 @@
          /* -------------------------------- */
          
          
-         
+         /* [ properties ]
+         =================================== */
+         function LoadCustomers( props ) {
+            let
+               customers = []
+            ;
+
+            if( localStorage.getItem( "ea.users" ) ) {
+               customers = [
+                  ...JSON.parse( localStorage.getItem( "ea.users" ) )
+               ];
+            }
+
+            _( "load customers: \n", customers );
+            customers.forEach( customer => {
+               return( $( "customers" ).innerHTML += `
+                  <customer section>
+                     <style>
+                     </style>
+                     <content>
+                        <header >
+                           <picture>
+                              <img src="./ea.jpg" alt="">
+                           </picture>
+                        </header>
+                        <content>
+                           <name>${ customer.name }</name>
+                           <phone>${ customer.phone }</phone>
+                        </content>
+                     </content>
+                  </customer>
+               ` );
+            } );
+         }
+
+
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
+            LoadCustomers();
 
             Fab( {
                url: "./new-customer.html",

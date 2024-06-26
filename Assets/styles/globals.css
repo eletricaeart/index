@@ -322,3 +322,52 @@ whats-copy > img {
 console {
    /* background: var( --bg2 ); */
 }
+
+
+/* == [ customer ]
+== == == == == == == == == */
+customers {
+   gap: 1em;
+}
+customer {
+   display: flex;
+   align-items: center;
+   background-color: var( --customer, #fff );
+   filter: drop-shadow( var( --customer-shadow, #0003 ) 3px 8px 18px );
+   border: transparent;
+   border-radius: 1.25em;
+}
+customer > content {  
+   flex-direction: row;
+   justify-content: center;
+}
+customer > content > content {
+   flex: .65;
+   justify-content: center;
+   gap: 1em;
+}
+customer > content > header {
+   display: flex;
+   flex: .35;
+   min-width: 100px;
+   max-width: 120px;
+}
+customer > content > header > picture {
+   width: 100%;
+   border-radius: 100%;
+   aspect-ratio: 1;
+   display: flex;
+}
+customer picture > img {
+   border-radius: 100%;
+   width: 100%;
+   aspect-ratio: 1;
+}
+
+customer name {
+   font-size: 1em;
+   font-weight: bold;
+}
+customer phone {
+   font-size: 0.9em;
+}
