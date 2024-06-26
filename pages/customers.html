@@ -38,8 +38,44 @@
       <fab></fab>
       
       <home-page section>
+         <header>
+            <content>
+               <tt>Clientes</tt>
+            </content>
+         </header>
          <content>
-            <tt>Clientes</tt>
+            <customer section>
+               <style>
+                  customer {
+                     display: flex;
+                     align-items: center;
+                     background-color: #fff;
+                     filter: drop-shadow( #0003 3px 8px 18px );
+                     border: transparent;
+                     border-radius: 1.25em;
+                  }
+                  customer > content {
+                     flex-direction: row;
+                  }
+                  customer > content > picture {
+                     border-radius: 100%;
+                     overflow: hidden;
+                     width: clamp( 32px, 15%, 96px );
+                  }
+                  customer > content > picture > img {
+                     width: 100%;
+                  }
+               </style>
+               <content>
+                  <picture>
+                     <img src="./ea.jpg" alt="">
+                  </picture>
+                  <info>
+                     <name>Nome Sobrenome ÚltimoNome</name>
+                     <phone>(13) 99148 - 6078</phone>
+                  </info>
+               </content>
+            </customer>
          </content>
       </home-page>
       

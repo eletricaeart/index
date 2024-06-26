@@ -19,7 +19,7 @@ function Fab( props = { text: "+" } ) {
                   props.src 
                   || 
                   "#" }" "_self">
-                  ${ props.text }
+                  ${ props.text ? props.text : "+" }
                </a>
             </t>
          </content>
