@@ -69,6 +69,8 @@ appbar {
 app-bar,
 appbar {
    background: var( --card-lv1 );
+   background-image: url( ../imgs/bgs/8fb2-h.jpeg );
+   background-blend-mode: overlay;
    box-shadow: var(--appbar-shadow);
    height: 72px;
 }
@@ -489,7 +491,7 @@ customer {
    border-radius: 1.25em;
    width: 100%;
    aspect-ratio: 10/2.86; /*452 x 129*/
-   backdrop-filter: blur( 12px );
+   backdrop-filter: blur( 5px );
    box-shadow: #0005 3px 6px 15px;
 }
 customer > header {

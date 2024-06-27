@@ -117,32 +117,150 @@
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
-            /*let data = [
-               {
-                  id: 1,
-                  name: "Débora Maria Cruz Sammarco",
-                  phone: "(13) 98127 - 7743"
-               },
-               {
-                  id: 2,
-                  name: "Anselmo Sammarco Nunes",
-                  phone: "(13) 99199 - 7743"
-               },
-               {
-                  id: 3,
-                  name: "Noely Oliveira Gangello",
-                  phone: "(13) 99199 - 7743"
-               },
-               {
-                  id: 4,
-                  name: "Bernardo Sammarco Gangello",
-                  phone: "(13) 99199 - 7743"
-               },
-            ];
             
-            localStorage.setItem( "ea.customers", 
-               JSON.stringify( data )
-            );*/
+            function injectCustomers() {
+               let data = [
+                  {
+                     "nome": "Débora Maria Cruz Sammarco",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Rafael Ângelo Sammarco",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Gabriel Sammarco Nunes",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Leonardo Sammarco",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Anselmo Sammarco Nunes",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Noely Oliveira Gangello",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+                  {
+                     "nome": "Bernardo Sammarco Gangello",
+                     "uf": "SP",
+                     "rua": "Rua Henrique Dias",
+                     "complemento": "Casa",
+                     "bairro": "Aviação",
+                     "cidade": "Praia Grande",
+                     "rg": "64944",
+                     "cpf": "649484",
+                     "cep": "11702600",
+                     "número": "125",
+                     "cellphone": "64949",
+                     "whatsapp": "(13) 9 9148 - 6078",
+                     "phone": "64884",
+                     "phone2": "5464654",
+                     "email": "email@email.com",
+                     "observação": "Observação ",
+                     "id": "cstmr:1:26651-8490"
+                  },
+               ];
+               
+               localStorage.removeItem( "ea.customers" );
+               localStorage.setItem( "ea.customers", 
+                  JSON.stringify( data )
+               );
+            }
+            // injectCustomers();
             LoadCustomers();
 
             Fab( {
