@@ -69,7 +69,7 @@ appbar {
 app-bar,
 appbar {
    background: var( --card-lv1 );
-   background-image: url( ../imgs/bgs/8fb2-h.jpeg );
+   /* background-image: url( ../imgs/bgs/8fb2-h.jpeg ); */
    background-blend-mode: overlay;
    box-shadow: var(--appbar-shadow);
    height: 72px;
