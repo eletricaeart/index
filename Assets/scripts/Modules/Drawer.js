@@ -1,106 +1,86 @@
 
 
 function Drawer( props ) {
-   return( $( "drawer" ).outerHTML = `
-      <style>
-      </style>
+   let 
+      template = ""
+      ,
+      profile = {
+         user: "Rafael Ângelo Sammarco",
+         phone: "(13) 9 9148 - 6078",
+         pic: "./ea.jpg"
+      }
+      ,
+      items = [
+         {
+            name: "Home",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./home.html",
+         },
+         {
+            name: "Clientes",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./customers.html",
+         },
+         {
+            name: "Orçamentos",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./budgets.html",
+         },
+         {
+            name: "Recibos",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./receipts.html",
+         },
+         {
+            name: "Serviços",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./services.html",
+         },
+         {
+            name: "Criar Orçamento",
+            icon: "../Assets/imgs/icons/invoice.svg",
+            link: "./print-page.html",
+         },
+         {
+            name: "Suporte",
+            icon: "../Assets/imgs/icons/contacts.svg",
+            link: "./support.html",
+         },
+      ]
+   ;
+
+   template = `
       <drawer id="drawer" closed>
          <drawer-inside>
             <header>
-               <content>
-                  <!--app-logo>
-                     <ea-logo>
-                        <logo-icon>
-                           <img src="./ea.jpg" alt="ea" />
-                        </logo-icon>
-                        <logo-title>
-                           <content>
-                              <tt>ELETRICA</tt>
-                              <tt>&</tt>
-                              <tt>ART</tt>
-                           </content>
-                        </lo-title>
-                     </ea-logo>
-                  </app-logo-->
-                  <user-profile>
-                     <user-pic>
-                        <img src="./ea.jpg" alt="user pic">
-                     </user-pic>
-                     <user-info>
-                        <user-name>Rafael Ângelo Sammarco</user-name>
-                        <user-phone>(13) 9 9148 - 6078</user-phone>
-                     </user-info>
-                  </user-profile>
-               </content>
+               <user-profile>
+                  <user-pic content>
+                     <picture>
+                        <img src="${ profile.pic }" alt="user pic">
+                     </picture>
+                  </user-pic>
+                  <user-info>
+                     <content>
+                        <user-name>${ profile.user }</user-name>
+                        <user-phone>${ profile.phone }</user-phone>
+                     </content>
+                  </user-info>
+               </user-profile>
             </header>
             <content>
-               <main-menu section>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./home.html">Home</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./customers.html">Clientes</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./new-customer.html">Cadastrar Cliente</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./budgets.html">Orçamentos</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./new-budget.html">Criar Orçamento</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./receipts.html">Recibos</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./new-receipt.html">Criar Recibo</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./services.html">Serviços</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./new-service.html">Novo Serviço</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/invoice.svg" alt="">
-                     </icon>
-                     <t><a href="./print-page.html">Criar Orçamento</a></t>
-                  </menu-item>
-                  <menu-item>
-                     <icon>
-                        <img src="../Assets/imgs/icons/contacts.svg" alt="">
-                     </icon>
-                     <t><a href="./support.html">Suporte</a></t>
-                  </menu-item>
+               <main-menu section>`
+   ;
+   items.forEach( item => { template += `
+         <menu-item>
+            <icon>
+               <img src="${ item.icon }" alt="">
+            </icon>
+            <t>
+               <a href="${ item.link }">${ item.name }</a>
+            </t>
+         </menu-item>
+   ` } );
+   template += `         
                </main-menu>
             </content>
             <footer>
@@ -109,7 +89,51 @@ function Drawer( props ) {
          </drawer-inside>
          <drawer-outside id="drawerOutside"></drawer-outside>
       </drawer>
-   ` );
+   `;
+
+   return( $( "drawer" ).outerHTML = template );
+
+/* 
+   return( $( "drawer" ).outerHTML = `
+      <drawer id="drawer" closed>
+         <drawer-inside>
+            <header>
+               <content>
+                  <user-profile>
+                     <user-pic>
+                        <img src="${ profile.pic }" alt="user pic">
+                     </user-pic>
+                     <user-info>
+                        <user-name>${ profile.user }</user-name>
+                        <user-phone>${ profile.phone }</user-phone>
+                     </user-info>
+                  </user-profile>
+               </content>
+            </header>
+            <content>
+               <main-menu section>
+                  ${
+                     items.forEach( item => {
+                        return( `
+                           <menu-item>
+                              <icon>
+                                 <img src="${ item.icon }" alt="">
+                              </icon>
+                              <t><a href="${ item.link }">${ item.name }</a></t>
+                           </menu-item>
+                        ` )
+                     } )
+                  }
+                  
+               </main-menu>
+            </content>
+            <footer>
+               <p>Logout</p>
+            </footer>
+         </drawer-inside>
+         <drawer-outside id="drawerOutside"></drawer-outside>
+      </drawer>
+   ` ); */
 }
 
 // Drawer();
