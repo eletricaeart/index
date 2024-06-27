@@ -88,27 +88,30 @@
                ];
             }
 
-            _( "load customers: \n", customers );
+            
             customers.forEach( customer => {
                return( $( "customers" ).innerHTML += `
-                  <customer section>
-                     <style>
-                     </style>
-                     <content>
-                        <header >
+                  <customer section horizontal>
+                     <header>
+                        <content>
                            <picture>
                               <img src="./ea.jpg" alt="">
                            </picture>
-                        </header>
+                        </content>
+                     </header>
+                     <contents section>
                         <content>
                            <name>${ customer.nome }</name>
                            <phone>${ customer.whatsapp || customer.cellphone }</phone>
                         </content>
-                     </content>
+                     </contents>
                   </customer>
                ` );
+               /*
+               */
             } );
          }
+         
 
 
          /* [ events ]

@@ -409,6 +409,10 @@ view, [view] {
 
 section, [section] {
 }
+section[horizontal],
+[section][horizontal] {
+   flex-direction: row !important;
+}
 
 [section="dual"] {
    display: flex;

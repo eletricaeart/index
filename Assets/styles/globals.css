@@ -482,43 +482,49 @@ customers {
 }
 customer {
    display: flex;
-   align-items: center;
-   background-color: var( --customer, #fff );
+   justify-content: center;
+   background-color: var( --customer, #21232940 );
    filter: drop-shadow( var( --customer-shadow, #0003 ) 3px 8px 18px );
    border: transparent;
    border-radius: 1.25em;
+   width: 100%;
+   aspect-ratio: 10/2.86; /*452 x 129*/
+   backdrop-filter: blur( 12px );
+   box-shadow: #0005 3px 6px 15px;
 }
-customer > content {  
-   flex-direction: row;
+customer > header {
+   display: flex;
+   align-items: center;
    justify-content: center;
+   flex: .3;
 }
-customer > content > content {
-   flex: .65;
+customer > contents {
+   display: flex;
    justify-content: center;
    gap: 1em;
+   flex: .7;
 }
-customer > content > header {
+
+customer > header > content {
+   height: calc( 100% - 0px );
+}
+customer > contents > content {
+   height: calc( 100% - 5px );
+}
+customer > header > picture {
    display: flex;
-   flex: .35;
-   min-width: 100px;
-   max-width: 120px;
-}
-customer > content > header > picture {
-   width: 100%;
+   width: 90%;
    border-radius: 100%;
-   aspect-ratio: 1;
-   display: flex;
 }
 customer picture > img {
    border-radius: 100%;
    width: 100%;
-   aspect-ratio: 1;
 }
 
 customer name {
-   font-size: 1em;
+   font-size: 1.3em;
    font-weight: bold;
 }
 customer phone {
-   font-size: 0.9em;
+   font-size: 1em;
 }
