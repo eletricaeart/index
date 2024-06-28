@@ -29,37 +29,35 @@
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
       <style>
+         picture[profile] {
+            width: 100%;
+            border-radius: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+         }
+         picture > img {
+            width: 100%;
+         }
+         [section="customer"] > header {
+            width: 50% !important;
+         }
+         
+         
       </style>
    </head>
    <body>
       <appbar></appbar>
       <drawer></drawer>
       
-      <home-page section>
-         <content>
-            <tt id="pageTitle">Cliente</tt>
-         </content>
-         <customer-area section>
-            <content id="customerArea"></content>
-         </customer-area>
+      <content>
+         <tt id="pageTitle">Cliente</tt>
+      </content>
+      <home-page section="customer">
       </home-page>
       
       <console section>
          <header>
          </header>
-         <content gap>
-            <h2>console</h2>
-
-            <button btn="showUsers" id="btn_showUsers">
-               Show users
-            </button>
-            <button btn="showLocalStorageEA.Users" id="btn_showLS">
-               show localStorage ea.users
-            </button>
-            <button btn="eraseEA.Users" id="btn_eraseLS">
-               erase ea.users
-            </button>
-         </content>
       </console>
       
       
@@ -132,9 +130,20 @@
                   }
                } );
                
-               $( "#customerArea" ).innerHTML += `
-                  <customer>
-                     ${ cust.nome }
+               
+               
+               $( "home-page" ).innerHTML += `
+                  <header>
+                     <content>
+                        <picture profile=".5">
+                           <img src="./ea.jpg" alt="">
+                        </picture>
+                        <name>
+                           ${ cust.nome }
+                        </name>
+                     </content>
+                  </header>
+                  <contact-info section>
                      ${ cust.whatsapp }
                      ${ cust.uf }
                      ${ cust.rua }
@@ -150,7 +159,7 @@
                      ${ cust.phone2 }
                      ${ cust.email }
                      ${ cust.observação }
-                  </customer>
+                  </contact-info>
                `;
             }
             
