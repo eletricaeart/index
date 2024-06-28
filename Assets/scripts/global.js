@@ -108,17 +108,20 @@ window.addEventListener( "load", ev => {
    // BackBtnExe();
 
    Observer();
-   // UpdateDB( { DBName: db.users, LSName: "ea.users" } );
    users = UpdateDB( "users", "ea.users" );
    customers = UpdateDB( "customers", "ea.customers" );
    budgets = UpdateDB( "budgets", "ea.budgets" );
    receipts = UpdateDB( "receipts", "ea.receipts" );
    services = UpdateDB( "services", "ea.services" );
-   // _( "users: ", console.table( users ) );
-   // _( "customers: ", customers );
-   // _( "budgets: ", budgets );
-   // _( "receipts: ", receipts );
-   // _( "services: ", services );
 
+   $$( "[link]" ).forEach( nl => {
+      nl.addEventListener( "click", () => {
+         localStorage.setItem(
+            "ea.load",
+            JSON.stringify( nl.getAttribute( "cust_id" ) )
+         );
+         window.open( "./customer.html", "_self" );
+      } );
+   } );
 
 } );

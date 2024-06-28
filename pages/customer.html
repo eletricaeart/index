@@ -37,8 +37,11 @@
       
       <home-page section>
          <content>
-            <tt>Cliente</tt>
+            <tt id="pageTitle">Cliente</tt>
          </content>
+         <customer-area section>
+            <content id="customerArea"></content>
+         </customer-area>
       </home-page>
       
       <console section>
@@ -64,16 +67,6 @@
          'use strict';
          /* [ properties ]
          =================================== */
-         let 
-            EraseLS = v => {
-               localStorage.removeItem( "ea.users" );
-               _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
-            }
-            ,
-            ShowUsers = () => _( "\n\nusers: \n", users )
-            ,
-            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
-         ;
          /* -------------------------------- */
          
          
@@ -81,12 +74,6 @@
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
-
-            function test() {
-               _( "test" );
-            }
-
-            test.prop = "Test-Prop";
 
             Button( {
                tag: "showUsers",
@@ -130,6 +117,29 @@
             ); // NavBar();
 
             NavLink();
+            
+            function PageLoad( props ) {
+               let 
+                  custID = JSON.parse( localStorage.getItem( "ea.load" ) )
+                  ,
+                  cust = {}
+                  ,
+                  data = [ ...JSON.parse( localStorage.getItem( "ea.customers" ) ) ]
+               ;
+               data.forEach( d => {
+                  if( d.id == custID ) {
+                     cust = { ...d };
+                  }
+               } );
+               
+               $( "#customerArea" ).innerHTML += `
+                  <customer>
+                     ${ cust.nome }
+                  </customer>
+               `;
+            }
+            
+            PageLoad( )
             
          } );
       </script>
