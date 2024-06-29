@@ -33,6 +33,14 @@ let
 
 /* == [ global functions ]
 == == == == == == == == == */
+function FormatNumber( link ) {
+   let data = link;
+   data = data.replaceAll( /\(/gi, "" );
+   data = data.replaceAll( /\)/gi, "" );
+   data = data.replaceAll( /\-/gi, "" );
+   data = data.replaceAll( /\ /gi, "" );
+   return data;
+}
 // function UpdateDB( { DBName, LSName, data } ) {
 //    if( localStorage.getItem( LSName ) ) {
 //       _( `${ DBName } antes: \n`, DBName );
@@ -123,5 +131,7 @@ window.addEventListener( "load", ev => {
          window.open( "./customer.html", "_self" );
       } );
    } );
+
+   
 
 } );
