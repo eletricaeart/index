@@ -44,6 +44,9 @@ html {
 
 body {
    background: var( --bg );
+}
+
+homepage, home-page {
    /* backdrop-filter: blur( 13px ); */
    background-color: #fff9;
    background-blend-mode: overlay;
@@ -51,7 +54,7 @@ body {
       circle at center, 
       #fff 80%, #27f5 
    );
-   background-image: url( ../imgs/bgs/2c79b93ca8dbe8e7c3ec4d7152eb0d31.jpg );
+   /* background-image: url( ../imgs/bgs/2c79b93ca8dbe8e7c3ec4d7152eb0d31.jpg ); */
 }
 
 appbar {
@@ -486,12 +489,13 @@ customer {
    display: flex;
    justify-content: center;
    background-color: var( --customer, #21232940 );
+   background-color: var( --customer, #bdbebf );
    filter: drop-shadow( var( --customer-shadow, #0003 ) 3px 8px 18px );
    border: transparent;
    border-radius: 1.25em;
    width: 100%;
    aspect-ratio: 10/2.86; /*452 x 129*/
-   backdrop-filter: blur( 5px );
+   /*backdrop-filter: blur( 5px );*/
    box-shadow: #0005 3px 6px 15px;
 }
 customer > header {
