@@ -175,13 +175,58 @@
                </content>
             </divider>
             
-            <list>
-               <card-item>
-                  <strong>Anotações</strong>
-                  <t id="customer_observação"></t>
-               </card-item>
-            </list>
+            <content>
+               <card>
+                  <content>
+                     <card-content>
+                        <t id="customer_observação"></t>
+                     </card-content>
+                  </content>
+               </card>
+            </content>
          </notes>
+         
+         <budgets section>
+            <divider section>
+               <content>
+                  <t6 title>Orçamentos</t6>
+               </content>
+            </divider>
+            
+            <content>
+               <card>
+                  <content>
+                     <card-content>
+                        <card-item>
+                           <strong>Orçamento 1</strong>
+                           <t id="customer_observação"></t>
+                        </card-item>
+                     </card-content>
+                  </content>
+               </card>
+            </content>
+         </budgets>
+         
+         <receipts section>
+            <divider section>
+               <content>
+                  <t6 title>Recibos</t6>
+               </content>
+            </divider>
+            
+            <content>
+               <card>
+                  <content>
+                     <card-content>
+                        <card-item>
+                           <strong>Recibo 1</strong>
+                           <t id="customer_observação"></t>
+                        </card-item>
+                     </card-content>
+                  </content>
+               </card>
+            </content>
+         </receipts>
 
          <form id="form">
             <footer content>
@@ -261,12 +306,19 @@
                   cust = {}
                   ,
                   data = [ ...JSON.parse( localStorage.getItem( "ea.customers" ) ) ]
+                  ,
+                  whatsappLink = ""
                ;
                data.forEach( d => {
                   if( d.id == custID ) {
                      cust = { ...d };
                   }
                } );
+
+               whatsappLink = cust.whatsapp.replaceAll( /\(/gi, "" );
+               whatsappLink = whatsappLink.replaceAll( /\)/gi, "" );
+               whatsappLink = whatsappLink.replaceAll( /\-/gi, "" );
+               whatsappLink = whatsappLink.replaceAll( /\ /gi, "" );
                
                // customer_pic.style.backgroundImage = "url( ./ea.jpg )";
                customer_pic.style.backgroundImage = cust.gender == "feminino" ? 
@@ -275,11 +327,23 @@
                   "url( ../Assets/imgs/Avatar/default_avatar_masc_720p.webp )";
                customer_name.innerText = cust.nome;
                customer_gender.innerText = `${ cust.gender }`;
-               customer_cellphone.innerText = `${ cust.cellphone }`;
-               customer_whatsapp.innerText = `${ cust.whatsapp }`;
-               customer_phone.innerText = `${ cust.phone }`;
-               customer_phone2.innerText = `${ cust.phone2 }`;
-               customer_email.innerText = `${ cust.email }`;
+
+               customer_cellphone.innerHTML = `<a href="tel:${ cust.cellphone }">${ cust.cellphone }</a>`;
+               
+               customer_whatsapp.innerHTML = `
+                  <a href="https://wa.me/55${ whatsappLink }">
+                     ${ cust.whatsapp }
+                  </a>
+               `;
+               customer_phone.innerHTML = `<a href="tel:${ cust.phone }">${ cust.phone }</a>`;
+               customer_phone2.innerHTML = `<a href="tel:${ cust.phone2 }">${ cust.phone2 }</a>`;
+               
+               customer_email.innerHTML = `
+                  <a href="mailto:${ cust.email }?subject=&cc=&body=">
+                     ${ cust.email }
+                  </a>
+               `;
+
                customer_rg.innerText = `${ cust.rg }`;
                customer_cpf.innerText = `${ cust.cpf }`;
                customer_address.innerText = `
