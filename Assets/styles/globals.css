@@ -567,9 +567,11 @@ content:has( #customer_name ) {
 }
 
 #customer_address {
+   display: flex;
+   flex-wrap: wrap;
+   width: 90%;
    font-size: .8em;
    color: var( --customer-address, #fc0 );
-   width: 100%;
 }
 
 divider {
