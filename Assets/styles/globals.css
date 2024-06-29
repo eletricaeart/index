@@ -477,7 +477,7 @@ console {
 }
 
 
-/* == [ customer ]
+/* == [ customers ]
 == == == == == == == == == */
 customers {
    gap: 1em;
@@ -530,3 +530,47 @@ customer name {
 customer phone {
    font-size: 1em;
 }
+
+
+/* == [ customer ]
+== == == == == == == == == */
+#customer_pic {
+   display: flex;
+   align-items: flex-end;
+   width: 100%;
+   aspect-ratio: 1;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+content:has( #customer_name ) {
+   width: 100%;
+   aspect-ratio: 10 / 3;
+   justify-content: center;
+   background-image: linear-gradient(
+      to bottom,
+      #0000 10%, 
+      #16181cdd, 
+      #000
+   );
+}
+#customer_name {
+   font-size: 1.5em;
+   font-weight: bold;
+   text-shadow: #000 0 0 10px;
+   color: var( --customer-name, #fff );
+   filter: drop-shadow( #000 0 0 10px );
+}
+
+divider {
+   background: var(--divider, #ddd);
+   color: #555;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+list > li {
+   /* padding: 1em 1.5em; */
+   /* border-bottom: #0009 1px solid; */
+}
+

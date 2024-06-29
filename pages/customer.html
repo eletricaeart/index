@@ -28,27 +28,16 @@
       <script src="../Assets/scripts/Widgets/NavLink.js" defer=""></script>
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
-      <style>
-         [section="customer"] {
-
+      <style>  
+         list {
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+            gap: 0.5em;
          }
-
-         [section="customer"] > header {
-            background: var( --bg2 );
+         list > li {
+            list-style-type: none;
          }
-
-         picture[profile] {
-            width: 100%;
-            border-radius: 100%;
-            aspect-ratio: 1;
-            overflow: hidden;
-         }
-
-         picture > img {
-            width: 100%;
-         }
-         
-         
       </style>
    </head>
    <body>
@@ -58,186 +47,104 @@
       <home-page section="customer">
          <!-- <tt id="pageTitle">Cliente</tt> -->
          <side-bar></side-bar>
-         <header>
-            <picture profile=".5">
-               <img id="customer_pic" src="./ea.jpg" alt="">
-            </picture>
-            <name>
-               <content id="customer_name"></content>
-            </name>
+         <header id="customer_pic">
+            <content>
+               <name id="customer_name"></name>
+               
+            </content>
          </header>
-         <contents section>
-            <label class="divider">
+         <conctat section>
+            <divider section>
                <content>
                   <small>CONTATO</small>
                </content>
-            </label>
-         </contents>
+            </divider>
+            <list>
+               <li>
+                  <t6>Celular</t6>
+                  <t id="customer_cellphone"></t>
+               </li>
+               <li>
+                  <t5>WhatsApp</t5>
+                  <t id="customer_whatsapp"></t>
+               </li>
+               <li>
+                  <t5>Telefone</t5>
+                  <t id="customer_phone"></t>
+               </li>
+               <li>
+                  <t5>Telefone secundário</t5>
+                  <t id="customer_phone2"></t>
+               </li>
+               <li>
+                  <t5>Email</t5>
+                  <t id="customer_email"></t>
+               </li>
+               <li>
+                  <t5>RG</t5>
+                  <t id="customer_rg"></t>
+               </li>
+               <li>
+                  <t5>CPF</t5>
+                  <t id="customer_cpf"></t>
+               </li>
+            </list>
+         </conctat>
+
+         <address section>
+            <divider section>
+               <content>
+                  <small>endereço</small>
+               </content>
+            </divider>
+            <list>
+               <li>
+                  <t6>CEP</t6>
+                  <t id="customer_cep"></t>
+               </li>
+               <li>
+                  <t6>Estado</t6>
+                  <t id="customer_uf"></t>
+               </li>
+               <li>
+                  <t6>Rua</t6>
+                  <t id="customer_rua"></t>
+               </li>
+               <li>
+                  <t6>N°</t6>
+                  <t id="customer_número"></t>
+               </li>
+               <li>
+                  <t6>Complemento</t6>
+                  <t id="customer_complemento"></t>
+               </li>
+               <li>
+                  <t6>Bairro</t6>
+                  <t id="customer_bairro"></t>
+               </li>
+               <li>
+                  <t6>Cidade</t6>
+                  <t id="customer_cidade"></t>
+               </li>
+            </list>
+         </address>
+         
+         <notes section>
+            <divider section>
+               <content>
+                  <small>Anotações</small>
+               </content>
+            </divider>
+            
+            <list>
+               <li>
+                  <t6>Anotações</t6>
+                  <t id="customer_observação"></t>
+               </li>
+            </list>
+         </notes>
+
          <form id="form">
-            <header content>
-               <t4>Cadastro Rápido</t4>
-            </header>
-            <cliente section>
-               <content>
-                  <label>
-                     <t>Nome do Cliente</t>
-                     <input type="text" placeholder="Nome do cliente" name="nome" id="input_nome"/>
-                     <msg id="msg_input_nome"></msg>
-                  </label>
-
-                  <label class="divider">
-                     <content>
-                        <small>CONTATO</small>
-                     </content>
-                  </label>
-
-                  <telefone section class="multi">
-                     <label>
-                        <t>Celular</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
-                        <msg id="msg_input_cellphone"></msg>
-                     </label>
-                     <whats-copy btn id="whatsCopyBtn">
-                        <img src="../Assets/imgs/icons/transfer.svg" alt="" />
-                     </whats-copy>
-                     <label>
-                        <t>WhatsApp</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp"/>
-                        <msg id="msg_input_whatsapp"></msg>
-                     </label>
-                  </telefone>
-                  <telefone section class="multi">
-                     <label>
-                        <t>Telefone</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
-                        <msg id="msg_input_phone"></msg>
-                     </label>
-                     <label>
-                        <t>Telefone 2</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2"/>
-                        <msg id="msg_input_phone2"></msg>
-                     </label>
-                  </telefone>
-                  <label>
-                     <t>Email</t>
-                     <input type="email" placeholder="email@email.com" name="email" id="input_email"/>
-                     <msg id="msg_input_email"></msg>
-                  </label>
-                  <rg-e-cpf section class="multi">
-                     <label>
-                        <t>RG/IE</t>
-                        <input type="number" placeholder="41.44.5792-4" name="rg" id="input_rg"/>
-                        <msg id="msg_input_rg"></msg>
-                     </label>
-                     <label>
-                        <t>CPF</t>
-                        <input type="number" placeholder="346.372.258-50" name="cpf" id="input_cpf"/>
-                        <msg id="msg_input_cpf"></msg>
-                     </label>
-                  </rg-e-cpf>
-
-                  <label class="divider">
-                     <content><small>ENDEREÇO</small></content>
-                  </label>
-                  <cep-e-uf section class="multi">
-                     <label>
-                        <t>CEP</t>
-                        <input type="number" placeholder="00.000-000" name="cep" id="input_cep" onblur="SearchForCEP( this.value )"/>
-                        <msg id="msg_input_cep"></msg>
-                     </label>
-                     <label>
-                        <t>UF</t>
-                        <input type="text" id="input_uf" name="uf" placeholder="Estado">
-                        <msg id="msg_input_uf"></msg>
-                     </label>
-                  </cep-e-uf>
-                  <label>
-                     <t>Rua</t>
-                     <input type="text" placeholder="Rua ..." id="input_rua" name="rua"/>
-                     <msg id="msg_input_rua"></msg>
-                  </label>
-                  <numero-e-complemento section class="multi">
-                     <label>
-                        <t>Número</t>
-                        <input type="number" placeholder="999" name="número" id="input_número"/>
-                        <msg id="msg_input_número"></msg>
-                     </label>
-                     <label>
-                        <t>Complemento</t>
-                        <input type="text" placeholder="Complemento" name="complemento" id="input_complemento"/>
-                        <msg id="msg_input_complemento"></msg>
-                     </label>
-                  </numero-e-complemento>
-                  <label>
-                     <t>Bairro</t>
-                     <input type="text" name="bairro" id="input_bairro" placeholder="Bairro"/>
-                     <msg id="msg_input_bairro"></msg>
-                  </label>
-                  <label>
-                     <t>Cidade</t>
-                     <input type="text" name="cidade" id="input_cidade" placeholder="Cidade"/>
-                     <msg id="msg_input_cidade"></msg>
-                  </label>
-                  <label class="divider">
-                     <content><small>OBSERVAÇÕES</small></content>
-                  </label>
-                  <label>
-                     <t>Observação</t>
-                     <textarea id="input_observação" name="observação"></textarea>
-                  </label>
-               </content>
-            </cliente>
-            <!--<orcamento section>
-               <header content>
-                  <h1>ORÇAMENTO</h1>
-               </header>
-               <table flex content>
-                  <thead type="header">
-                     <tr>
-                        <th>QT</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>R$ TOT</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>
-                           <input type="number" name="" id=""/>
-                        </td>
-                        <td>
-                           <input type="text" name="" id=""/>
-                        </td>
-                        <td>
-                           <input type="number" name="" id=""/>
-                        </td>
-                     </tr>
-                  </tbody>
-                  <tfooter>
-                     <content>
-                        <item>
-                           <label>
-                              <h4> DESCONTO </h4>
-                              <input type="number" placeholder="R$ 1.000,00" name="" id="desconto"/>
-                           </label>
-                        </item>
-                        <item>
-                           <label>
-                              <h3> Valor TOTAL </h3>
-                              <input type="number" placeholder="R$ 48.968,00" name="" id="total-value"/>
-                           </label>
-                        </item>
-                     </content>
-                  </tfooter>
-               </table>
-            </orcamento>
-            <obs section>
-               <header content>
-                  <h1>OBSERVAÇÕES</h1>
-               </header>
-               <content>
-                  <textarea id="obs" name="" rows="8"></textarea>
-               </content>
-            </obs>-->
             <footer content>
                <label>
                   <input type="submit" value="CADASTRAR">
@@ -259,6 +166,7 @@
          /* -------------------------------- */
          
          
+
          
          /* [ events ]
          =================================== */
@@ -321,31 +229,26 @@
                   }
                } );
                
-               
-               customer_pic.setAttribute( "src", "./ea.jpg" );
+               customer_pic.style.backgroundImage = "url( ./ea.jpg )";
                customer_name.innerText = cust.nome;
-               // $( "home-page > header > content > picture" ).innerHTML += `
-               //    // <contact-info section>
-               //    //    ${ cust.whatsapp }
-               //    //    ${ cust.uf }
-               //    //    ${ cust.rua }
-               //    //    ${ cust.complemento }
-               //    //    ${ cust.bairro }
-               //    //    ${ cust.cidade }
-               //    //    ${ cust.rg }
-               //    //    ${ cust.cpf }
-               //    //    ${ cust.cep }
-               //    //    ${ cust.número }
-               //    //    ${ cust.cellphone }
-               //    //    ${ cust.phone }
-               //    //    ${ cust.phone2 }
-               //    //    ${ cust.email }
-               //    //    ${ cust.observação }
-               //    // </contact-info>
-               // `;
+               customer_cellphone.innerText = `${ cust.cellphone }`;
+               customer_whatsapp.innerText = `${ cust.whatsapp }`;
+               customer_phone.innerText = `${ cust.phone }`;
+               customer_phone2.innerText = `${ cust.phone2 }`;
+               customer_email.innerText = `${ cust.email }`;
+               customer_rg.innerText = `${ cust.rg }`;
+               customer_cpf.innerText = `${ cust.cpf }`;
+               customer_cep.innerText = `${ cust.cep }`;
+               customer_uf.innerText = `${ cust.uf }`;
+               customer_rua.innerText = `${ cust.rua }`;
+               customer_número.innerText = `${ cust.número }`;
+               customer_complemento.innerText = `${ cust.complemento }`;
+               customer_bairro.innerText = `${ cust.bairro }`;
+               customer_cidade.innerText = `${ cust.cidade }`;
+               customer_observação.innerText = `${ cust.observação }`;
             }
             
-            PageLoad( )
+            PageLoad();
             
          } );
       </script>
