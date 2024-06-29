@@ -308,6 +308,12 @@
                   data = [ ...JSON.parse( localStorage.getItem( "ea.customers" ) ) ]
                   ,
                   whatsappLink = ""
+                  ,
+                  cellphoneLink = ""
+                  ,
+                  phoneLink = ""
+                  ,
+                  phone2Link = ""
                ;
                data.forEach( d => {
                   if( d.id == custID ) {
@@ -315,10 +321,19 @@
                   }
                } );
 
-               whatsappLink = cust.whatsapp.replaceAll( /\(/gi, "" );
-               whatsappLink = whatsappLink.replaceAll( /\)/gi, "" );
-               whatsappLink = whatsappLink.replaceAll( /\-/gi, "" );
-               whatsappLink = whatsappLink.replaceAll( /\ /gi, "" );
+               function FormatNumber( link ) {
+                  let data = link;
+                  data = data.replaceAll( /\(/gi, "" );
+                  data = data.replaceAll( /\)/gi, "" );
+                  data = data.replaceAll( /\-/gi, "" );
+                  data = data.replaceAll( /\ /gi, "" );
+                  return data;
+               }
+
+               whatsappLink = FormatNumber( cust.whatsapp );
+               cellphoneLink = FormatNumber( cust.cellphone );
+               phoneLink = FormatNumber( cust.phone );
+               phone2Link = FormatNumber( cust.phone2 );
                
                // customer_pic.style.backgroundImage = "url( ./ea.jpg )";
                customer_pic.style.backgroundImage = cust.gender == "feminino" ? 
@@ -328,15 +343,15 @@
                customer_name.innerText = cust.nome;
                customer_gender.innerText = `${ cust.gender }`;
 
-               customer_cellphone.innerHTML = `<a href="tel:${ cust.cellphone }">${ cust.cellphone }</a>`;
+               customer_cellphone.innerHTML = `<a href="tel:${ cellphoneLink }">${ cust.cellphone }</a>`;
                
                customer_whatsapp.innerHTML = `
                   <a href="https://wa.me/55${ whatsappLink }">
                      ${ cust.whatsapp }
                   </a>
                `;
-               customer_phone.innerHTML = `<a href="tel:${ cust.phone }">${ cust.phone }</a>`;
-               customer_phone2.innerHTML = `<a href="tel:${ cust.phone2 }">${ cust.phone2 }</a>`;
+               customer_phone.innerHTML = `<a href="tel:${ phoneLink }">${ cust.phone }</a>`;
+               customer_phone2.innerHTML = `<a href="tel:${ phone2Link }">${ cust.phone2 }</a>`;
                
                customer_email.innerHTML = `
                   <a href="mailto:${ cust.email }?subject=&cc=&body=">
