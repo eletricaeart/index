@@ -61,33 +61,22 @@
          </nome>
          
          <dados-pessoais section>
-            <!-- <divider section>
-               <content>
-                  <small>dados pessoais</small>
-               </content>
-            </divider> -->
             <content>
                <card>
-                  <header content>
+                  <header >
                      <content>
                         <t5 title>Dados Pessoais</t5>
                      </content>
                   </header>
                   <content>
-                     <p>
+                     <card-item>
                         <strong>RG</strong>
                         <t id="customer_rg"></t>
-                     </p>
-                     <list>
-                        <!-- <li>
-                           <t5>RG</t5>
-                           <t id="customer_rg"></t>
-                        </li> -->
-                        <li>
-                           <t5>CPF</t5>
-                           <t id="customer_cpf"></t>
-                        </li>
-                     </list>
+                     </card-item>
+                     <card-item>
+                        <strong>CPF</strong>
+                        <t id="customer_cpf"></t>
+                     </card-item>
                   </content>
                </card>
             </content>
@@ -101,26 +90,26 @@
             </divider>
             <content>
                <list>
-                  <li>
-                     <t6>Celular</t6>
+                  <card-item>
+                     <strong>Celular</strong>
                      <t id="customer_cellphone"></t>
-                  </li>
-                  <li>
-                     <t5>WhatsApp</t5>
+                  </card-item>
+                  <card-item>
+                     <strong>WhatsApp</strong>
                      <t id="customer_whatsapp"></t>
-                  </li>
-                  <li>
-                     <t5>Telefone</t5>
+                  </card-item>
+                  <card-item>
+                     <strong>Telefone</strong>
                      <t id="customer_phone"></t>
-                  </li>
-                  <li>
-                     <t5>Telefone secundário</t5>
+                  </card-item>
+                  <card-item>
+                     <strong>Telefone secundário</strong>
                      <t id="customer_phone2"></t>
-                  </li>
-                  <li>
-                     <t5>Email</t5>
+                  </card-item>
+                  <card-item>
+                     <strong>Email</strong>
                      <t id="customer_email"></t>
-                  </li>
+                  </card-item>
                </list>
             </content>
          </conctat>
@@ -133,36 +122,34 @@
             </divider>
             <content>
                <list>
-                  <li>
-                     <t id="customer_cep">
+                  <card-item>
                      <strong>CEP</strong>
-                        
-                     </t>
-                  </li>
-                  <li>
-                     <t6>Rua</t6>
+                     <t id="customer_cep"></t>
+                  </card-item>
+                  <card-item>
+                     <strong>Rua</strong>
                      <t id="customer_rua"></t>
-                  </li>
-                  <li>
-                     <t6>N°</t6>
+                  </card-item>
+                  <card-item>
+                     <strong>N°</strong>
                      <t id="customer_número"></t>
-                  </li>
-                  <li>
-                     <t6>Complemento</t6>
+                  </card-item>
+                  <card-item>
+                     <strong>Complemento</strong>
                      <t id="customer_complemento"></t>
-                  </li>
-                  <li>
-                     <t6>Bairro</t6>
+                  </card-item>
+                  <card-item>
+                     <strong>Bairro</strong>
                      <t id="customer_bairro"></t>
-                  </li>
-                  <li>
-                     <t6>Cidade</t6>
+                  </card-item>
+                  <card-item>
+                     <strong>Cidade</strong>
                      <t id="customer_cidade"></t>
-                  </li>
-                  <li>
-                     <t6>Estado</t6>
+                  </card-item>
+                  <card-item>
+                     <strong>Estado</strong>
                      <t id="customer_uf"></t>
-                  </li>
+                  </card-item>
                </list>
             </content>
          </address>
@@ -175,10 +162,10 @@
             </divider>
             
             <list>
-               <li>
-                  <t6>Anotações</t6>
+               <card-item>
+                  <strong>Anotações</strong>
                   <t id="customer_observação"></t>
-               </li>
+               </card-item>
             </list>
          </notes>
 

@@ -25,6 +25,8 @@
    --form-bg: var( --bg2 );
 
    --customer: #fff;
+   --customer-name: #333;
+   --customer-address: #777;
    
    font: 1em "inter";
    font-weight: 400;
@@ -588,9 +590,19 @@ content[name] {
    font-size: .8em;
    font-weight: bold;
    color: var( --customer-address, #fc0 );
-   color: var( --customer-address, #555 );
 }
 
+card-item {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1em 0;
+   border-bottom: #9995 1px solid;
+}
+card-item strong {
+   color: var( --card-item-strong, #555 );
+}
 divider {
    background: var(--divider, #ddd);
    color: #555;
