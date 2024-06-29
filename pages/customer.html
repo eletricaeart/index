@@ -78,6 +78,10 @@
                            <strong>CPF</strong>
                            <t id="customer_cpf"></t>
                         </card-item>
+                        <card-item>
+                           <strong>Gênero</strong>
+                           <t id="customer_gender"></t>
+                        </card-item>
                      </card-content>
                   </content>
                </card>
@@ -270,6 +274,7 @@
                   : 
                   "url( ../Assets/imgs/Avatar/default_avatar_masc_720p.webp )";
                customer_name.innerText = cust.nome;
+               customer_gender.innerText = `${ cust.gender }`;
                customer_cellphone.innerText = `${ cust.cellphone }`;
                customer_whatsapp.innerText = `${ cust.whatsapp }`;
                customer_phone.innerText = `${ cust.phone }`;
