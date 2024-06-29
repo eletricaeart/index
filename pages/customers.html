@@ -95,7 +95,12 @@
                      <header>
                         <content>
                            <picture>
-                              <img src="./ea.jpg" alt="">
+                              <img src=${
+                                 customer.gender == "feminino" ?
+                                    "../Assets/imgs/Avatar/default_avatar_fem_ico.webp"
+                                    : 
+                                    "../Assets/imgs/Avatar/default_avatar_masc_ico.webp"
+                              } alt="">
                            </picture>
                         </content>
                      </header>
@@ -116,6 +121,7 @@
                let data = [
                   {
                      "nome": "Débora Maria Cruz Sammarco",
+                     "gender": "feminino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -135,6 +141,7 @@
                   },
                   {
                      "nome": "Rafael Ângelo Sammarco",
+                     "gender": "masculino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -154,6 +161,7 @@
                   },
                   {
                      "nome": "Gabriel Sammarco Nunes",
+                     "gender": "masculino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -173,6 +181,7 @@
                   },
                   {
                      "nome": "Leonardo Sammarco",
+                     "gender": "masculino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -192,6 +201,7 @@
                   },
                   {
                      "nome": "Anselmo Sammarco Nunes",
+                     "gender": "masculino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -211,6 +221,7 @@
                   },
                   {
                      "nome": "Noely Oliveira Gangello",
+                     "gender": "feminino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",
@@ -230,6 +241,7 @@
                   },
                   {
                      "nome": "Bernardo Sammarco Gangello",
+                     "gender": "masculino",
                      "uf": "SP",
                      "rua": "Henrique Dias",
                      "complemento": "Casa",

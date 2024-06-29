@@ -264,7 +264,11 @@
                   }
                } );
                
-               customer_pic.style.backgroundImage = "url( ./ea.jpg )";
+               // customer_pic.style.backgroundImage = "url( ./ea.jpg )";
+               customer_pic.style.backgroundImage = cust.gender == "feminino" ? 
+                  "url( ../Assets/imgs/Avatar/default_avatar_fem_720p.webp )"
+                  : 
+                  "url( ../Assets/imgs/Avatar/default_avatar_masc_720p.webp )";
                customer_name.innerText = cust.nome;
                customer_cellphone.innerText = `${ cust.cellphone }`;
                customer_whatsapp.innerText = `${ cust.whatsapp }`;
