@@ -50,9 +50,27 @@
          <header id="customer_pic">
             <content>
                <name id="customer_name"></name>
-               
+               <address id="customer_address"></address>
             </content>
          </header>
+         <dados-pessoais section>
+            <divider section>
+               <content>
+                  <small>dados pessoais</small>
+               </content>
+            </divider>
+            <list>
+               <li>
+                  <t5>RG</t5>
+                  <t id="customer_rg"></t>
+               </li>
+               <li>
+                  <t5>CPF</t5>
+                  <t id="customer_cpf"></t>
+               </li>
+            </list>
+         </dados-pessoais>
+         
          <conctat section>
             <divider section>
                <content>
@@ -80,14 +98,6 @@
                   <t5>Email</t5>
                   <t id="customer_email"></t>
                </li>
-               <li>
-                  <t5>RG</t5>
-                  <t id="customer_rg"></t>
-               </li>
-               <li>
-                  <t5>CPF</t5>
-                  <t id="customer_cpf"></t>
-               </li>
             </list>
          </conctat>
 
@@ -100,31 +110,25 @@
             <list>
                <li>
                   <t6>CEP</t6>
-                  <t id="customer_cep"></t>
+                  <txt id="customer_endereço"></txt>
                </li>
                <li>
                   <t6>Estado</t6>
-                  <t id="customer_uf"></t>
                </li>
                <li>
                   <t6>Rua</t6>
-                  <t id="customer_rua"></t>
                </li>
                <li>
                   <t6>N°</t6>
-                  <t id="customer_número"></t>
                </li>
                <li>
                   <t6>Complemento</t6>
-                  <t id="customer_complemento"></t>
                </li>
                <li>
                   <t6>Bairro</t6>
-                  <t id="customer_bairro"></t>
                </li>
                <li>
                   <t6>Cidade</t6>
-                  <t id="customer_cidade"></t>
                </li>
             </list>
          </address>
@@ -238,14 +242,18 @@
                customer_email.innerText = `${ cust.email }`;
                customer_rg.innerText = `${ cust.rg }`;
                customer_cpf.innerText = `${ cust.cpf }`;
-               customer_cep.innerText = `${ cust.cep }`;
+               customer_address.innerText = `
+                  Rua ${ cust.rua }, ${ cust.número } "${ cust.complemento }" - 
+                  ${ cust.bairro } ${ cust.cidade } - ${ cust.uf }, 
+                  ${ cust.cep }`;
+               /*customer_cep.innerText = `${ cust.cep }`;
                customer_uf.innerText = `${ cust.uf }`;
                customer_rua.innerText = `${ cust.rua }`;
                customer_número.innerText = `${ cust.número }`;
                customer_complemento.innerText = `${ cust.complemento }`;
                customer_bairro.innerText = `${ cust.bairro }`;
                customer_cidade.innerText = `${ cust.cidade }`;
-               customer_observação.innerText = `${ cust.observação }`;
+               customer_observação.innerText = `${ cust.observação }`;*/
             }
             
             PageLoad();

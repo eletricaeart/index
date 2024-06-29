@@ -542,7 +542,7 @@ customer phone {
    display: flex;
    align-items: flex-end;
    width: 100%;
-   aspect-ratio: 1;
+   aspect-ratio: 16 / 9;
    background-size: cover;
    background-repeat: no-repeat;
 }
@@ -564,6 +564,12 @@ content:has( #customer_name ) {
    text-shadow: #000 0 0 10px;
    color: var( --customer-name, #fff );
    filter: drop-shadow( #000 0 0 10px );
+}
+
+#customer_address {
+   font-size: .8em;
+   color: var( --customer-address, #fc0 );
+   width: 100%;
 }
 
 divider {

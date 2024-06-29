@@ -99,6 +99,11 @@ ct1, ct2, ct3, ct4, ct5, ct6 {
    font-style: normal;
 }
 
+txt {
+   display: flex;
+   flex-direction: row;
+}
+
 p, t, txt, li {
    font-family: "inter", "Roboto", sans-serif;
    font-weight: normal;
