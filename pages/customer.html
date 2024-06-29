@@ -48,28 +48,48 @@
          <!-- <tt id="pageTitle">Cliente</tt> -->
          <side-bar></side-bar>
          <header id="customer_pic">
+            <content name>
+               <!-- <name id="customer_name"></name>
+               <address id="customer_address"></address> -->
+            </content>
+         </header>
+         <nome section content>
             <content>
                <name id="customer_name"></name>
                <address id="customer_address"></address>
             </content>
-         </header>
+         </nome>
+         
          <dados-pessoais section>
-            <divider section>
+            <!-- <divider section>
                <content>
                   <small>dados pessoais</small>
                </content>
-            </divider>
+            </divider> -->
             <content>
-               <list>
-                  <li>
-                     <t5>RG</t5>
-                     <t id="customer_rg"></t>
-                  </li>
-                  <li>
-                     <t5>CPF</t5>
-                     <t id="customer_cpf"></t>
-                  </li>
-               </list>
+               <card>
+                  <header content>
+                     <content>
+                        <t5 title>Dados Pessoais</t5>
+                     </content>
+                  </header>
+                  <content>
+                     <p>
+                        <strong>RG</strong>
+                        <t id="customer_rg"></t>
+                     </p>
+                     <list>
+                        <!-- <li>
+                           <t5>RG</t5>
+                           <t id="customer_rg"></t>
+                        </li> -->
+                        <li>
+                           <t5>CPF</t5>
+                           <t id="customer_cpf"></t>
+                        </li>
+                     </list>
+                  </content>
+               </card>
             </content>
          </dados-pessoais>
          

@@ -20,11 +20,17 @@
    --btn-bg: var( --card-lv1 );
    --error: #f55;
 
+   --homepage: var( --bg );
+
    --form-bg: var( --bg2 );
+
+   --customer: #fff;
    
    font: 1em "inter";
    font-weight: 400;
    color: var( --text-color );
+
+   --class-title: var( --card-lv2 );
 }
 
 ::-webkit-scrollbar {
@@ -48,13 +54,17 @@ body {
 
 homepage, home-page {
    /* backdrop-filter: blur( 13px ); */
-   background-color: #fff9;
-   background-blend-mode: overlay;
+   background-color: var( --homepage, #fff9 );
+   /* background-blend-mode: overlay;
    background-image: radial-gradient(
       circle at center, 
       #fff 80%, #27f5 
-   );
+   ); */
    /* background-image: url( ../imgs/bgs/2c79b93ca8dbe8e7c3ec4d7152eb0d31.jpg ); */
+}
+
+card, [card] {
+   background: var( --card, #fff );
 }
 
 appbar {
@@ -490,13 +500,13 @@ customer {
    justify-content: center;
    background-color: var( --customer, #21232940 );
    background-color: var( --customer, #bdbebf );
-   filter: drop-shadow( var( --customer-shadow, #0003 ) 3px 8px 18px );
+   /* filter: drop-shadow( var( --customer-shadow, #0003 ) 3px 8px 18px ); */
    border: transparent;
    border-radius: 1.25em;
    width: 100%;
    aspect-ratio: 10/2.86; /*452 x 129*/
    /*backdrop-filter: blur( 5px );*/
-   box-shadow: #0005 3px 6px 15px;
+   /* box-shadow: #0005 3px 6px 15px; */
 }
 customer > header {
    display: flex;
@@ -547,7 +557,7 @@ customer phone {
    background-repeat: no-repeat;
 }
 
-content:has( #customer_name ) {
+content[name] {
    width: 100%;
    aspect-ratio: 10 / 3;
    justify-content: center;
@@ -557,13 +567,18 @@ content:has( #customer_name ) {
       #16181cdd, 
       #000
    );
+   background-image: linear-gradient(
+      to bottom,
+      #0000 50%, 
+      var( --bg )
+   );
 }
 #customer_name {
    font-size: 1.5em;
    font-weight: bold;
-   text-shadow: #000 0 0 10px;
-   color: var( --customer-name, #fff );
-   filter: drop-shadow( #000 0 0 10px );
+   color: var( --customer-name, #212329 );
+   /* text-shadow: #000 0 0 10px;
+   filter: drop-shadow( #000 0 0 10px ); */
 }
 
 #customer_address {
@@ -571,7 +586,9 @@ content:has( #customer_name ) {
    flex-wrap: wrap;
    width: 90%;
    font-size: .8em;
+   font-weight: bold;
    color: var( --customer-address, #fc0 );
+   color: var( --customer-address, #555 );
 }
 
 divider {
@@ -586,3 +603,10 @@ list > li {
    /* border-bottom: #0009 1px solid; */
 }
 
+
+
+/* == [ classes ]
+== == == == == == == == == */
+.title, [title] {
+   color: var( --class-title );
+}
