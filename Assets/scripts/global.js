@@ -41,18 +41,7 @@ function FormatNumber( link ) {
    data = data.replaceAll( /\ /gi, "" );
    return data;
 }
-// function UpdateDB( { DBName, LSName, data } ) {
-//    if( localStorage.getItem( LSName ) ) {
-//       _( `${ DBName } antes: \n`, DBName );
-//       DBName = JSON.parse( localStorage.getItem( LSName ) );
-//       _( `${ DBName } depois: \n`, DBName );
-//    }
-//    if( data ) {
-//       DBName.push( data );
-//       localStorage.setItem( LSName, JSON.stringify( DBName ) );
-//       _( `${ LSName } has been updated: \n${ localStorage.getItem( LSName ) }` );
-//    }
-// }
+
 function UpdateDB( DBName, LSName, data ) {
    let 
       newData = {}
