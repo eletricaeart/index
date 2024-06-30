@@ -70,7 +70,10 @@
                <budget card>
                   <content>
                      <p>Valor do recibo </p>
-                     <t5>R$ 0,00</t5>
+                     <row>
+                        <t5>R$&nbsp;</t5>
+                        <t5> 0,00</t5>
+                     </row>
                   </content>
                </budget>
             </content>
@@ -88,14 +91,16 @@
                      <t>Data do recebimento</t>
                      <input type="date" id="input_dataDoRecebimento" name="dataDoRecebimento" value="2024-12-12">
                   </label>
-                  <label id="label_ref">
-                     <t>referência</t>
-                     <input type="text" id="input_ref" name="ref" placeholder="" pattern="\d{4,4}">
-                  </label>
-                  <label id="label_subtotal">
-                     <t>Subtotal</t>
-                     <input type="number" step="0.01" id="input_subtotal" name="subtotal" placeholder="R$ 0,00">
-                  </label>
+                  <section section class="multi">
+                     <label id="label_ref">
+                        <t>referência</t>
+                        <input type="text" id="input_ref" name="ref" placeholder="" pattern="\d{4,4}">
+                     </label>
+                     <label id="label_subtotal">
+                        <t>Subtotal</t>
+                        <input type="number" step="0.01" id="input_subtotal" name="subtotal" placeholder="R$ 0,00">
+                     </label>
+                  </section>
                   <label id="label_vencimento">
                      <t>Vencimento</t>
                      <input type="date" id="input_vencimento" name="vencimento" placeholder="dd-mm-yyyy" pattern="\d{4}-\d{2}-\d{2}">
@@ -226,10 +231,40 @@
             
             input_dataDoRecebimento.addEventListener( "load", () => {
             } );
-            // form_new_recipt.addEventListener( "submit", () => {
-            //    event.preventDefault();
-            //    _( "submit", input_dataDoRecebimento.value );
-            // } );
+            
+            /* form submit */
+            form_new_recipt.addEventListener( "submit", () => {
+               event.preventDefault();
+               let 
+                  inputs = [
+                     ...$$( "input[type='text']" ),
+                     ...$$( "input[type='number']" ),
+                     ...$$( "input[type='tel']" ),
+                     ...$$( "input[type='date']" ),
+                  ]
+                  ,
+                  data = {}
+                  ,
+                  keysNvalues = []
+                  ,
+                  recibos = []
+               ;
+               
+               if( localStorage.getItem( "ea.receipts" ) ) {
+                  recibos = [
+                     ...JSON.parse( localStorage.getItem( "ea.receipts" ) )
+                  ];
+               }
+               _( "recibos: ", recibos );
+               inputs.forEach( input => {
+                  keysNvalues.push( [ 
+                     input.getAttribute( "name" )
+                     ,
+                     input.value
+                  ] );
+               } );
+               _( "kv: ", keysNvalues );
+            } );
 
          } );
       </script>

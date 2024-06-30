@@ -29,6 +29,34 @@
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
       <style>
+      home-page:has( add-service ) {
+         min-height: 100vh;
+         justify-content: space-between;
+      }
+      add-servic {
+         position: fixed;
+         bottom: 0;
+         left: 0;
+      }
+      list[services] > li {
+         padding: 1.2em 0;
+         border-bottom: 2px #9999 solid;
+         gap: .5em;
+      }
+      list > li > info {
+         display: flex;
+         flex-direction: row !important;
+         align-items: center;
+         justify-content: space-between;
+      }
+      list > li > info > * {
+         flex: 1;
+         font-size: .8em;
+         color: #555;
+      }
+      info > total {
+         justify-content: flex-end;
+      }
       </style>
    </head>
    <body>
@@ -36,28 +64,60 @@
       <drawer></drawer>
       
       <home-page section>
-         <content>
-            <tt>Novo Serviço</tt>
+         <header>
+            <content>
+               <tt>Novo Serviço</tt>
+            </content>
+         </header>
+         <content id="page_content">
+            <list services id="serviços_section">
+               <li section>
+                  <name>Forro de DryWall</name>
+                  <info>
+                     <unit section>
+                        2 x R$ 500,00
+                     </unit>
+                     <total row>
+                        <strong>Total&nbsp;</strong> R$ 1.000,00
+                     </total>
+                  </info>
+               </li>
+            </list>
          </content>
+         <add-service section>
+            <content>
+               <form action="" method="get" accept-charset="utf-8" id="form_new_service">
+                  <form-body id="form_body">
+                     <service section>
+                        <content>
+                           <label id="label_">
+                              <t>Descrição</t>
+                              <input type="text" name="" id="input_" value="" placeholder=""/>
+                           </label>
+                           <service-info section class="multi">
+                              <label id="label_">
+                                 <t>Quantidade</t>
+                                 <input type="text" name="" id="input_" value="" placeholder=""/>
+                              </label>
+                              <label id="label_">
+                                 <t>Valor</t>
+                                 <input type="text" name="" id="input_" value="" placeholder=""/>
+                              </label>
+                           </service-info>
+                        </content>
+                     </service>
+                  </form-body>
+                  <footer>
+                     <content class="multi">
+                        <input type="button" id="btn_add_service" value="Adicionar mais serviço" />
+                        <input type="submit" id="submit" value="Salvar" />
+                     </content>
+                  </footer>
+               </form>
+            </content>
+         </add-service>
       </home-page>
       
-      <console section>
-         <header>
-         </header>
-         <content gap>
-            <h2>console</h2>
-
-            <button btn="showUsers" id="btn_showUsers">
-               Show users
-            </button>
-            <button btn="showLocalStorageEA.Users" id="btn_showLS">
-               show localStorage ea.users
-            </button>
-            <button btn="eraseEA.Users" id="btn_eraseLS">
-               erase ea.users
-            </button>
-         </content>
-      </console>
       
       
       <script>
@@ -71,28 +131,25 @@
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
-            
-            Button( {
-               tag: "showUsers",
-               callback: ShowUsers
-            } );
-
-            Button( {
-               tag: "showLocalStorageEA.Users",
-               bg: "#27f5",
-               color: "#99",
-               callback: ShowLS,
-            } );
-
-            Button( {
-               tag: "eraseEA.Users",
-               bg: "#27f5",
-               color: "#99",
-               callback: EraseLS,
-            } );
 
             Drawer();
             NavLink();
+            
+            btn_add_service.addEventListener( "click", () => {
+               serviços_section.innerHTML += `
+                  <li section>
+                     <name>Forro de DryWall</name>
+                     <info>
+                        <unit section>
+                           2 x R$ 500,00
+                        </unit>
+                        <total row>
+                           <strong>Total&nbsp;</strong> R$ 1.000,00
+                        </total>
+                     </info>
+                  </li>
+               `;
+            } );
          } );
       </script>
    </body>

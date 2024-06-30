@@ -557,6 +557,10 @@ flex, [flex] {
    flex-direction: column;
    width: 100%;
 }
+row, [row] {
+   display: flex !important;
+   flex-direction: row !important;
+}
 
 placeholder img {
    display: block;
