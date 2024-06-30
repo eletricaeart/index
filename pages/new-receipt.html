@@ -64,7 +64,7 @@
             <content>
                <tt>Novo recibo</tt>
             </content>
-         </content>
+         </header>
          <budget-value section>
             <content>
                <budget card>
@@ -167,6 +167,15 @@
          'use strict';
          /* [ properties ]
          =================================== */
+         let 
+            date = new Date()
+            ,
+            day = date.getDate() < 10 ? `0${ date.getDate() }` : date.getDate()
+            ,
+            month = date.getMonth() < 10 ? `0${ date.getMonth() + 1 }` : date.getMonth() + 1
+            ,
+            year = date.getFullYear()
+         ;
          /* -------------------------------- */
          
          
@@ -197,15 +206,6 @@
             Drawer();
             NavLink();
 
-            // input_vencimento.addEventListener( "load", () => {
-            //    input_vencimento.value = input_vencimento.value.split( "-" ).reverse().join( "/" );
-            //    _( input_vencimento.value );
-            // } );
-            // input_vencimento.addEventListener( "blur", () => {
-            //    input_vencimento.value = input_vencimento.value.split( "-" ).reverse().join( "/" );
-            //    _( input_vencimento.value );
-            // } );
-
             input_estaPago.addEventListener( "click", () => {
                if( input_estaPago.getAttribute( "checked" ) == "1" ) {
                   input_estaPago.setAttribute( "checked", "0" );
@@ -217,7 +217,14 @@
                   
                   label_dataDoRecebimento.style.display = "flex";
                   // _( "oi n" );
+                  
+                  input_dataDoRecebimento.value = `${ year }-${ month }-${ day }`;
                }
+            } );
+            
+            input_vencimento.value = `${ year }-${ month }-${ day }`;
+            
+            input_dataDoRecebimento.addEventListener( "load", () => {
             } );
             // form_new_recipt.addEventListener( "submit", () => {
             //    event.preventDefault();
