@@ -19,6 +19,7 @@
       == == == == == == == == == -->
       <script src="../Assets/scripts/clb.js" defer=""></script>
       <script src="../Assets/scripts/global.js" defer=""></script>
+      <script src="../Assets/scripts/regexp.js" defer=""></script>
       <!-- == [ includes ]
       == == == == == == == == == -->
       <script src="../Assets/scripts/Modules/AppBar.js" defer=""></script>
@@ -75,7 +76,7 @@
                   <telefone section class="multi">
                      <label>
                         <t>Celular</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone"/>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="cellphone" id="input_cellphone" pattern="\(\d{2}\)\s*\d{5}-\d{4}" maxlength="15"/>
                         <msg id="msg_input_cellphone"></msg>
                      </label>
                      <whats-copy btn id="whatsCopyBtn">
@@ -83,19 +84,19 @@
                      </whats-copy>
                      <label>
                         <t>WhatsApp</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp"/>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="whatsapp" id="input_whatsapp" pattern="\(\d{2}\)\s*\d{5}-\d{4}" maxlength="15"/>
                         <msg id="msg_input_whatsapp"></msg>
                      </label>
                   </telefone>
                   <telefone section class="multi">
                      <label>
                         <t>Telefone</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone"/>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone" id="input_phone" pattern="\(\d{2}\)\s*\d{5}-\d{4}" maxlength="15"/>
                         <msg id="msg_input_phone"></msg>
                      </label>
                      <label>
                         <t>Telefone 2</t>
-                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2"/>
+                        <input type="tel" placeholder="(99) 9 9999-9999" name="phone2" id="input_phone2" pattern="\(\d{2}\)\s*\d{5}-\d{4}" maxlength="15"/>
                         <msg id="msg_input_phone2"></msg>
                      </label>
                   </telefone>

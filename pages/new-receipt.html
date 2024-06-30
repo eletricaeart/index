@@ -19,6 +19,7 @@
       == == == == == == == == == -->
       <script src="../Assets/scripts/clb.js" defer=""></script>
       <script src="../Assets/scripts/global.js" defer=""></script>
+      <script src="../Assets/scripts/regexp.js" defer=""></script>
       <!-- == [ includes ]
       == == == == == == == == == -->
       <script src="../Assets/scripts/Modules/AppBar.js" defer=""></script>
@@ -33,7 +34,20 @@
             background: var( --budget-card, #459 );
             color: var( --appbar-title );
          }
+
+         input:invalid {
+            border: red 1px solid;
+         }
       </style>
+      <!-- pattern 
+         ^ inicio
+         $ fim
+         \d{4,4} só 4 digitos
+         [0,9]{3} 3 digits
+         [a-z]{4,8} 4 to 8 lowercase
+         \(\d{2}\)\s*\d{5}-\d{4} pattern (13) 99148-6078
+         
+        -->
    </head>
    <body>
       <appbar></appbar>
@@ -65,23 +79,32 @@
                   </label>
                   <label id="label_vencimento">
                      <t>Vencimento</t>
-                     <input type="date" id="input_vencimento" name="vencimento" placeholder="31/12/0000">
+                     <input type="date" id="input_vencimento" name="vencimento" placeholder="dd-mm-yyyy" pattern="\d{4}-\d{2}-\d{2}">
                   </label>
-                  <label id="label_estaPago">
+                  <label switch id="label_estaPago">
                      <t>Já foi recebido</t>
-                     <input type="checkbox" id="input_estaPago" name="estaPago" placeholder="">
+                     <input type="checkbox" slider id="input_estaPago" name="estaPago" placeholder="">
+                     <slider><ball></ball></slider>
                   </label>
                   <label id="label_dataDoRecebimento">
                      <t>Data do recebimento</t>
-                     <input type="date" id="input_dataDoRecebimento" name="dataDoRecebimento" placeholder="">
+                     <input type="date" id="input_dataDoRecebimento" name="dataDoRecebimento" value="2024-12-12">
                   </label>
                   <label id="label_ref">
                      <t>referência</t>
-                     <input type="text" id="input_ref" name="ref" placeholder="">
+                     <input type="text" id="input_ref" name="ref" placeholder="" pattern="\d{4,4}">
                   </label>
                   <label id="label_cliente">
                      <t>Cliente</t>
                      <input type="text" id="input_cliente" name="cliente" placeholder="Nome do cliente">
+                  </label>
+                  <label id="label_cpf">
+                     <t>CPF</t>
+                     <input type="number" id="input_cpf" name="cpf" placeholder="CPF do cliente" pattern="\d{3}.\d{3}.\d{3}-\d{2}">
+                  </label>
+                  <label id="label_tel">
+                     <t>Tel</t>
+                     <input type="tel" id="input_tel" name="tel" placeholder="Tel do cliente" pattern="\(\d{2}\)\s*\d{5}-\d{4}" maxlength="15">
                   </label>
                   <label id="label_serviços">
                      <t>Serviços</t>
@@ -167,6 +190,15 @@
 
             Drawer();
             NavLink();
+
+            // input_vencimento.addEventListener( "load", () => {
+            //    input_vencimento.value = input_vencimento.value.split( "-" ).reverse().join( "/" );
+            //    _( input_vencimento.value );
+            // } );
+            // input_vencimento.addEventListener( "blur", () => {
+            //    input_vencimento.value = input_vencimento.value.split( "-" ).reverse().join( "/" );
+            //    _( input_vencimento.value );
+            // } );
 
             form_new_recipt.addEventListener( "submit", () => {
                event.preventDefault();
