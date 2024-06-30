@@ -64,16 +64,6 @@
          'use strict';
          /* [ properties ]
          =================================== */
-         let 
-            EraseLS = v => {
-               localStorage.removeItem( "ea.users" );
-               _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
-            }
-            ,
-            ShowUsers = () => _( "\n\nusers: \n", users )
-            ,
-            ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
-         ;
          /* -------------------------------- */
          
          
@@ -81,13 +71,7 @@
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
-
-            function test() {
-               _( "test" );
-            }
-
-            test.prop = "Test-Prop";
-
+            
             Button( {
                tag: "showUsers",
                callback: ShowUsers
@@ -108,31 +92,7 @@
             } );
 
             Drawer();
-             NavBar( 
-               { 
-                  item1: { 
-                     name: "AA" 
-                  }
-                  ,
-                  item2: { 
-                     name: "BB" 
-                  }
-                  ,
-                  item3: { 
-                     name: "CC" 
-                  }
-                  ,
-                  item4: { 
-                     name: "DD" 
-                  }
-                  ,
-               } 
-            ); // NavBar();
-
             NavLink();
-
-            _( "href: \n", window.location.href );
-            
          } );
       </script>
    </body>
