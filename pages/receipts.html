@@ -27,6 +27,7 @@
       <script src="../Assets/scripts/Modules/EA-Card.js" defer=""></script>
       <script src="../Assets/scripts/Widgets/NavLink.js" defer=""></script>
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
+      <script src="../Assets/scripts/Modules/Fab.js" defer=""></script>
       
       <style>
       </style>
@@ -34,6 +35,7 @@
    <body>
       <appbar></appbar>
       <drawer></drawer>
+      <fab></fab>
       
       <home-page section>
          <content>
@@ -92,6 +94,7 @@
             } );
 
             Drawer();
+            Fab( { to: "./new-receipt.html" } );
             NavLink();
             
          } );
