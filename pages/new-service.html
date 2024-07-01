@@ -96,18 +96,18 @@
                <form-body id="form_body">
                   <service section>
                      <content>
-                        <label id="label_">
+                        <label id="label_service_description">
                            <t>Descrição</t>
-                           <input type="text" name="" id="input_" value="" placeholder=""/>
+                           <input type="text" name="service_description" id="input_service_description" value="" placeholder=""/>
                         </label>
                         <service-info section class="multi">
-                           <label id="label_">
+                           <label id="label_quantity">
                               <t>Quantidade</t>
-                              <input type="text" name="" id="input_" value="" placeholder=""/>
+                              <input type="text" name="quantity" id="input_quantity" value="" placeholder=""/>
                            </label>
-                           <label id="label_">
+                           <label id="label_unity_price">
                               <t>Valor</t>
-                              <input type="text" name="" id="input_" value="" placeholder=""/>
+                              <input type="text" name="unity_price" id="input_unity_price" value="" placeholder=""/>
                            </label>
                         </service-info>
                      </content>
@@ -141,15 +141,18 @@
             NavLink();
             
             btn_add_service.addEventListener( "click", () => {
+               let 
+                  totalUnity = ( input_quantity.value * input_unity_price.value ).toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } )
+               ;
                serviços_section.innerHTML += `
                   <li section>
-                     <name>Forro de DryWall</name>
+                     <name>${ input_service_description.value }</name>
                      <info>
                         <unit section>
-                           2 x R$ 500,00
+                           ${ input_quantity.value } x R$ ${ input_unity_price.value.toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } ) }
                         </unit>
                         <total row>
-                           <strong>Total&nbsp;</strong> R$ 1.000,00
+                           <strong>Total&nbsp;</strong> R$ ${ totalUnity }
                         </total>
                      </info>
                   </li>
