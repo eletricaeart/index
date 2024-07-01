@@ -581,6 +581,13 @@ row, [row] {
    flex-direction: row !important;
 }
 
+duo, [duo] {
+   display: flex !important;
+   flex-direction: row !important;
+   align-items: center !important;
+   justify-content: space-between !important;
+}
+
 placeholder img {
    display: block;
    width: 100%;

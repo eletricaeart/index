@@ -36,11 +36,26 @@
       <drawer></drawer>
       <ea-card></ea-card>
       
-      <home-page section>
+      <!-- <home-page section>
          <content>
             <tt>Home Page</tt>
          </content>
-      </home-page>
+      </home-page> -->
+      <duo>
+         <style>
+            duo {
+               display: flex;
+               flex-direction: row;
+               align-items: center;
+               justify-content: space-between;
+            }
+
+            [content="a"] { background: darkblue; }
+            [content="b"] { background: darkgoldenrod; }
+         </style>
+         <view content="a">view a</view>
+         <view content="b">view b</view>
+      </duo>
       
       <console section>
          <header>

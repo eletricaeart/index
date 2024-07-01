@@ -71,13 +71,16 @@
       <home-page section="new service">
          <header>
             <content>
-               <tt>Novo Serviço</tt>
+               <duo>
+                  <tt>Novo Serviço</tt>
+                  <small id="service_id"></small>
+               </duo>
             </content>
          </header>
-         <content id="page_content">
+         <content id="page_content" gap>
             <p temp>Nenhum serviço cadastrado</p>
             <list services id="serviços_section"></list>
-            <total-price id="total_price"></total-price>
+            <total-price id="total_price" duo></total-price>
          </content>
       </home-page>
       <add-service section>
@@ -93,11 +96,11 @@
                         <service-info section class="multi">
                            <label id="label_quantity">
                               <t>Quantidade</t>
-                              <input type="text" name="quantity" id="input_quantity" value="" placeholder=""/>
+                              <input type="number" step="1" name="quantity" id="input_quantity" value="" placeholder=""/>
                            </label>
                            <label id="label_unity_price">
                               <t>Valor</t>
-                              <input type="text" name="unity_price" id="input_unity_price" value="" placeholder="" required/>
+                              <input type="number" step="0.01" name="unity_price" id="input_unity_price" value="" placeholder="" pattern="[^,/|\\x22]+" required/>
                            </label>
                         </service-info>
                      </content>
@@ -106,7 +109,8 @@
                <footer>
                   <content class="multi">
                      <input type="button" id="btn_add_service" value="Adicionar mais serviço" />
-                     <input type="submit" id="submit" value="Salvar" />
+                     <!-- <input type="submit" id="submit" value="Salvar" /> -->
+                     <input type="button" id="submit" value="Salvar" />
                   </content>
                </footer>
             </form>
@@ -119,29 +123,26 @@
          'use strict';
          /* [ properties ]
          =================================== */
+         let 
+            newService = {
+               id: ""
+               ,
+               servicesList: []
+               ,
+               totalPrice: 0
+            }
+         ;
+         
+         if( localStorage.getItem( "ea.services" ) ) {
+            newService.id = `srvc:${ new Date().getFullYear() }-${ JSON.parse( localStorage.getItem( "ea.services" ) ).length + 1 }`
+         } else {
+            newService.id = `srvc:${ new Date().getFullYear() }-1`
+         }
          /* -------------------------------- */
          
-         
-         
-         let 
-            servicesList = []
-            ,
-            totalPrice = 0
-         ;
-         /* [ events ]
-         =================================== */
-         window.addEventListener( 'load', () => {
-
-            Drawer();
-            NavLink();
-            
-            if( servicesList.length <= 0 ) {
-               $( "p[temp]" ).style.display = "flex";
-            } else {
-               $( "p[temp]" ).innerHTML = "";
-               $( "p[temp]" ).style.display = "none";
-            }
-
+         /* == [ global functions ]
+         == == == == == == == == == */
+         function BtnAddNewService_Click() {
             btn_add_service.addEventListener( "click", () => {
                let 
                   qtd = input_quantity.value == "" || input_quantity.value == 0 ? 1 : input_quantity.value
@@ -149,7 +150,8 @@
                   totalUnity = toBrl( ( qtd * input_unity_price.value ) )
                ;
                
-               
+               $( "#service_id" ).innerText = newService.id;
+
                if( 
                   input_unity_price.value != ""
                   && 
@@ -169,16 +171,17 @@
                      </li>
                   `;
                   
-                  servicesList.push( {
+                  newService.servicesList.push( {
+                     id: `${ newService.servicesList.length + 1 }`,
                      description: input_service_description.value,
                      qtd: parseInt( qtd ),
                      unityPrice: parseFloat( input_unity_price.value ),
-                     totalPrice: parseFloat( qtd * input_unity_price.value )
+                     totalPrice: parseFloat( qtd * input_unity_price.value ),
                   } );
 
-                  totalPrice += parseFloat( qtd * input_unity_price.value );
+                  newService.totalPrice += parseFloat( qtd * input_unity_price.value );
                   
-                  total_price.innerHTML = `<strong>TOTAL&nbsp;</strong>${ toBrl( totalPrice ) }`;
+                  total_price.innerHTML = `<strong>TOTAL&nbsp;</strong><t>${ toBrl( newService.totalPrice ) }</t>`;
 
                   $( "p[temp]" ).innerHTML = "";
                   $( "p[temp]" ).style.display = "none";
@@ -187,6 +190,52 @@
                   input_unity_price.value = "";
                   input_quantity.value = "";
                }
+            } );
+         } // BtnAddNewService_Click();
+
+         function SubmitBtn_Click() {
+            let 
+               tempDB = []
+            ;
+
+            if( localStorage.getItem( "ea.services" ) ) {
+               tempDB = [
+                  ...JSON.parse( localStorage.getItem( "ea.services" ) )
+               ];
+            }
+
+            if( !newService.servicesList.length <= 0 ) {
+               tempDB.push( newService );
+               localStorage.setItem( "ea.services", JSON.stringify( tempDB ) );
+            } else {
+               alert( "Você deve adicionar um novo serviço antes de salvar." );
+            }
+         } // SubmitBtn_Click();
+         
+         
+         /* [ events ]
+         =================================== */
+         window.addEventListener( 'load', () => {
+
+            Drawer();
+            NavLink();
+            
+            if( newService.servicesList.length <= 0 ) {
+               $( "p[temp]" ).style.display = "flex";
+            } else {
+               $( "p[temp]" ).innerHTML = "";
+               $( "p[temp]" ).style.display = "none";
+            }
+
+
+            /* == [ botão adicionar mais serviço ]
+            == == == == == == == == == */
+            BtnAddNewService_Click();
+
+            /* == [ Submit Btn Click ]
+            == == == == == == == == == */
+            submit.addEventListener( "click", () => {
+               SubmitBtn_Click();
             } );
          } );
       </script>
