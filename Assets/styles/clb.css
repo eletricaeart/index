@@ -308,7 +308,7 @@ input:checked + slider > ball {
 input[type="submit"],
 input[type="button"],
 btn, button {
-   border: var( --card-lv2 ) 2px solid;
+   /* border: var( --card-lv2 ) 2px solid; */
    background-color: var( --btn-simp, #27f3 );
    background-image: linear-gradient( to bottom, #fff #fff );
    font-weight: bold;
