@@ -12,6 +12,8 @@ const
    ,
    $$ = v => document.querySelectorAll( v )
    ,
+   toBrl = v => v.toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } )
+   ,
    fix = v => v.toFixed( 2 )
 ;
 

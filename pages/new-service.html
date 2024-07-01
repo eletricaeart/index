@@ -142,17 +142,17 @@
             
             btn_add_service.addEventListener( "click", () => {
                let 
-                  totalUnity = ( input_quantity.value * input_unity_price.value ).toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } )
+                  totalUnity = toBrl( ( input_quantity.value * input_unity_price.value ) )
                ;
                serviços_section.innerHTML += `
                   <li section>
                      <name>${ input_service_description.value }</name>
                      <info>
                         <unit section>
-                           ${ input_quantity.value } x R$ ${ input_unity_price.value.toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } ) }
+                           ${ input_quantity.value } x R$ ${ toBrl( input_unity_price.value ) }
                         </unit>
                         <total row>
-                           <strong>Total&nbsp;</strong> R$ ${ totalUnity }
+                           <strong>Total&nbsp;</strong> ${ totalUnity }
                         </total>
                      </info>
                   </li>
