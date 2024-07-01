@@ -534,10 +534,13 @@ tiles > content {
    flex-wrap: wrap;
    justify-content: space-between;
 }
-tiles > content > * {
+tiles > content > tile {
+   /*
+   */
    flex-shrink: 1;
    flex-grow: 0;
-   flex-basis: calc( 50vw - 2em );
+   flex-basis: calc( 50vw - 1.5em );
+   aspect-ratio: 1;
 }
    
 
