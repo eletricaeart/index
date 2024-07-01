@@ -98,7 +98,7 @@
                      <content>
                         <label id="label_service_description">
                            <t>Descrição</t>
-                           <input type="text" name="service_description" id="input_service_description" value="" placeholder=""/>
+                           <input type="text" name="service_description" id="input_service_description" value="" placeholder="" required/>
                         </label>
                         <service-info section class="multi">
                            <label id="label_quantity">
@@ -107,7 +107,7 @@
                            </label>
                            <label id="label_unity_price">
                               <t>Valor</t>
-                              <input type="text" name="unity_price" id="input_unity_price" value="" placeholder=""/>
+                              <input type="text" name="unity_price" id="input_unity_price" value="" placeholder="" required/>
                            </label>
                         </service-info>
                      </content>
@@ -142,21 +142,35 @@
             
             btn_add_service.addEventListener( "click", () => {
                let 
+                  inputsList = [
+                     input_quantity,
+                     input_service_description,
+                  ]
+                  ,
+                  inputsIsValidated = 0 
+                  ,
                   totalUnity = toBrl( ( input_quantity.value * input_unity_price.value ) )
+                  ,
+                  unity = input_quantity.value == "" || input_quantity.value == 0 ? 1 : input_quantity.value
                ;
-               serviços_section.innerHTML += `
-                  <li section>
-                     <name>${ input_service_description.value }</name>
-                     <info>
-                        <unit section>
-                           ${ input_quantity.value } x R$ ${ toBrl( input_unity_price.value ) }
-                        </unit>
-                        <total row>
-                           <strong>Total&nbsp;</strong> ${ totalUnity }
-                        </total>
-                     </info>
-                  </li>
-               `;
+               
+               inputsList.forEach( input => {
+                  if( !input.value == "" ) {
+                     serviços_section.innerHTML += `
+                        <li section>
+                           <name>${ input_service_description.value }</name>
+                           <info>
+                              <unit section>
+                                 ${ unity } x R$ ${ toBrl( input_unity_price.value ) }
+                              </unit>
+                              <total row>
+                                 <strong>Total&nbsp;</strong> ${ totalUnity }
+                              </total>
+                           </info>
+                        </li>
+                     `;
+                  }
+               } );
             } );
          } );
       </script>
