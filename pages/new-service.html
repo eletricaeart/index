@@ -75,19 +75,9 @@
             </content>
          </header>
          <content id="page_content">
-            <list services id="serviços_section">
-               <li section>
-                  <name>Forro de DryWall</name>
-                  <info>
-                     <unit section>
-                        2 x R$ 500,00
-                     </unit>
-                     <total row>
-                        <strong>Total&nbsp;</strong> R$ 1.000,00
-                     </total>
-                  </info>
-               </li>
-            </list>
+            <p temp>Nenhum serviço cadastrado</p>
+            <list services id="serviços_section"></list>
+            <total-price id="total_price"></total-price>
          </content>
       </home-page>
       <add-service section>
@@ -133,6 +123,11 @@
          
          
          
+         let 
+            servicesList = []
+            ,
+            totalPrice = 0
+         ;
          /* [ events ]
          =================================== */
          window.addEventListener( 'load', () => {
@@ -140,37 +135,58 @@
             Drawer();
             NavLink();
             
+            if( servicesList.length <= 0 ) {
+               $( "p[temp]" ).style.display = "flex";
+            } else {
+               $( "p[temp]" ).innerHTML = "";
+               $( "p[temp]" ).style.display = "none";
+            }
+
             btn_add_service.addEventListener( "click", () => {
                let 
-                  inputsList = [
-                     input_quantity,
-                     input_service_description,
-                  ]
+                  qtd = input_quantity.value == "" || input_quantity.value == 0 ? 1 : input_quantity.value
                   ,
-                  inputsIsValidated = 0 
-                  ,
-                  totalUnity = toBrl( ( input_quantity.value * input_unity_price.value ) )
-                  ,
-                  unity = input_quantity.value == "" || input_quantity.value == 0 ? 1 : input_quantity.value
+                  totalUnity = toBrl( ( qtd * input_unity_price.value ) )
                ;
                
-               inputsList.forEach( input => {
-                  if( !input.value == "" ) {
-                     serviços_section.innerHTML += `
-                        <li section>
-                           <name>${ input_service_description.value }</name>
-                           <info>
-                              <unit section>
-                                 ${ unity } x R$ ${ toBrl( input_unity_price.value ) }
-                              </unit>
-                              <total row>
-                                 <strong>Total&nbsp;</strong> ${ totalUnity }
-                              </total>
-                           </info>
-                        </li>
-                     `;
-                  }
-               } );
+               
+               if( 
+                  input_unity_price.value != ""
+                  && 
+                  input_service_description.value != ""
+               ) {
+                  serviços_section.innerHTML += `
+                     <li section>
+                        <name>${ input_service_description.value }</name>
+                        <info>
+                           <unit section>
+                              ${ qtd } x ${ toBrl( input_unity_price.value * 1 ) }
+                           </unit>
+                           <total row>
+                              <strong>Total&nbsp;</strong> ${ totalUnity }
+                           </total>
+                        </info>
+                     </li>
+                  `;
+                  
+                  servicesList.push( {
+                     description: input_service_description.value,
+                     qtd: parseInt( qtd ),
+                     unityPrice: parseFloat( input_unity_price.value ),
+                     totalPrice: parseFloat( qtd * input_unity_price.value )
+                  } );
+
+                  totalPrice += parseFloat( qtd * input_unity_price.value );
+                  
+                  total_price.innerHTML = `<strong>TOTAL&nbsp;</strong>${ toBrl( totalPrice ) }`;
+
+                  $( "p[temp]" ).innerHTML = "";
+                  $( "p[temp]" ).style.display = "none";
+
+                  input_service_description.value = "";
+                  input_unity_price.value = "";
+                  input_quantity.value = "";
+               }
             } );
          } );
       </script>
