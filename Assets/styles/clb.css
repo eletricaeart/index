@@ -525,6 +525,22 @@ content, [content] {
    padding: 3rem !important;
 }
 
+tiles {
+   display: flex;
+}
+tiles > content {
+   flex-direction: row !important;
+   gap: 1em;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+tiles > content > * {
+   flex-shrink: 1;
+   flex-grow: 0;
+   flex-basis: calc( 50vw - 2em );
+}
+   
+
 gap, [gap] {
    gap: 1em;
 }
