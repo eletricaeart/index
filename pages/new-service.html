@@ -29,21 +29,19 @@
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
       <style>
-      html {
+      html:has( body > add-service ) {
          height: calc( 90dvh - 92px );
       }
       body {
-         min-height: 100%;
+         /* min-height: 100%; */
       }
-      home-page:has( add-service ) {
-         /*
-         min-height: calc( 90vh - 72px );
-         */
-         background: pink;
+      home-page[ section="new service"] {
          flex: 1;
-         justify-content: space-between;
       }
       add-service {
+         position: sticky;
+         bottom: 0;
+         left: 0;
       }
       list[services] > li {
          padding: 1.2em 0;
@@ -70,7 +68,7 @@
       <appbar></appbar>
       <drawer></drawer>
       
-      <home-page section>
+      <home-page section="new service">
          <header>
             <content>
                <tt>Novo Serviço</tt>
@@ -91,39 +89,39 @@
                </li>
             </list>
          </content>
-         <add-service section>
-            <content>
-               <form action="" method="get" accept-charset="utf-8" id="form_new_service">
-                  <form-body id="form_body">
-                     <service section>
-                        <content>
+      </home-page>
+      <add-service section>
+         <content>
+            <form action="" method="get" accept-charset="utf-8" id="form_new_service">
+               <form-body id="form_body">
+                  <service section>
+                     <content>
+                        <label id="label_">
+                           <t>Descrição</t>
+                           <input type="text" name="" id="input_" value="" placeholder=""/>
+                        </label>
+                        <service-info section class="multi">
                            <label id="label_">
-                              <t>Descrição</t>
+                              <t>Quantidade</t>
                               <input type="text" name="" id="input_" value="" placeholder=""/>
                            </label>
-                           <service-info section class="multi">
-                              <label id="label_">
-                                 <t>Quantidade</t>
-                                 <input type="text" name="" id="input_" value="" placeholder=""/>
-                              </label>
-                              <label id="label_">
-                                 <t>Valor</t>
-                                 <input type="text" name="" id="input_" value="" placeholder=""/>
-                              </label>
-                           </service-info>
-                        </content>
-                     </service>
-                  </form-body>
-                  <footer>
-                     <content class="multi">
-                        <input type="button" id="btn_add_service" value="Adicionar mais serviço" />
-                        <input type="submit" id="submit" value="Salvar" />
+                           <label id="label_">
+                              <t>Valor</t>
+                              <input type="text" name="" id="input_" value="" placeholder=""/>
+                           </label>
+                        </service-info>
                      </content>
-                  </footer>
-               </form>
-            </content>
-         </add-service>
-      </home-page>
+                  </service>
+               </form-body>
+               <footer>
+                  <content class="multi">
+                     <input type="button" id="btn_add_service" value="Adicionar mais serviço" />
+                     <input type="submit" id="submit" value="Salvar" />
+                  </content>
+               </footer>
+            </form>
+         </content>
+      </add-service>
       
       
       
