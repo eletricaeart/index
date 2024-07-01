@@ -29,14 +29,21 @@
       <script src="../Assets/scripts/Widgets/Button.js" defer=""></script>
       
       <style>
+      html {
+         height: calc( 90dvh - 92px );
+      }
+      body {
+         min-height: 100%;
+      }
       home-page:has( add-service ) {
-         min-height: 100vh;
+         /*
+         min-height: calc( 90vh - 72px );
+         */
+         background: pink;
+         flex: 1;
          justify-content: space-between;
       }
-      add-servic {
-         position: fixed;
-         bottom: 0;
-         left: 0;
+      add-service {
       }
       list[services] > li {
          padding: 1.2em 0;
