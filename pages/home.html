@@ -96,6 +96,11 @@
          <content gap>
             <h2>console</h2>
 
+            <search btn="search.ls">
+               <input type="text" name="" id="input_search_ls" value="" />
+               <button btn="search.ls" id="btn_search_ls"></button>
+               <ul id="show_result"></ul>
+            </search>
             <button btn="showUsers" id="btn_showUsers">
                Show users
             </button>
@@ -116,6 +121,32 @@
          /* -------------------------------- */
          
          
+         function SearchLS() {
+            let 
+               data = []
+               ,
+               v = input_search_ls.value
+            ;
+            
+            if( localStorage.getItem( v ) ) {
+               data = [
+                  ...JSON.parse(
+                     localStorage.getItem( v )
+                  )
+               ];
+            }
+            data.forEach( i => {
+               let ii = [ ...Object.entries( i ) ];
+               ii.forEach( is => {
+                  show_result.innerHTML += `
+                     <li>
+                        <strong>${ is[0] }</strong>
+                        <t>${ is[1] }</t>
+                     </li>
+                  `;
+               } );
+            } );
+         }
          
          /* [ events ]
          =================================== */
@@ -138,6 +169,13 @@
                bg: "#27f5",
                color: "#99",
                callback: EraseLS,
+            } );
+            
+            Button( {
+               tag: "search.ls",
+               bg: "var( --card-lv1 )",
+               color: "#eee",
+               callback: SearchLS,
             } );
 
             Drawer();
