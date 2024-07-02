@@ -216,13 +216,9 @@
                   input_estaPago.setAttribute( "checked", "0" );
 
                   label_dataDoRecebimento.style.display = "none";
-                  // _( "oi 1" );
                } else {
                   input_estaPago.setAttribute( "checked", "1" );
-                  
                   label_dataDoRecebimento.style.display = "flex";
-                  // _( "oi n" );
-                  
                   input_dataDoRecebimento.value = `${ year }-${ month }-${ day }`;
                }
             } );
@@ -231,16 +227,40 @@
             
             input_dataDoRecebimento.addEventListener( "load", () => {
             } );
+
+            /* == [ choose services ]
+            == == == == == == == == == */
+            $( "#input_serviços" ).addEventListener( "click", () => {
+               let 
+                  tempData = {
+                     input_estaPago: input_estaPago.value,
+                     input_dataDoRecebimento: input_dataDoRecebimento.value, 
+                     input_ref: input_ref.value,
+                     input_subtotal: input_subtotal.value,
+                     input_vencimento: input_vencimento.value,
+                     input_cliente: input_cliente.value,
+                     input_cpf: input_cpf.value,
+                     input_tel: input_tel.value,
+                     input_serviços: input_serviços.value,
+                     input_desconto: input_desconto.value,
+                     input_garantia: input_garantia.value,
+                     input_formaDePagamento: input_formaDePagamento.value,
+                     input_anexo: input_anexo.value,
+                     input_infos: input_infos.value,
+                  }
+               ;
+               localStorage.setItem( "ea.tempData", JSON.stringify( tempData ) );
+            } );
             
             /* form submit */
             form_new_recipt.addEventListener( "submit", () => {
                event.preventDefault();
                let 
                   inputs = [
-                     ...$$( "input[type='text']" ),
-                     ...$$( "input[type='number']" ),
-                     ...$$( "input[type='tel']" ),
-                     ...$$( "input[type='date']" ),
+                     ...$$( "form#form_new_recipt input[type='text']" ),
+                     ...$$( "form#form_new_recipt input[type='number']" ),
+                     ...$$( "form#form_new_recipt input[type='tel']" ),
+                     ...$$( "form#form_new_recipt input[type='date']" ),
                   ]
                   ,
                   data = {}
