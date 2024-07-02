@@ -130,7 +130,16 @@
                servicesList: []
                ,
                totalPrice: 0
+               ,
+               clientID: ""
+               ,
+               receiptID: ""
+               ,
+               budgetID: ""
+               ,
             }
+            ,
+            dataFromReceiptInProgress = []
          ;
          
          if( localStorage.getItem( "ea.services" ) ) {
@@ -142,6 +151,18 @@
          
          /* == [ global functions ]
          == == == == == == == == == */
+         function CheckForNewReceipt_inProgress() {
+            let data = [];
+            if( localStorage.getItem( "ea.tempData" ) ) {
+               data = JSON.parse( localStorage.getItem( "ea.tempData" ) );
+               dataFromReceiptInProgress = data;
+               newService.receiptID = data.ref;
+               newService.clientID = data.cliente;
+
+               localStorage.removeItem( "ea.tempData" );
+            }
+         }
+
          function BtnAddNewService_Click() {
             btn_add_service.addEventListener( "click", () => {
                let 
@@ -177,9 +198,6 @@
                      qtd: parseInt( qtd ),
                      unityPrice: parseFloat( input_unity_price.value ),
                      totalPrice: parseFloat( qtd * input_unity_price.value ),
-                     clientID: "",
-                     receiptID: "",
-                     budgetID: "",
                   } );
 
                   newService.totalPrice += parseFloat( qtd * input_unity_price.value );
@@ -229,6 +247,8 @@
                $( "p[temp]" ).innerHTML = "";
                $( "p[temp]" ).style.display = "none";
             }
+
+            CheckForNewReceipt_inProgress();
 
 
             /* == [ botão adicionar mais serviço ]

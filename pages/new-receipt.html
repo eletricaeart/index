@@ -84,7 +84,7 @@
                <form action="" id="form_new_recipt" content>
                   <label switch id="label_estaPago">
                      <t>Já foi recebido</t>
-                     <input type="checkbox" slider id="input_estaPago" name="estaPago" placeholder="">
+                     <input type="checkbox" value="off" slider id="input_estaPago" name="estaPago" placeholder="">
                      <slider><ball></ball></slider>
                   </label>
                   <label id="label_dataDoRecebimento">
@@ -214,12 +214,13 @@
             input_estaPago.addEventListener( "click", () => {
                if( input_estaPago.getAttribute( "checked" ) == "1" ) {
                   input_estaPago.setAttribute( "checked", "0" );
-
+                  _( "!checked" );
                   label_dataDoRecebimento.style.display = "none";
                } else {
                   input_estaPago.setAttribute( "checked", "1" );
                   label_dataDoRecebimento.style.display = "flex";
                   input_dataDoRecebimento.value = `${ year }-${ month }-${ day }`;
+                  _( "checked" );
                }
             } );
             
@@ -233,23 +234,24 @@
             $( "#input_serviços" ).addEventListener( "click", () => {
                let 
                   tempData = {
-                     input_estaPago: input_estaPago.value,
-                     input_dataDoRecebimento: input_dataDoRecebimento.value, 
-                     input_ref: input_ref.value,
-                     input_subtotal: input_subtotal.value,
-                     input_vencimento: input_vencimento.value,
-                     input_cliente: input_cliente.value,
-                     input_cpf: input_cpf.value,
-                     input_tel: input_tel.value,
-                     input_serviços: input_serviços.value,
-                     input_desconto: input_desconto.value,
-                     input_garantia: input_garantia.value,
-                     input_formaDePagamento: input_formaDePagamento.value,
-                     input_anexo: input_anexo.value,
-                     input_infos: input_infos.value,
+                     estaPago: input_estaPago.value,
+                     dataDoRecebimento: input_dataDoRecebimento.value, 
+                     ref: input_ref.value,
+                     subtotal: input_subtotal.value,
+                     vencimento: input_vencimento.value,
+                     cliente: input_cliente.value,
+                     cpf: input_cpf.value,
+                     tel: input_tel.value,
+                     serviços: input_serviços.value,
+                     desconto: input_desconto.value,
+                     garantia: input_garantia.value,
+                     formaDePagamento: input_formaDePagamento.value,
+                     anexo: input_anexo.value,
+                     infos: input_infos.value,
                   }
                ;
                localStorage.setItem( "ea.tempData", JSON.stringify( tempData ) );
+               window.location.href = "./new-service.html";
             } );
             
             /* form submit */
@@ -263,6 +265,7 @@
                      ...$$( "form#form_new_recipt input[type='date']" ),
                   ]
                   ,
+                  // input_estaPago.getAttribute( "checked" ) == "1" )
                   data = {}
                   ,
                   keysNvalues = []
